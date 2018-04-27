@@ -1242,7 +1242,6 @@ set_global_assignment -name VERILOG_FILE v/wave_gen_square.v
 set_global_assignment -name VERILOG_FILE v/wave_gen_sin.v
 set_global_assignment -name VERILOG_FILE v/wave_gen_ramp.v
 set_global_assignment -name VERILOG_FILE v/wave_gen_brass.v
-set_global_assignment -name VERILOG_FILE v/vga_time_generator.v
 set_global_assignment -name VERILOG_FILE v/VGA_Audio_PLL.v
 set_global_assignment -name VERILOG_FILE v/staff.v
 set_global_assignment -name VERILOG_FILE v/SEG7_LUT_8.v
@@ -1258,10 +1257,6 @@ set_global_assignment -name VERILOG_FILE v/demo_sound3.v
 set_global_assignment -name VERILOG_FILE v/demo_sound2.v
 set_global_assignment -name VERILOG_FILE v/demo_sound1.v
 set_global_assignment -name VERILOG_FILE v/DeBUG_TEST.v
-set_global_assignment -name VERILOG_FILE v/bar_white.v
-set_global_assignment -name VERILOG_FILE v/bar_blank.v
-set_global_assignment -name VERILOG_FILE v/bar_big.v
-set_global_assignment -name VERILOG_FILE v/bar.v
 set_global_assignment -name VERILOG_FILE v/AUDIO_DAC.v
 set_global_assignment -name VERILOG_FILE v/adio_codec.v
 set_global_assignment -name VERILOG_FILE DE2_115_Synthesizer.v

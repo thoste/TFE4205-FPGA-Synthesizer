@@ -1,5 +1,5 @@
 Flow report for DE2_115_Synthesizer
-Fri Apr 27 13:21:03 2018
+Fri Apr 27 17:11:29 2018
 Quartus Prime Version 17.1.1 Internal Build 593 12/11/2017 SJ Lite Edition
 
 
@@ -40,18 +40,18 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------------------+
 ; Flow Summary                                                                              ;
 +------------------------------------+------------------------------------------------------+
-; Flow Status                        ; Successful - Fri Apr 27 13:20:58 2018                ;
+; Flow Status                        ; Successful - Fri Apr 27 17:11:23 2018                ;
 ; Quartus Prime Version              ; 17.1.1 Internal Build 593 12/11/2017 SJ Lite Edition ;
 ; Revision Name                      ; DE2_115_Synthesizer                                  ;
 ; Top-level Entity Name              ; DE2_115_Synthesizer                                  ;
 ; Family                             ; Cyclone IV E                                         ;
 ; Device                             ; EP4CE115F29C7                                        ;
 ; Timing Models                      ; Final                                                ;
-; Total logic elements               ; 2,856 / 114,480 ( 2 % )                              ;
-;     Total combinational functions  ; 2,226 / 114,480 ( 2 % )                              ;
-;     Dedicated logic registers      ; 1,398 / 114,480 ( 1 % )                              ;
-; Total registers                    ; 1398                                                 ;
-; Total pins                         ; 518 / 529 ( 98 % )                                   ;
+; Total logic elements               ; 2,650 / 114,480 ( 2 % )                              ;
+;     Total combinational functions  ; 2,021 / 114,480 ( 2 % )                              ;
+;     Dedicated logic registers      ; 1,338 / 114,480 ( 1 % )                              ;
+; Total registers                    ; 1338                                                 ;
+; Total pins                         ; 450 / 529 ( 85 % )                                   ;
 ; Total virtual pins                 ; 0                                                    ;
 ; Total memory bits                  ; 197,632 / 3,981,312 ( 5 % )                          ;
 ; Embedded Multiplier 9-bit elements ; 0 / 532 ( 0 % )                                      ;
@@ -64,7 +64,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/27/2018 13:19:53 ;
+; Start date & time ; 04/27/2018 17:10:12 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; DE2_115_Synthesizer ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+--------------------+------------------+
 ; Assignment Name                     ; Value                                                                                                                                                                                         ; Default Value ; Entity Name        ; Section Id       ;
 +-------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+--------------------+------------------+
-; COMPILER_SIGNATURE_ID               ; 174508024972475.152482799313328                                                                                                                                                               ; --            ; --                 ; --               ;
+; COMPILER_SIGNATURE_ID               ; 174508024972475.152484181201468                                                                                                                                                               ; --            ; --                 ; --               ;
 ; ENABLE_SIGNALTAP                    ; On                                                                                                                                                                                            ; --            ; --                 ; --               ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                                                                                                                                                                            ; --            ; --                 ; --               ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                                                                                                                                                                             ; --            ; --                 ; --               ;
@@ -130,11 +130,11 @@ refer to the applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:35     ; 1.0                     ; 797 MB              ; 00:01:02                           ;
-; Fitter                    ; 00:00:21     ; 1.0                     ; 1699 MB             ; 00:00:29                           ;
-; Assembler                 ; 00:00:05     ; 1.0                     ; 634 MB              ; 00:00:05                           ;
-; TimeQuest Timing Analyzer ; 00:00:04     ; 1.1                     ; 818 MB              ; 00:00:04                           ;
-; Total                     ; 00:01:05     ; --                      ; --                  ; 00:01:40                           ;
+; Analysis & Synthesis      ; 00:00:36     ; 1.0                     ; 817 MB              ; 00:01:04                           ;
+; Fitter                    ; 00:00:24     ; 1.0                     ; 1722 MB             ; 00:00:33                           ;
+; Assembler                 ; 00:00:05     ; 1.0                     ; 625 MB              ; 00:00:05                           ;
+; TimeQuest Timing Analyzer ; 00:00:05     ; 1.1                     ; 817 MB              ; 00:00:04                           ;
+; Total                     ; 00:01:10     ; --                      ; --                  ; 00:01:46                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

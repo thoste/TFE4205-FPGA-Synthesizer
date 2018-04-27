@@ -125,59 +125,13 @@ module DE2_115_Synthesizer(
 	I2C_SCLK,
 	I2C_SDAT,
 
-	//////// Ethernet 0 //////////
-	ENET0_GTX_CLK,
-	ENET0_INT_N,
-	ENET0_MDC,
-	ENET0_MDIO,
-	ENET0_RST_N,
-	ENET0_RX_CLK,
-	ENET0_RX_COL,
-	ENET0_RX_CRS,
-	ENET0_RX_DATA,
-	ENET0_RX_DV,
-	ENET0_RX_ER,
-	ENET0_TX_CLK,
-	ENET0_TX_DATA,
-	ENET0_TX_EN,
-	ENET0_TX_ER,
-	ENET0_LINK100,
-
-	//////// Ethernet 1 //////////
-	ENET1_GTX_CLK,
-	ENET1_INT_N,
-	ENET1_MDC,
-	ENET1_MDIO,
-	ENET1_RST_N,
-	ENET1_RX_CLK,
-	ENET1_RX_COL,
-	ENET1_RX_CRS,
-	ENET1_RX_DATA,
-	ENET1_RX_DV,
-	ENET1_RX_ER,
-	ENET1_TX_CLK,
-	ENET1_TX_DATA,
-	ENET1_TX_EN,
-	ENET1_TX_ER,
-	ENET1_LINK100,
-
 	//////// TV Decoder //////////
+	
 	TD_CLK27,
 	TD_DATA,
 	TD_HS,
 	TD_RESET_N,
 	TD_VS,
-
-	/////// USB OTG controller
-   OTG_DATA,
-   OTG_ADDR,
-   OTG_CS_N,
-   OTG_WR_N,
-   OTG_RD_N,
-   OTG_INT,
-   OTG_RST_N,
-	//////// IR Receiver //////////
-	IRDA_RXD,
 
 	//////// SDRAM //////////
 	DRAM_ADDR,
@@ -300,6 +254,7 @@ inout		     [3:0]		SD_DAT;
 input		          		SD_WP_N;
 
 //////////// VGA //////////
+
 output		  [7:0]		VGA_B;
 output		        		VGA_BLANK_N;
 output		        		VGA_CLK;
@@ -325,61 +280,14 @@ inout		          		EEP_I2C_SDAT;
 output		        		I2C_SCLK;
 inout		          		I2C_SDAT;
 
-//////////// Ethernet 0 //////////
-output		        		ENET0_GTX_CLK;
-input		          		ENET0_INT_N;
-output		        		ENET0_MDC;
-inout		          		ENET0_MDIO;
-output		        		ENET0_RST_N;
-input		          		ENET0_RX_CLK;
-input		          		ENET0_RX_COL;
-input		          		ENET0_RX_CRS;
-input		     [3:0]		ENET0_RX_DATA;
-input		          		ENET0_RX_DV;
-input		          		ENET0_RX_ER;
-input		          		ENET0_TX_CLK;
-output		  [3:0]		ENET0_TX_DATA;
-output		        		ENET0_TX_EN;
-output		        		ENET0_TX_ER;
-input		          		ENET0_LINK100;
-
-//////////// Ethernet 1 //////////
-output		        		ENET1_GTX_CLK;
-input		          		ENET1_INT_N;
-output		        		ENET1_MDC;
-input		          		ENET1_MDIO;
-output		        		ENET1_RST_N;
-input		          		ENET1_RX_CLK;
-input		          		ENET1_RX_COL;
-input		          		ENET1_RX_CRS;
-input		     [3:0]		ENET1_RX_DATA;
-input		          		ENET1_RX_DV;
-input		          		ENET1_RX_ER;
-input		          		ENET1_TX_CLK;
-output		  [3:0]		ENET1_TX_DATA;
-output		        		ENET1_TX_EN;
-output		        		ENET1_TX_ER;
-input		          		ENET1_LINK100;
-
 //////////// TV Decoder 1 //////////
+
 input		          		TD_CLK27;
 input		     [7:0]		TD_DATA;
 input		          		TD_HS;
 output		        		TD_RESET_N;
 input		          		TD_VS;
 
-
-//////////// USB OTG controller //////////
-inout         [15:0]    OTG_DATA;
-output        [1:0]     OTG_ADDR;
-output                  OTG_CS_N;
-output                  OTG_WR_N;
-output                  OTG_RD_N;
-input                   OTG_INT;
-output                  OTG_RST_N;
-
-//////////// IR Receiver //////////
-input		          		IRDA_RXD;
 
 //////////// SDRAM //////////
 output		 [12:0]		DRAM_ADDR;
@@ -500,8 +408,7 @@ assign TD_RESET_N =1'b1;
 	VGA_Audio_PLL 	u1	(	
 							 .areset ( ~I2C_END ),
 							 .inclk0 ( TD_CLK27 ),
-							 .c1		( AUD_CTRL_CLK )	
-							);
+							 .c1		( AUD_CTRL_CLK )								);
 
 // Music Synthesizer Block //
 
@@ -573,27 +480,10 @@ assign TD_RESET_N =1'b1;
 
 	wire [7:0]sound_code4 = 8'hf0;
 
-// Staff Display & Sound Output //
-	
-	assign VGA_R=( VGA_R1 )? 10'h3f0 : 0 ;
-	
-	assign VGA_G=( VGA_G1 )? 10'h3f0 : 0 ;
-	
-	assign VGA_B=( VGA_B1 )? 10'h3f0 : 0 ;
+// Staff Sound Output //
+
 
 	staff st1(
-		
-			  // VGA output //
-		
-			 .VGA_CLK   		( VGA_CLK ),   
-			 .vga_h_sync		( VGA_HS ), 
-			 .vga_v_sync		( VGA_VS ), 
-			 .vga_sync  		( VGA_SYNC_N ),	
-			 .inDisplayArea	    ( VGA_BLANK_N ),
-			 .vga_R				( VGA_R1 ), 
-			 .vga_G				( VGA_G1 ), 
-			 .vga_B				( VGA_B1 ),
-		
 			 // Key code-in //
 		
 			 .scan_code1		( sound_code1 ),
