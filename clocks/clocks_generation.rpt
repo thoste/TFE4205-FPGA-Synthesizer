@@ -1,0 +1,31 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate C:\Users\magnu\Documents\Elsys-Avanser-Design-Prosjekt\synth1\clocks.qsys --block-symbol-file --output-directory=C:\Users\magnu\Documents\Elsys-Avanser-Design-Prosjekt\synth1\clocks --family="Cyclone IV E" --part=EP4CE115F29C7
+Progress: Loading synth1/clocks.qsys
+Progress: Reading input file
+Progress: Adding CLOCK_25 [clock_source 17.1]
+Progress: Parameterizing module CLOCK_25
+Progress: Adding CLOCK_27 [clock_source 17.1]
+Progress: Parameterizing module CLOCK_27
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate C:\Users\magnu\Documents\Elsys-Avanser-Design-Prosjekt\synth1\clocks.qsys --synthesis=VERILOG --output-directory=C:\Users\magnu\Documents\Elsys-Avanser-Design-Prosjekt\synth1\clocks\synthesis --family="Cyclone IV E" --part=EP4CE115F29C7
+Progress: Loading synth1/clocks.qsys
+Progress: Reading input file
+Progress: Adding CLOCK_25 [clock_source 17.1]
+Progress: Parameterizing module CLOCK_25
+Progress: Adding CLOCK_27 [clock_source 17.1]
+Progress: Parameterizing module CLOCK_27
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: clocks: Generating clocks "clocks" for QUARTUS_SYNTH
+Info: clocks: Done "clocks" with 1 modules, 1 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis
