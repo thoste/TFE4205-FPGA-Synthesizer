@@ -52,10 +52,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "VGA_CLK",
-					"strict" : false
-				},
-				{
 					"name" : "AUD_DACDAT",
 					"strict" : false
 				},
@@ -136,10 +132,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "KEY[0]",
-					"strict" : false
-				},
-				{
 					"name" : "KEY[2]",
 					"strict" : false
 				},
@@ -148,7 +140,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "CLOCK2_50",
+					"name" : "KEY[0]",
 					"strict" : false
 				},
 				{
