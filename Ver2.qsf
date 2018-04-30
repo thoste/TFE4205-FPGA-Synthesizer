@@ -1094,7 +1094,6 @@ set_instance_assignment -name IO_STANDARD LVDS -to HSMC_RX_D_N[16]
 set_instance_assignment -name IO_STANDARD LVDS -to HSMC_CLKOUT_N2
 set_instance_assignment -name IO_STANDARD LVDS -to HSMC_CLKOUT_N1
 set_global_assignment -name QIP_FILE clocks/synthesis/clocks.qip
-set_global_assignment -name VERILOG_FILE DE2_115_Synthesizer.v
 set_global_assignment -name VERILOG_FILE v/wave_gen_x2.v
 set_global_assignment -name VERILOG_FILE v/wave_gen_string.v
 set_global_assignment -name VERILOG_FILE v/wave_gen_square.v
@@ -1120,4 +1119,5 @@ set_global_assignment -name VERILOG_FILE v/AUDIO_DAC.v
 set_global_assignment -name VERILOG_FILE v/adio_codec.v
 set_global_assignment -name BDF_FILE Lab7.bdf
 set_global_assignment -name QIP_FILE DE2_115_SOPC/synthesis/DE2_115_SOPC.qip
+set_global_assignment -name VERILOG_FILE DE2_115_Synthesizer.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

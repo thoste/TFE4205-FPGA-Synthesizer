@@ -34,7 +34,22 @@ module DE2_115_SOPC_cpu (
 		output wire        debug_mem_slave_waitrequest,         //                          .waitrequest
 		input  wire        debug_mem_slave_write,               //                          .write
 		input  wire [31:0] debug_mem_slave_writedata,           //                          .writedata
-		output wire        dummy_ci_port                        // custom_instruction_master.readra
+		input  wire        A_ci_multi_done,                     // custom_instruction_master.done
+		input  wire [31:0] A_ci_multi_result,                   //                          .multi_result
+		output wire [4:0]  A_ci_multi_a,                        //                          .multi_a
+		output wire [4:0]  A_ci_multi_b,                        //                          .multi_b
+		output wire [4:0]  A_ci_multi_c,                        //                          .multi_c
+		output wire        A_ci_multi_clk_en,                   //                          .clk_en
+		output wire        A_ci_multi_clock,                    //                          .clk
+		output wire        A_ci_multi_reset,                    //                          .reset
+		output wire        A_ci_multi_reset_req,                //                          .reset_req
+		output wire [31:0] A_ci_multi_dataa,                    //                          .multi_dataa
+		output wire [31:0] A_ci_multi_datab,                    //                          .multi_datab
+		output wire [7:0]  A_ci_multi_n,                        //                          .multi_n
+		output wire        A_ci_multi_readra,                   //                          .multi_readra
+		output wire        A_ci_multi_readrb,                   //                          .multi_readrb
+		output wire        A_ci_multi_start,                    //                          .start
+		output wire        A_ci_multi_writerc                   //                          .multi_writerc
 	);
 
 	DE2_115_SOPC_cpu_cpu cpu (
@@ -65,7 +80,22 @@ module DE2_115_SOPC_cpu (
 		.debug_mem_slave_waitrequest         (debug_mem_slave_waitrequest),         //                          .waitrequest
 		.debug_mem_slave_write               (debug_mem_slave_write),               //                          .write
 		.debug_mem_slave_writedata           (debug_mem_slave_writedata),           //                          .writedata
-		.dummy_ci_port                       (dummy_ci_port)                        // custom_instruction_master.readra
+		.A_ci_multi_done                     (A_ci_multi_done),                     // custom_instruction_master.done
+		.A_ci_multi_result                   (A_ci_multi_result),                   //                          .multi_result
+		.A_ci_multi_a                        (A_ci_multi_a),                        //                          .multi_a
+		.A_ci_multi_b                        (A_ci_multi_b),                        //                          .multi_b
+		.A_ci_multi_c                        (A_ci_multi_c),                        //                          .multi_c
+		.A_ci_multi_clk_en                   (A_ci_multi_clk_en),                   //                          .clk_en
+		.A_ci_multi_clock                    (A_ci_multi_clock),                    //                          .clk
+		.A_ci_multi_reset                    (A_ci_multi_reset),                    //                          .reset
+		.A_ci_multi_reset_req                (A_ci_multi_reset_req),                //                          .reset_req
+		.A_ci_multi_dataa                    (A_ci_multi_dataa),                    //                          .multi_dataa
+		.A_ci_multi_datab                    (A_ci_multi_datab),                    //                          .multi_datab
+		.A_ci_multi_n                        (A_ci_multi_n),                        //                          .multi_n
+		.A_ci_multi_readra                   (A_ci_multi_readra),                   //                          .multi_readra
+		.A_ci_multi_readrb                   (A_ci_multi_readrb),                   //                          .multi_readrb
+		.A_ci_multi_start                    (A_ci_multi_start),                    //                          .start
+		.A_ci_multi_writerc                  (A_ci_multi_writerc)                   //                          .multi_writerc
 	);
 
 endmodule

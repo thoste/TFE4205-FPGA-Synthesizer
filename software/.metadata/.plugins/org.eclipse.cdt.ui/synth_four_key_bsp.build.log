@@ -1,0 +1,6 @@
+15:11:19 **** Clean-only build of configuration Nios II for project synth_four_key_bsp ****
+make clean 
+[BSP clean complete]
+
+15:11:20 Build Finished (took 1s.313ms)
+

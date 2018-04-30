@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;synth_four_key/headers/keys..h&apos; to &apos;keys.h&apos;" description="Rename resource &apos;keys..h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="headers/keys..h" name="keys.h" stamp="1525094007032" updateReferences="true"/>
+</session>

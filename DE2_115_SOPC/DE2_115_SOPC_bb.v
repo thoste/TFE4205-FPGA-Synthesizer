@@ -4,11 +4,13 @@ module DE2_115_SOPC (
 	pio_keys_external_connection_export,
 	pio_led_external_connection_export,
 	reset_reset_n,
-	pio_sound_external_connection_export);	
+	synth_sounds_ctrl_sound_ctrl_bus,
+	synth_effects_ctrl_effects_ctrl_bus);	
 
 	input		clk_clk;
 	input	[3:0]	pio_keys_external_connection_export;
 	output	[7:0]	pio_led_external_connection_export;
 	input		reset_reset_n;
-	output	[15:0]	pio_sound_external_connection_export;
+	output	[87:0]	synth_sounds_ctrl_sound_ctrl_bus;
+	output	[17:0]	synth_effects_ctrl_effects_ctrl_bus;
 endmodule

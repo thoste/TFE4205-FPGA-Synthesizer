@@ -97,20 +97,12 @@
          type = "String";
       }
    }
-   element pio_sound
+   element synth_ci
    {
       datum _sortIndex
       {
          value = "6";
          type = "int";
-      }
-   }
-   element pio_sound.s1
-   {
-      datum baseAddress
-      {
-         value = "528384";
-         type = "String";
       }
    }
 }
@@ -145,12 +137,17 @@
    internal="pio_led.external_connection"
    type="conduit"
    dir="end" />
+ <interface name="reset" internal="clk_50.clk_in_reset" type="reset" dir="end" />
  <interface
-   name="pio_sound_external_connection"
-   internal="pio_sound.external_connection"
+   name="synth_effects_ctrl"
+   internal="synth_ci.effects_ctrl"
    type="conduit"
    dir="end" />
- <interface name="reset" internal="clk_50.clk_in_reset" type="reset" dir="end" />
+ <interface
+   name="synth_sounds_ctrl"
+   internal="synth_ci.sounds_ctrl"
+   type="conduit"
+   dir="end" />
  <module name="clk_50" kind="clock_source" version="17.1" enabled="1">
   <parameter name="clockFrequency" value="50000000" />
   <parameter name="clockFrequencyKnown" value="true" />
@@ -170,14 +167,14 @@
   <parameter name="cpuArchRev" value="1" />
   <parameter name="cpuID" value="0" />
   <parameter name="cpuReset" value="false" />
-  <parameter name="customInstSlavesSystemInfo" value="&lt;info/&gt;" />
+  <parameter name="customInstSlavesSystemInfo"><![CDATA[<info><slave name="synth_ci_0" baseAddress="0" addressSpan="4" clockCycleType="VARIABLE" /></info>]]></parameter>
   <parameter name="customInstSlavesSystemInfo_nios_a" value="&lt;info/&gt;" />
   <parameter name="customInstSlavesSystemInfo_nios_b" value="&lt;info/&gt;" />
   <parameter name="customInstSlavesSystemInfo_nios_c" value="&lt;info/&gt;" />
   <parameter name="dataAddrWidth" value="20" />
   <parameter name="dataMasterHighPerformanceAddrWidth" value="1" />
   <parameter name="dataMasterHighPerformanceMapParam" value="" />
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='onchip_memory2.s1' start='0x40000' end='0x72000' type='altera_avalon_onchip_memory2.s1' /><slave name='cpu.debug_mem_slave' start='0x80800' end='0x81000' type='altera_nios2_gen2.debug_mem_slave' /><slave name='pio_sound.s1' start='0x81000' end='0x81010' type='altera_avalon_pio.s1' /><slave name='pio_keys.s1' start='0x81010' end='0x81020' type='altera_avalon_pio.s1' /><slave name='pio_led.s1' start='0x81020' end='0x81030' type='altera_avalon_pio.s1' /><slave name='jtag_uart.avalon_jtag_slave' start='0x81030' end='0x81038' type='altera_avalon_jtag_uart.avalon_jtag_slave' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='onchip_memory2.s1' start='0x40000' end='0x72000' type='altera_avalon_onchip_memory2.s1' /><slave name='cpu.debug_mem_slave' start='0x80800' end='0x81000' type='altera_nios2_gen2.debug_mem_slave' /><slave name='pio_keys.s1' start='0x81010' end='0x81020' type='altera_avalon_pio.s1' /><slave name='pio_led.s1' start='0x81020' end='0x81030' type='altera_avalon_pio.s1' /><slave name='jtag_uart.avalon_jtag_slave' start='0x81030' end='0x81038' type='altera_avalon_jtag_uart.avalon_jtag_slave' /></address-map>]]></parameter>
   <parameter name="data_master_high_performance_paddr_base" value="0" />
   <parameter name="data_master_high_performance_paddr_size" value="0" />
   <parameter name="data_master_paddr_base" value="0" />
@@ -414,20 +411,7 @@
   <parameter name="simDrivenValue" value="0" />
   <parameter name="width" value="8" />
  </module>
- <module name="pio_sound" kind="altera_avalon_pio" version="17.1" enabled="1">
-  <parameter name="bitClearingEdgeCapReg" value="false" />
-  <parameter name="bitModifyingOutReg" value="false" />
-  <parameter name="captureEdge" value="false" />
-  <parameter name="clockRate" value="50000000" />
-  <parameter name="direction" value="Output" />
-  <parameter name="edgeType" value="RISING" />
-  <parameter name="generateIRQ" value="false" />
-  <parameter name="irqType" value="LEVEL" />
-  <parameter name="resetValue" value="0" />
-  <parameter name="simDoTestBenchWiring" value="false" />
-  <parameter name="simDrivenValue" value="0" />
-  <parameter name="width" value="16" />
- </module>
+ <module name="synth_ci" kind="synth_ci" version="1.0" enabled="1" />
  <connection
    kind="avalon"
    version="17.1"
@@ -472,15 +456,6 @@
  <connection
    kind="avalon"
    version="17.1"
-   start="cpu.data_master"
-   end="pio_sound.s1">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00081000" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="17.1"
    start="cpu.instruction_master"
    end="cpu.debug_mem_slave">
   <parameter name="arbitrationPriority" value="1" />
@@ -500,7 +475,6 @@
  <connection kind="clock" version="17.1" start="clk_50.clk" end="jtag_uart.clk" />
  <connection kind="clock" version="17.1" start="clk_50.clk" end="pio_led.clk" />
  <connection kind="clock" version="17.1" start="clk_50.clk" end="pio_keys.clk" />
- <connection kind="clock" version="17.1" start="clk_50.clk" end="pio_sound.clk" />
  <connection
    kind="clock"
    version="17.1"
@@ -508,6 +482,15 @@
    end="onchip_memory2.clk1" />
  <connection kind="interrupt" version="17.1" start="cpu.irq" end="jtag_uart.irq">
   <parameter name="irqNumber" value="0" />
+ </connection>
+ <connection
+   kind="nios_custom_instruction"
+   version="17.1"
+   start="cpu.custom_instruction_master"
+   end="synth_ci.nios_custom_instruction_slave">
+  <parameter name="CIName" value="synth_ci_0" />
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0" />
  </connection>
  <connection kind="reset" version="17.1" start="clk_50.clk_reset" end="cpu.reset" />
  <connection
@@ -525,11 +508,6 @@
    version="17.1"
    start="clk_50.clk_reset"
    end="pio_keys.reset" />
- <connection
-   kind="reset"
-   version="17.1"
-   start="clk_50.clk_reset"
-   end="pio_sound.reset" />
  <connection
    kind="reset"
    version="17.1"
