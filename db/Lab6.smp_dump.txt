@@ -1,0 +1,121 @@
+
+State Machine - |Lab6|DE2_115_SOPC:inst12|DE2_115_SOPC_cpu:cpu|DE2_115_SOPC_cpu_cpu:cpu|DE2_115_SOPC_cpu_cpu_nios2_oci:the_DE2_115_SOPC_cpu_cpu_nios2_oci|DE2_115_SOPC_cpu_cpu_debug_slave_wrapper:the_DE2_115_SOPC_cpu_cpu_debug_slave_wrapper|DE2_115_SOPC_cpu_cpu_debug_slave_tck:the_DE2_115_SOPC_cpu_cpu_debug_slave_tck|DRsize
+Name DRsize.101 DRsize.100 DRsize.011 DRsize.010 DRsize.001 DRsize.000 
+DRsize.000 0 0 0 0 0 0 
+DRsize.001 0 0 0 0 1 1 
+DRsize.010 0 0 0 1 0 1 
+DRsize.011 0 0 1 0 0 1 
+DRsize.100 0 1 0 0 0 1 
+DRsize.101 1 0 0 0 0 1 
+
+State Machine - |Lab6|wb_audio_AdvInterface:inst5|wb_audioCFG_autoUpdate:inst8|wb_audioCFG_autoUpdateSM:inst27|sm_audioCFG_current
+Name sm_audioCFG_current.state_waitForI2C sm_audioCFG_current.state_updatedLOutVol sm_audioCFG_current.state_updatedRInVol sm_audioCFG_current.state_updatedLInVol sm_audioCFG_current.state_readLineMIC sm_audioCFG_current.state_readOutVolume sm_audioCFG_current.state_idle 
+sm_audioCFG_current.state_idle 0 0 0 0 0 0 0 
+sm_audioCFG_current.state_readOutVolume 0 0 0 0 0 1 1 
+sm_audioCFG_current.state_readLineMIC 0 0 0 0 1 0 1 
+sm_audioCFG_current.state_updatedLInVol 0 0 0 1 0 0 1 
+sm_audioCFG_current.state_updatedRInVol 0 0 1 0 0 0 1 
+sm_audioCFG_current.state_updatedLOutVol 0 1 0 0 0 0 1 
+sm_audioCFG_current.state_waitForI2C 1 0 0 0 0 0 1 
+
+State Machine - |Lab6|wb_audio_AdvInterface:inst5|wb_audioCFG_autoConfigOnReset:inst|sm_audioReset_current
+Name sm_audioReset_current.state_end sm_audioReset_current.state_signalConfig sm_audioReset_current.state_waitI2CpreConfig sm_audioReset_current.state_signalReset sm_audioReset_current.state_waitI2CpreReset 
+sm_audioReset_current.state_waitI2CpreReset 0 0 0 0 0 
+sm_audioReset_current.state_signalReset 0 0 0 1 1 
+sm_audioReset_current.state_waitI2CpreConfig 0 0 1 0 1 
+sm_audioReset_current.state_signalConfig 0 1 0 0 1 
+sm_audioReset_current.state_end 1 0 0 0 1 
+
+State Machine - |Lab6|wb_audio_AdvInterface:inst5|wb_audio_BasicInterface:inst7|wb_audioCFG_CFGctrl:inst1|wb_audioCFG_twoWireMaster:inst8|sm_timeCurrentState
+Name sm_timeCurrentState.state_TSM_idleHold sm_timeCurrentState.state_TSM_stopHold sm_timeCurrentState.state_TSM_dataHold sm_timeCurrentState.state_TSM_SCLKhigh sm_timeCurrentState.state_TSM_dataSetup sm_timeCurrentState.state_TSM_SCLKremLow sm_timeCurrentState.state_TSM_startHold sm_timeCurrentState.state_TSM_idle 
+sm_timeCurrentState.state_TSM_idle 0 0 0 0 0 0 0 0 
+sm_timeCurrentState.state_TSM_startHold 0 0 0 0 0 0 1 1 
+sm_timeCurrentState.state_TSM_SCLKremLow 0 0 0 0 0 1 0 1 
+sm_timeCurrentState.state_TSM_dataSetup 0 0 0 0 1 0 0 1 
+sm_timeCurrentState.state_TSM_SCLKhigh 0 0 0 1 0 0 0 1 
+sm_timeCurrentState.state_TSM_dataHold 0 0 1 0 0 0 0 1 
+sm_timeCurrentState.state_TSM_stopHold 0 1 0 0 0 0 0 1 
+sm_timeCurrentState.state_TSM_idleHold 1 0 0 0 0 0 0 1 
+
+State Machine - |Lab6|wb_audio_AdvInterface:inst5|wb_audio_BasicInterface:inst7|wb_audioCFG_CFGctrl:inst1|wb_audioCFG_twoWireMaster:inst8|sm_seqCurrentState
+Name sm_seqCurrentState.state_BSM_sendStart sm_seqCurrentState.state_BSM_sendStop sm_seqCurrentState.state_BSM_waitAck sm_seqCurrentState.state_BSM_sendbit7 sm_seqCurrentState.state_BSM_sendbit6 sm_seqCurrentState.state_BSM_sendbit5 sm_seqCurrentState.state_BSM_sendbit4 sm_seqCurrentState.state_BSM_sendbit3 sm_seqCurrentState.state_BSM_sendbit2 sm_seqCurrentState.state_BSM_sendbit1 sm_seqCurrentState.state_BSM_sendbit0 sm_seqCurrentState.state_BSM_idle 
+sm_seqCurrentState.state_BSM_idle 0 0 0 0 0 0 0 0 0 0 0 0 
+sm_seqCurrentState.state_BSM_sendbit0 0 0 0 0 0 0 0 0 0 0 1 1 
+sm_seqCurrentState.state_BSM_sendbit1 0 0 0 0 0 0 0 0 0 1 0 1 
+sm_seqCurrentState.state_BSM_sendbit2 0 0 0 0 0 0 0 0 1 0 0 1 
+sm_seqCurrentState.state_BSM_sendbit3 0 0 0 0 0 0 0 1 0 0 0 1 
+sm_seqCurrentState.state_BSM_sendbit4 0 0 0 0 0 0 1 0 0 0 0 1 
+sm_seqCurrentState.state_BSM_sendbit5 0 0 0 0 0 1 0 0 0 0 0 1 
+sm_seqCurrentState.state_BSM_sendbit6 0 0 0 0 1 0 0 0 0 0 0 1 
+sm_seqCurrentState.state_BSM_sendbit7 0 0 0 1 0 0 0 0 0 0 0 1 
+sm_seqCurrentState.state_BSM_waitAck 0 0 1 0 0 0 0 0 0 0 0 1 
+sm_seqCurrentState.state_BSM_sendStop 0 1 0 0 0 0 0 0 0 0 0 1 
+sm_seqCurrentState.state_BSM_sendStart 1 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |Lab6|wb_audio_AdvInterface:inst5|wb_audio_BasicInterface:inst7|wb_audioCFG_CFGctrl:inst1|wb_audioCFG_CFGctrlUpdateSM:inst25|sm_byteSequenceCurrentState
+Name sm_byteSequenceCurrentState.state_finnishWrite sm_byteSequenceCurrentState.state_sendLSB sm_byteSequenceCurrentState.state_sendMSB sm_byteSequenceCurrentState.state_sendChipAddr sm_byteSequenceCurrentState.state_idle 
+sm_byteSequenceCurrentState.state_idle 0 0 0 0 0 
+sm_byteSequenceCurrentState.state_sendChipAddr 0 0 0 1 1 
+sm_byteSequenceCurrentState.state_sendMSB 0 0 1 0 1 
+sm_byteSequenceCurrentState.state_sendLSB 0 1 0 0 1 
+sm_byteSequenceCurrentState.state_finnishWrite 1 0 0 0 1 
+
+State Machine - |Lab6|wb_processor:inst7|wb_cpu_io:inst5|state
+Name state.update state.waitstate state.strobe state.data state.idle 
+state.idle 0 0 0 0 0 
+state.data 0 0 0 1 1 
+state.strobe 0 0 1 0 1 
+state.waitstate 0 1 0 0 1 
+state.update 1 0 0 0 1 
+
+State Machine - |Lab6|wb_NiosProcessor:inst|ps2_keyboard:the_ps2_keyboard|Altera_UP_Avalon_PS2:the_Altera_UP_Avalon_PS2|Altera_UP_PS2:PS2_Serial_Port|s_ps2_transceiver
+Name s_ps2_transceiver.PS2_STATE_3_END_TRANSFER s_ps2_transceiver.PS2_STATE_2_COMMAND_OUT s_ps2_transceiver.PS2_STATE_1_DATA_IN s_ps2_transceiver.PS2_STATE_0_IDLE s_ps2_transceiver.PS2_STATE_4_END_DELAYED 
+s_ps2_transceiver.PS2_STATE_0_IDLE 0 0 0 0 0 
+s_ps2_transceiver.PS2_STATE_1_DATA_IN 0 0 1 1 0 
+s_ps2_transceiver.PS2_STATE_2_COMMAND_OUT 0 1 0 1 0 
+s_ps2_transceiver.PS2_STATE_3_END_TRANSFER 1 0 0 1 0 
+s_ps2_transceiver.PS2_STATE_4_END_DELAYED 0 0 0 1 1 
+
+State Machine - |Lab6|wb_NiosProcessor:inst|ps2_keyboard:the_ps2_keyboard|Altera_UP_Avalon_PS2:the_Altera_UP_Avalon_PS2|Altera_UP_PS2:PS2_Serial_Port|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter
+Name s_ps2_transmitter.PS2_STATE_7_TRANSMISSION_ERROR s_ps2_transmitter.PS2_STATE_6_COMMAND_WAS_SENT s_ps2_transmitter.PS2_STATE_5_RECEIVE_ACK_BIT s_ps2_transmitter.PS2_STATE_4_TRANSMIT_STOP_BIT s_ps2_transmitter.PS2_STATE_3_TRANSMIT_DATA s_ps2_transmitter.PS2_STATE_2_WAIT_FOR_CLOCK s_ps2_transmitter.PS2_STATE_1_INITIATE_COMMUNICATION s_ps2_transmitter.PS2_STATE_0_IDLE 
+s_ps2_transmitter.PS2_STATE_0_IDLE 0 0 0 0 0 0 0 0 
+s_ps2_transmitter.PS2_STATE_1_INITIATE_COMMUNICATION 0 0 0 0 0 0 1 1 
+s_ps2_transmitter.PS2_STATE_2_WAIT_FOR_CLOCK 0 0 0 0 0 1 0 1 
+s_ps2_transmitter.PS2_STATE_3_TRANSMIT_DATA 0 0 0 0 1 0 0 1 
+s_ps2_transmitter.PS2_STATE_4_TRANSMIT_STOP_BIT 0 0 0 1 0 0 0 1 
+s_ps2_transmitter.PS2_STATE_5_RECEIVE_ACK_BIT 0 0 1 0 0 0 0 1 
+s_ps2_transmitter.PS2_STATE_6_COMMAND_WAS_SENT 0 1 0 0 0 0 0 1 
+s_ps2_transmitter.PS2_STATE_7_TRANSMISSION_ERROR 1 0 0 0 0 0 0 1 
+
+State Machine - |Lab6|wb_NiosProcessor:inst|ps2_keyboard:the_ps2_keyboard|Altera_UP_Avalon_PS2:the_Altera_UP_Avalon_PS2|Altera_UP_PS2:PS2_Serial_Port|Altera_UP_PS2_Data_In:PS2_Data_In|s_ps2_receiver
+Name s_ps2_receiver.PS2_STATE_3_PARITY_IN s_ps2_receiver.PS2_STATE_2_DATA_IN s_ps2_receiver.PS2_STATE_1_WAIT_FOR_DATA s_ps2_receiver.PS2_STATE_0_IDLE s_ps2_receiver.PS2_STATE_4_STOP_IN 
+s_ps2_receiver.PS2_STATE_0_IDLE 0 0 0 0 0 
+s_ps2_receiver.PS2_STATE_1_WAIT_FOR_DATA 0 0 1 1 0 
+s_ps2_receiver.PS2_STATE_2_DATA_IN 0 1 0 1 0 
+s_ps2_receiver.PS2_STATE_3_PARITY_IN 1 0 0 1 0 
+s_ps2_receiver.PS2_STATE_4_STOP_IN 0 0 0 1 1 
+
+State Machine - |Lab6|wb_NiosProcessor:inst|character_lcd:the_character_lcd|s_lcd_controller
+Name s_lcd_controller.LCD_STATE_6_COMPLETE s_lcd_controller.LCD_STATE_5_TRANSFER s_lcd_controller.LCD_STATE_4_BEGIN_TRANSFER s_lcd_controller.LCD_STATE_3_CHECK_BUSY s_lcd_controller.LCD_STATE_2_START_CHECK_BUSY s_lcd_controller.LCD_STATE_1_INITIALIZE s_lcd_controller.LCD_STATE_0_IDLE 
+s_lcd_controller.LCD_STATE_0_IDLE 0 0 0 0 0 0 0 
+s_lcd_controller.LCD_STATE_1_INITIALIZE 0 0 0 0 0 1 1 
+s_lcd_controller.LCD_STATE_2_START_CHECK_BUSY 0 0 0 0 1 0 1 
+s_lcd_controller.LCD_STATE_3_CHECK_BUSY 0 0 0 1 0 0 1 
+s_lcd_controller.LCD_STATE_4_BEGIN_TRANSFER 0 0 1 0 0 0 1 
+s_lcd_controller.LCD_STATE_5_TRANSFER 0 1 0 0 0 0 1 
+s_lcd_controller.LCD_STATE_6_COMPLETE 1 0 0 0 0 0 1 
+
+State Machine - |Lab6|wb_NiosProcessor:inst|character_lcd:the_character_lcd|Altera_UP_Character_LCD_Initialization:Char_LCD_Init|s_lcd_initialize
+Name s_lcd_initialize.LCD_INIT_STATE_3_DONE s_lcd_initialize.LCD_INIT_STATE_2_CHECK_DONE s_lcd_initialize.LCD_INIT_STATE_1_SEND_COMMAND s_lcd_initialize.LCD_INIT_STATE_0_WAIT_POWER_UP 
+s_lcd_initialize.LCD_INIT_STATE_0_WAIT_POWER_UP 0 0 0 0 
+s_lcd_initialize.LCD_INIT_STATE_1_SEND_COMMAND 0 0 1 1 
+s_lcd_initialize.LCD_INIT_STATE_2_CHECK_DONE 0 1 0 1 
+s_lcd_initialize.LCD_INIT_STATE_3_DONE 1 0 0 1 
+
+State Machine - |Lab6|wb_NiosProcessor:inst|character_lcd:the_character_lcd|Altera_UP_Character_LCD_Communication:Char_LCD_Comm|s_lcd
+Name s_lcd.LCD_STATE_0_OPERATION s_lcd.LCD_STATE_3_END s_lcd.LCD_STATE_2_HOLD s_lcd.LCD_STATE_1_ENABLE s_lcd.LCD_STATE_4_IDLE 
+s_lcd.LCD_STATE_4_IDLE 0 0 0 0 0 
+s_lcd.LCD_STATE_1_ENABLE 0 0 0 1 1 
+s_lcd.LCD_STATE_2_HOLD 0 0 1 0 1 
+s_lcd.LCD_STATE_3_END 0 1 0 0 1 
+s_lcd.LCD_STATE_0_OPERATION 1 0 0 0 1 

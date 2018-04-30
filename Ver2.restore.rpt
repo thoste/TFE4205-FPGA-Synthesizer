@@ -1,0 +1,376 @@
+Restore Archived Project report for Ver2
+Fri Feb 23 13:36:43 2018
+Quartus Prime Version 17.1.1 Internal Build 593 12/11/2017 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Restore Archived Project Summary
+  3. Restore Archived Project Messages
+  4. Files Restored
+  5. Files Not Restored
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; Restore Archived Project Summary                                        ;
++---------------------------------+---------------------------------------+
+; Restore Archived Project Status ; Successful - Fri Feb 23 13:36:43 2018 ;
+; Revision Name                   ; Ver2                                  ;
+; Top-level Entity Name           ; Lab5                                  ;
+; Family                          ; Cyclone IV E                          ;
++---------------------------------+---------------------------------------+
+
+
++-----------------------------------+
+; Restore Archived Project Messages ;
++-----------------------------------+
+Info: Successfully restored 'X:/Fag/TFE4205/Lab/Eksperimenter/Lab5/Lab5_tmp_archive.qar' into the 'X:/Fag/TFE4205/Lab/Eksperimenter/Lab6CleanTest/' directory
+Info: Generated report 'Ver2.restore.rpt'
+
+
++------------------------------------------+
+; Files Restored                           ;
++------------------------------------------+
+; File Name                                ;
++------------------------------------------+
+; qar_info.json                            ;
+; 2-1-mux.bdf                              ;
+; 2-1-mux.bsf                              ;
+; 40bit_2-1-mux.bdf                        ;
+; ABS.bdf                                  ;
+; ABS.bsf                                  ;
+; A_reg_pio.vhd                            ;
+; Altera_UP_Avalon_PS2.v                   ;
+; Altera_UP_Character_LCD_Communication.v  ;
+; Altera_UP_Character_LCD_Initialization.v ;
+; Altera_UP_PS2.v                          ;
+; Altera_UP_PS2_Command_Out.v              ;
+; Altera_UP_PS2_Data_In.v                  ;
+; B_reg_pio.vhd                            ;
+; BascIF.qsf                               ;
+; C_reg_led_pio.vhd                        ;
+; C_reg_pio.vhd                            ;
+; D_reg_led_pio.vhd                        ;
+; D_reg_pio.vhd                            ;
+; Dbg_pc.vhd                               ;
+; Dbg_reg.vhd                              ;
+; Dbg_reg_set.vhd                          ;
+; DeBounce.bsf                             ;
+; Debug_CPU_PC.vhd                         ;
+; Debug_CPU_reg.vhd                        ;
+; Debug_CPU_reg_set.vhd                    ;
+; Filt.bsf                                 ;
+; Krets_12.bdf                             ;
+; Krets_12.bsf                             ;
+; Lab5.bdf                                 ;
+; Lab5.qpf                                 ;
+; Lab5.qws                                 ;
+; Lab5_tmp_archive.qarlog                  ;
+; PC_add.qip                               ;
+; StudentDesign.bdf                        ;
+; StudentDesign.bsf                        ;
+; StudentDesign_test.bdf                   ;
+; Ver2.qsf                                 ;
+; Ver2_assignment_defaults.qdf             ;
+; Ver2_description.txt                     ;
+; ZERO_DET.bdf                             ;
+; __BascIF.auto.qarlog                     ;
+; a_reg_pio.vhd                            ;
+; abs.bdf                                  ;
+; altera_up_avalon_ps2.v                   ;
+; altera_up_character_lcd_communication.v  ;
+; altera_up_character_lcd_initialization.v ;
+; altera_up_ps2.v                          ;
+; altera_up_ps2_command_out.v              ;
+; altera_up_ps2_data_in.v                  ;
+; assignment_defaults.qdf                  ;
+; audioBypassMux.bdf                       ;
+; audioBypassMux.bsf                       ;
+; b_reg_pio.vhd                            ;
+; character_lcd.v                          ;
+; cpu.ocp                                  ;
+; cpu.sdc                                  ;
+; cpu.vhd                                  ;
+; cpu_ic_tag_ram.mif                       ;
+; cpu_jtag_debug_module.vhd                ;
+; cpu_jtag_debug_module_sysclk.vhd         ;
+; cpu_jtag_debug_module_tck.vhd            ;
+; cpu_jtag_debug_module_wrapper.vhd        ;
+; cpu_ociram_default_contents.mif          ;
+; cpu_rf_ram.mif                           ;
+; cpu_rf_ram_a.mif                         ;
+; cpu_rf_ram_b.mif                         ;
+; cpu_test_bench.vhd                       ;
+; dbg_pc.vhd                               ;
+; dbg_reg.vhd                              ;
+; dbg_reg_set.vhd                          ;
+; dcnt4.bdf                                ;
+; dcnt4.bsf                                ;
+; debounce.vhd                             ;
+; dv_input.vhd                             ;
+; dv_input_led.vhd                         ;
+; dv_input_led_pio.vhd                     ;
+; dv_input_pio.vhd                         ;
+; edgeDetector.bdf                         ;
+; edgeDetector.bsf                         ;
+; edgedetector.bdf                         ;
+; extend16.bdf                             ;
+; fact.bdf                                 ;
+; fact.bsf                                 ;
+; factSTM.bdf                              ;
+; factSTM.bsf                              ;
+; factstm.bdf                              ;
+; filt.bdf                                 ;
+; filtBypassMux.bdf                        ;
+; filtBypassMux.bsf                        ;
+; filtSTM.bdf                              ;
+; filtSTM.bsf                              ;
+; jtag_uart.vhd                            ;
+; key_pio.vhd                              ;
+; key_value_pio.vhd                        ;
+; krets_12.bdf                             ;
+; led_pio.vhd                              ;
+; lpm_add_sub0.bsf                         ;
+; lpm_add_sub0.qip                         ;
+; lpm_add_sub0.vhd                         ;
+; lpm_add_sub1.bsf                         ;
+; lpm_add_sub1.qip                         ;
+; lpm_add_sub1.vhd                         ;
+; lpm_counter0.bsf                         ;
+; lpm_counter0.qip                         ;
+; lpm_counter0.vhd                         ;
+; lpm_decode0.bsf                          ;
+; lpm_decode0.qip                          ;
+; lpm_decode0.vhd                          ;
+; lpm_dff0.bsf                             ;
+; lpm_dff0.qip                             ;
+; lpm_dff0.vhd                             ;
+; lpm_shiftreg0.bsf                        ;
+; lpm_shiftreg0.qip                        ;
+; lpm_shiftreg0.vhd                        ;
+; lpm_shiftreg1.bsf                        ;
+; lpm_shiftreg1.qip                        ;
+; lpm_shiftreg1.vhd                        ;
+; mul.bdf                                  ;
+; mul.bsf                                  ;
+; mul_control.bdf                          ;
+; mul_control.bsf                          ;
+; mul_control_tst.bdf                      ;
+; mul_control_tst.bsf                      ;
+; mul_data_path.bdf                        ;
+; mul_data_path.bsf                        ;
+; mul_data_path_tst.bdf                    ;
+; mul_data_path_tst.bsf                    ;
+; mul_fsm.bsf                              ;
+; mul_fsm.vhd                              ;
+; mul_tst.bdf                              ;
+; onchip_mem.hex                           ;
+; onchip_mem.vhd                           ;
+; ps2_keyboard.vhd                         ;
+; qmegawiz_errors_log.txt                  ;
+; shiftreg16right.bdf                      ;
+; shiftreg16right.bsf                      ;
+; sopc_builder_log.txt                     ;
+; status_led_pio.vhd                       ;
+; studentdesign.bdf                        ;
+; sys_clk_timer.vhd                        ;
+; sysid.vhd                                ;
+; testmux.bdf                              ;
+; testmux2.bdf                             ;
+; wb_NiosProcessor.bsf                     ;
+; wb_NiosProcessor.qip                     ;
+; wb_NiosProcessor.sopc                    ;
+; wb_NiosProcessor.vhd                     ;
+; wb_NiosProcessor_log.txt                 ;
+; wb_NiosProcessor_setup_quartus.tcl       ;
+; wb_aComp_binSearchReg.bdf                ;
+; wb_aComp_binSearchReg.bsf                ;
+; wb_aComp_envComp.bsf                     ;
+; wb_aComp_envComp.qip                     ;
+; wb_aComp_envComp.vhd                     ;
+; wb_aComp_envShape.bdf                    ;
+; wb_aComp_envShape.bsf                    ;
+; wb_aComp_envShapeMult.bsf                ;
+; wb_aComp_envShapeMult.qip                ;
+; wb_aComp_envShapeMult.vhd                ;
+; wb_aComp_envShapeSub.bsf                 ;
+; wb_aComp_envShapeSub.qip                 ;
+; wb_aComp_envShapeSub.vhd                 ;
+; wb_aComp_factCompare.bsf                 ;
+; wb_aComp_factCompare.qip                 ;
+; wb_aComp_factCompare.vhd                 ;
+; wb_aComp_factCount.bsf                   ;
+; wb_aComp_factCount.qip                   ;
+; wb_aComp_factCount.vhd                   ;
+; wb_aComp_factorFinder.bdf                ;
+; wb_aComp_factorFinder.bsf                ;
+; wb_aComp_factorMult.bsf                  ;
+; wb_aComp_factorMult.qip                  ;
+; wb_aComp_factorMult.vhd                  ;
+; wb_aComp_twoComplBitClipping.bdf         ;
+; wb_aComp_twoComplBitClipping.bsf         ;
+; wb_aComp_valueReducer.bdf                ;
+; wb_aComp_valueReducer.bsf                ;
+; wb_acomp_binsearchreg.bdf                ;
+; wb_acomp_envcomp.vhd                     ;
+; wb_acomp_envshape.bdf                    ;
+; wb_acomp_envshapemult.vhd                ;
+; wb_acomp_envshapesub.vhd                 ;
+; wb_acomp_factcompare.vhd                 ;
+; wb_acomp_factcount.vhd                   ;
+; wb_acomp_factorfinder.bdf                ;
+; wb_acomp_factormult.vhd                  ;
+; wb_acomp_twocomplbitclipping.bdf         ;
+; wb_acomp_valuereducer.bdf                ;
+; wb_acompressor_audioMult.bsf             ;
+; wb_acompressor_audioMult.qip             ;
+; wb_acompressor_audioMult.vhd             ;
+; wb_audioCFG_CFGctrl.bdf                  ;
+; wb_audioCFG_CFGctrl.bsf                  ;
+; wb_audioCFG_CFGctrlRegisterBank.bsf      ;
+; wb_audioCFG_CFGctrlRegisterBank.vhd      ;
+; wb_audioCFG_CFGctrlUpdateSM.bsf          ;
+; wb_audioCFG_CFGctrlUpdateSM.vhd          ;
+; wb_audioCFG_autoConfigOnReset.bsf        ;
+; wb_audioCFG_autoConfigOnReset.vhd        ;
+; wb_audioCFG_autoUpdate.bdf               ;
+; wb_audioCFG_autoUpdate.bsf               ;
+; wb_audioCFG_autoUpdateSM.bsf             ;
+; wb_audioCFG_autoUpdateSM.vhd             ;
+; wb_audioCFG_twoWireMaster.bsf            ;
+; wb_audioCFG_twoWireMaster.vhd            ;
+; wb_audioStream_Interface.bdf             ;
+; wb_audioStream_Interface.bsf             ;
+; wb_audioStream_channelAdder.bsf          ;
+; wb_audioStream_channelAdder.qip          ;
+; wb_audioStream_channelAdder.vhd          ;
+; wb_audioStream_stereoToMono.bdf          ;
+; wb_audioStream_stereoToMono.bsf          ;
+; wb_audio_AdvInterface.bdf                ;
+; wb_audio_AdvInterface.bsf                ;
+; wb_audio_BasicInterface.bdf              ;
+; wb_audio_BasicInterface.bsf              ;
+; wb_audio_advinterface.bdf                ;
+; wb_audio_basicinterface.bdf              ;
+; wb_audio_bypassMux.bdf                   ;
+; wb_audio_bypassMux.bsf                   ;
+; wb_audio_bypassmux.bdf                   ;
+; wb_audiocfg_autoconfigonreset.vhd        ;
+; wb_audiocfg_autoupdate.bdf               ;
+; wb_audiocfg_autoupdatesm.vhd             ;
+; wb_audiocfg_cfgctrl.bdf                  ;
+; wb_audiocfg_cfgctrlregisterbank.vhd      ;
+; wb_audiocfg_cfgctrlupdatesm.vhd          ;
+; wb_audiocfg_twowiremaster.vhd            ;
+; wb_audiostream_channeladder.vhd          ;
+; wb_audiostream_interface.bdf             ;
+; wb_audiostream_stereotomono.bdf          ;
+; wb_block_2-1mux.bdf                      ;
+; wb_block_2-1mux.bsf                      ;
+; wb_block_busAND.bdf                      ;
+; wb_block_busAND.bsf                      ;
+; wb_block_busEqual.bdf                    ;
+; wb_block_busEqual.bsf                    ;
+; wb_block_busMux_8-1.bdf                  ;
+; wb_block_busMux_8-1.bsf                  ;
+; wb_block_busOR.bdf                       ;
+; wb_block_busOR.bsf                       ;
+; wb_block_busand.bdf                      ;
+; wb_block_busequal.bdf                    ;
+; wb_block_busmux_8-1.bdf                  ;
+; wb_block_busor.bdf                       ;
+; wb_block_constantToBusBinary.bsf         ;
+; wb_block_constantToBusBinary.vhd         ;
+; wb_block_constanttobusbinary.vhd         ;
+; wb_block_decoder.bsf                     ;
+; wb_block_decoder.vhd                     ;
+; wb_block_oneShotDownCounter.bsf          ;
+; wb_block_oneShotDownCounter.vhd          ;
+; wb_block_oneshotdowncounter.vhd          ;
+; wb_block_serDes.bsf                      ;
+; wb_block_serDes.vhd                      ;
+; wb_block_serdes.vhd                      ;
+; wb_clkGenerator.bdf                      ;
+; wb_clkGenerator.bsf                      ;
+; wb_clkGeneratorPLL.bsf                   ;
+; wb_clkGeneratorPLL.ppf                   ;
+; wb_clkGeneratorPLL.qip                   ;
+; wb_clkGeneratorPLL.vhd                   ;
+; wb_clkgenerator.bdf                      ;
+; wb_clkgeneratorpll.vhd                   ;
+; wb_cpu_alu.bsf                           ;
+; wb_cpu_alu.vhd                           ;
+; wb_cpu_control.bsf                       ;
+; wb_cpu_control.vhd                       ;
+; wb_cpu_io.bsf                            ;
+; wb_cpu_io.vhd                            ;
+; wb_cpu_mem.bsf                           ;
+; wb_cpu_mem.vhd                           ;
+; wb_cpu_package.vhd                       ;
+; wb_cpu_programcounter.bdf                ;
+; wb_cpu_programcounter.bsf                ;
+; wb_cpu_programcounter.vhd                ;
+; wb_cpu_regfile.bsf                       ;
+; wb_cpu_regfile.vhd                       ;
+; wb_cpu_statusreg.bsf                     ;
+; wb_cpu_statusreg.vhd                     ;
+; wb_dataCtrlDmux.bsf                      ;
+; wb_dataCtrlDmux.vhd                      ;
+; wb_dataCtrlMux.bdf                       ;
+; wb_dataCtrlMux.bsf                       ;
+; wb_filt_bypassMux.bdf                    ;
+; wb_filt_bypassMux.bsf                    ;
+; wb_filt_bypassmux.bdf                    ;
+; wb_hexTo7segAll.bsf                      ;
+; wb_hexTo7segAll.vhd                      ;
+; wb_hexTo7segOne.vhd                      ;
+; wb_mul_dcnt4.bdf                         ;
+; wb_mul_dcnt4.bsf                         ;
+; wb_mul_dvCtrl.bdf                        ;
+; wb_mul_dvCtrl.bsf                        ;
+; wb_mul_dvctrl.bdf                        ;
+; wb_mul_extend16.bdf                      ;
+; wb_mul_extend16.bsf                      ;
+; wb_mul_outputselector.bdf                ;
+; wb_mul_outputselector.bsf                ;
+; wb_mul_shiftreg16right.bdf               ;
+; wb_mul_shiftreg16right.bsf               ;
+; wb_mul_shiftreg32left.bdf                ;
+; wb_mul_shiftreg32left.bsf                ;
+; wb_mul_zero_det.bdf                      ;
+; wb_mul_zero_det.bsf                      ;
+; wb_niosprocessor.vhd                     ;
+; wb_processor.bdf                         ;
+; wb_processor.bsf                         ;
++------------------------------------------+
+
+
++--------------------+
+; Files Not Restored ;
++--------------------+
+; File Name          ;
++--------------------+
+
+
