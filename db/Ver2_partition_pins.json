@@ -32,46 +32,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "LEDG[7]",
-					"strict" : false
-				},
-				{
-					"name" : "LEDG[6]",
-					"strict" : false
-				},
-				{
-					"name" : "LEDG[5]",
-					"strict" : false
-				},
-				{
-					"name" : "LEDG[4]",
-					"strict" : false
-				},
-				{
-					"name" : "LEDG[3]",
-					"strict" : false
-				},
-				{
-					"name" : "LEDG[2]",
-					"strict" : false
-				},
-				{
-					"name" : "LEDG[1]",
-					"strict" : false
-				},
-				{
-					"name" : "LEDG[0]",
-					"strict" : false
-				},
-				{
-					"name" : "LEDR[7]",
-					"strict" : false
-				},
-				{
-					"name" : "LEDR[6]",
-					"strict" : false
-				},
-				{
 					"name" : "PS2_CLK",
 					"strict" : false
 				},
@@ -116,19 +76,19 @@
 					"strict" : false
 				},
 				{
+					"name" : "SW[3]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[2]",
+					"strict" : false
+				},
+				{
 					"name" : "SW[0]",
 					"strict" : false
 				},
 				{
 					"name" : "SW[1]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[9]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[2]",
 					"strict" : false
 				},
 				{
@@ -141,10 +101,6 @@
 				},
 				{
 					"name" : "KEY[2]",
-					"strict" : false
-				},
-				{
-					"name" : "KEY[1]",
 					"strict" : false
 				},
 				{

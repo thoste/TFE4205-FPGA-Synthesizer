@@ -1,6 +1,6 @@
 Flow report for Ver2
-Sun Apr 29 21:24:35 2018
-Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+Mon Apr 30 17:16:17 2018
+Quartus Prime Version 17.1.1 Internal Build 593 12/11/2017 SJ Lite Edition
 
 
 ---------------------
@@ -37,26 +37,26 @@ refer to the applicable agreement for further details.
 
 
 
-+----------------------------------------------------------------------------------+
-; Flow Summary                                                                     ;
-+------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Sun Apr 29 21:24:26 2018       ;
-; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
-; Revision Name                      ; Ver2                                        ;
-; Top-level Entity Name              ; Lab7                                        ;
-; Family                             ; Cyclone IV E                                ;
-; Device                             ; EP4CE115F29C7                               ;
-; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 4,850 / 114,480 ( 4 % )                     ;
-;     Total combinational functions  ; 4,438 / 114,480 ( 4 % )                     ;
-;     Dedicated logic registers      ; 2,251 / 114,480 ( 2 % )                     ;
-; Total registers                    ; 2251                                        ;
-; Total pins                         ; 131 / 529 ( 25 % )                          ;
-; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 1,703,360 / 3,981,312 ( 43 % )              ;
-; Embedded Multiplier 9-bit elements ; 6 / 532 ( 1 % )                             ;
-; Total PLLs                         ; 1 / 4 ( 25 % )                              ;
-+------------------------------------+---------------------------------------------+
++-------------------------------------------------------------------------------------------+
+; Flow Summary                                                                              ;
++------------------------------------+------------------------------------------------------+
+; Flow Status                        ; Successful - Mon Apr 30 17:16:11 2018                ;
+; Quartus Prime Version              ; 17.1.1 Internal Build 593 12/11/2017 SJ Lite Edition ;
+; Revision Name                      ; Ver2                                                 ;
+; Top-level Entity Name              ; Lab7                                                 ;
+; Family                             ; Cyclone IV E                                         ;
+; Device                             ; EP4CE115F29C7                                        ;
+; Timing Models                      ; Final                                                ;
+; Total logic elements               ; 4,392 / 114,480 ( 4 % )                              ;
+;     Total combinational functions  ; 3,977 / 114,480 ( 3 % )                              ;
+;     Dedicated logic registers      ; 2,187 / 114,480 ( 2 % )                              ;
+; Total registers                    ; 2187                                                 ;
+; Total pins                         ; 131 / 529 ( 25 % )                                   ;
+; Total virtual pins                 ; 0                                                    ;
+; Total memory bits                  ; 1,703,360 / 3,981,312 ( 43 % )                       ;
+; Embedded Multiplier 9-bit elements ; 6 / 532 ( 1 % )                                      ;
+; Total PLLs                         ; 1 / 4 ( 25 % )                                       ;
++------------------------------------+------------------------------------------------------+
 
 
 +-----------------------------------------+
@@ -64,7 +64,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/29/2018 21:22:19 ;
+; Start date & time ; 04/30/2018 17:14:36 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Ver2                ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------------------------------+---------------+--------------+------------+
 ; Assignment Name                     ; Value                                                          ; Default Value ; Entity Name  ; Section Id ;
 +-------------------------------------+----------------------------------------------------------------+---------------+--------------+------------+
-; COMPILER_SIGNATURE_ID               ; 93328257011358.152502973924792                                 ; --            ; --           ; --         ;
+; COMPILER_SIGNATURE_ID               ; 174508024972475.152510127608280                                ; --            ; --           ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                                             ; --            ; --           ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                                              ; --            ; --           ; --         ;
 ; MISC_FILE                           ; clocks/synthesis/../clocks.cmp                                 ; --            ; --           ; --         ;
@@ -83,6 +83,7 @@ refer to the applicable agreement for further details.
 ; MISC_FILE                           ; v/VGA_Audio_PLL.ppf                                            ; --            ; --           ; --         ;
 ; MISC_FILE                           ; DE2_115_SOPC/synthesis/../DE2_115_SOPC.cmp                     ; --            ; --           ; --         ;
 ; MISC_FILE                           ; DE2_115_SOPC/synthesis/../../DE2_115_SOPC.qsys                 ; --            ; --           ; --         ;
+; NUM_PARALLEL_PROCESSORS             ; Default                                                        ; 1             ; --           ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family)                         ; --            ; Lab7         ; Top        ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family)                         ; --            ; Lab7         ; Top        ;
 ; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family)                         ; --            ; Lab7         ; Top        ;
@@ -107,11 +108,11 @@ refer to the applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:01:16     ; 1.0                     ; 904 MB              ; 00:01:38                           ;
-; Fitter                    ; 00:00:36     ; 1.0                     ; 1327 MB             ; 00:00:38                           ;
-; Assembler                 ; 00:00:06     ; 1.0                     ; 651 MB              ; 00:00:05                           ;
-; TimeQuest Timing Analyzer ; 00:00:07     ; 1.0                     ; 813 MB              ; 00:00:07                           ;
-; Total                     ; 00:02:05     ; --                      ; --                  ; 00:02:28                           ;
+; Analysis & Synthesis      ; 00:00:56     ; 1.0                     ; 909 MB              ; 00:01:21                           ;
+; Fitter                    ; 00:00:26     ; 1.1                     ; 1742 MB             ; 00:00:39                           ;
+; Assembler                 ; 00:00:05     ; 1.0                     ; 652 MB              ; 00:00:04                           ;
+; TimeQuest Timing Analyzer ; 00:00:05     ; 1.2                     ; 846 MB              ; 00:00:05                           ;
+; Total                     ; 00:01:32     ; --                      ; --                  ; 00:02:09                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -120,10 +121,10 @@ refer to the applicable agreement for further details.
 +---------------------------+------------------+------------+------------+----------------+
 ; Module Name               ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +---------------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis      ; LAPTOP-GEDK4EAC  ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter                    ; LAPTOP-GEDK4EAC  ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler                 ; LAPTOP-GEDK4EAC  ; Windows 10 ; 10.0       ; x86_64         ;
-; TimeQuest Timing Analyzer ; LAPTOP-GEDK4EAC  ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis      ; Thomas-XPS-Win10 ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter                    ; Thomas-XPS-Win10 ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler                 ; Thomas-XPS-Win10 ; Windows 10 ; 10.0       ; x86_64         ;
+; TimeQuest Timing Analyzer ; Thomas-XPS-Win10 ; Windows 10 ; 10.0       ; x86_64         ;
 +---------------------------+------------------+------------+------------+----------------+
 
 

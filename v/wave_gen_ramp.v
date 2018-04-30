@@ -1,4 +1,4 @@
-module ramp_wave_gen(
+module wave_gen_ramp (
 input  [5:0] ramp,
 output reg [15:0]music_o
 );

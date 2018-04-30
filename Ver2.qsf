@@ -28,7 +28,7 @@ set_global_assignment -name DEVICE EP4CE115F29C7
 set_global_assignment -name TOP_LEVEL_ENTITY Lab7
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "8.0 SP1"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "16:07:38  AUGUST 12, 2008"
-set_global_assignment -name LAST_QUARTUS_VERSION "17.1.0 Lite Edition"
+set_global_assignment -name LAST_QUARTUS_VERSION "17.1.1 Lite Edition"
 set_global_assignment -name USE_GENERATED_PHYSICAL_CONSTRAINTS OFF -section_id eda_palace
 set_location_assignment PIN_AB28 -to SW[0]
 set_location_assignment PIN_AC28 -to SW[1]
@@ -1116,8 +1116,9 @@ set_global_assignment -name VERILOG_FILE v/demo_sound3.v
 set_global_assignment -name VERILOG_FILE v/demo_sound2.v
 set_global_assignment -name VERILOG_FILE v/demo_sound1.v
 set_global_assignment -name VERILOG_FILE v/DeBUG_TEST.v
-set_global_assignment -name VERILOG_FILE v/AUDIO_DAC.v
 set_global_assignment -name VERILOG_FILE v/adio_codec.v
 set_global_assignment -name BDF_FILE Lab7.bdf
 set_global_assignment -name QIP_FILE DE2_115_SOPC/synthesis/DE2_115_SOPC.qip
+set_global_assignment -name TIMEQUEST_MULTICORNER_ANALYSIS ON
+set_global_assignment -name NUM_PARALLEL_PROCESSORS DEFAULT
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

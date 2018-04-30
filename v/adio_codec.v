@@ -7,7 +7,6 @@ input key2_on,
 input key3_on,
 input key4_on,
 
-input	[1:0]	iSrc_Select,
 input			iCLK_18_4,
 input			iRST_N,
 input   [15:0]	sound1,
@@ -15,7 +14,8 @@ input   [15:0]	sound2,
 input   [15:0]	sound3,
 input   [15:0]	sound4,
 
-input           instru
+// Select sound
+input   [3:0]   instru
 
 						);				
 
@@ -27,9 +27,6 @@ parameter	CHANNEL_NUM		=	2;			//	Dual Channel
 parameter	SIN_SAMPLE_DATA	=	48;
 
 
-
-////////////	Input Source Number	//////////////
-parameter	SIN_SANPLE		=	0;
 //////////////////////////////////////////////////
 //	Internal Registers and Wires
 reg		[3:0]	BCK_DIV;
@@ -125,25 +122,47 @@ end
 ////////////Timbre selection & SoundOut///////////////
 	wire [15:0]music1_ramp;
 	wire [15:0]music2_ramp;
-	wire [15:0]music1_sin;
-	wire [15:0]music2_sin;
 	wire [15:0]music3_ramp;
 	wire [15:0]music4_ramp;
+	wire [15:0]music1_sin;
+	wire [15:0]music2_sin;
 	wire [15:0]music3_sin;
 	wire [15:0]music4_sin;
-	wire [15:0]music1=(instru)?music1_ramp:music1_sin;
-	wire [15:0]music2=(instru)?music2_ramp:music2_sin;
-	wire [15:0]music3=(instru)?music3_ramp:music3_sin;
-	wire [15:0]music4=(instru)?music4_ramp:music4_sin;
+	wire [15:0]music1_square;
+	wire [15:0]music2_square;
+	wire [15:0]music3_square;
+	wire [15:0]music4_square;
+	
+	wire [15:0]music1;
+	wire [15:0]music2;
+	wire [15:0]music3;
+	wire [15:0]music4;
+	
+	assign music1 = (instru == 4'b0001) ? music1_sin :
+					(instru == 4'b0010) ? music1_square :
+										music1_sin;
+	assign music2 = (instru == 4'b0001) ? music2_sin :
+					(instru == 4'b0010) ? music2_square :
+										music2_sin;
+	assign music3 = (instru == 4'b0001) ? music3_sin :
+					(instru == 4'b0010) ? music3_square :
+										music3_sin;
+	assign music4 = (instru == 4'b0001) ? music4_sin :
+					(instru == 4'b0010) ? music4_square :
+										music4_sin;									
+	
 	wire [15:0]sound_o;
 	assign sound_o=music1+music2+music3+music4;	
+	
 	always@(negedge oAUD_BCK or negedge iRST_N)begin
 		if(!iRST_N)
 			SEL_Cont	<=	0;
 		else
 			SEL_Cont	<=	SEL_Cont+1;
 	end
-	assign	oAUD_DATA	=	((key4_on|key3_on|key2_on|key1_on) && (iSrc_Select==SIN_SANPLE))	?	sound_o[~SEL_Cont]	:0;
+	
+	// If key pressed, send sound_o, else send 0 to DAC to prevent noise. 
+	assign	oAUD_DATA	=	((key4_on|key3_on|key2_on|key1_on))	?	sound_o[~SEL_Cont]	:0;
 
 //////////Ramp address generater//////////////
 	reg  [15:0]ramp1;
@@ -151,6 +170,7 @@ end
 	reg  [15:0]ramp3;
 	reg  [15:0]ramp4;
 	wire [15:0]ramp_max=60000;
+	
 //////CH1 Ramp//////
 	always@(negedge key1_on or negedge LRCK_1X)begin
 	if (!key1_on)
@@ -175,7 +195,7 @@ end
 	else ramp3=ramp3+sound3;
 	end
 
-//////CH3 Ramp/////
+//////CH4 Ramp/////
 	always@(negedge key4_on or negedge LRCK_1X)begin
 	if (!key4_on)
 		ramp4=0;
@@ -184,49 +204,53 @@ end
 	end
 
 ////////////Ramp address assign//////////////
-	wire [5:0]ramp1_ramp=(instru)?ramp1[15:10]:0;
-	wire [5:0]ramp2_ramp=(instru)?ramp2[15:10]:0;
-	wire [5:0]ramp3_ramp=(instru)?ramp3[15:10]:0;
-	wire [5:0]ramp4_ramp=(instru)?ramp4[15:10]:0;
-	wire [5:0]ramp1_sin=(!instru)?ramp1[15:10]:0;
-	wire [5:0]ramp2_sin=(!instru)?ramp2[15:10]:0;
-	wire [5:0]ramp3_sin=(!instru)?ramp3[15:10]:0;
-	wire [5:0]ramp4_sin=(!instru)?ramp4[15:10]:0;
+	wire [5:0]ramp1_sin=(instru==2'b0001)?ramp1[15:10]:0;
+	wire [5:0]ramp2_sin=(instru==2'b0001)?ramp2[15:10]:0;
+	wire [5:0]ramp3_sin=(instru==2'b0001)?ramp3[15:10]:0;
+	wire [5:0]ramp4_sin=(instru==2'b0001)?ramp4[15:10]:0;
+	wire [5:0]ramp1_square=(instru==2'b0010)?ramp1[15:10]:0;
+	wire [5:0]ramp2_square=(instru==2'b0010)?ramp2[15:10]:0;
+	wire [5:0]ramp3_square=(instru==2'b0010)?ramp3[15:10]:0;
+	wire [5:0]ramp4_square=(instru==2'b0010)?ramp4[15:10]:0;
 
-////////String-wave Timbre///////
-	wave_gen_string r1(
-		.ramp(ramp1_ramp),
-		.music_o(music1_ramp)
-	);
-	wave_gen_string r2(
-		.ramp(ramp2_ramp),
-		.music_o(music2_ramp)
-	);
-	wave_gen_string r3(
-		.ramp(ramp3_ramp),
-		.music_o(music3_ramp)
-	);
-	wave_gen_string r4(
-		.ramp(ramp4_ramp),
-		.music_o(music4_ramp)
-	);
 
-/////////Brass-wave Timbre////////
-	wave_gen_brass s1(
+
+
+/////////Sine-wave Timbre////////
+	wave_gen_sin s1(
 		.ramp(ramp1_sin),
 		.music_o(music1_sin)
 	);
-	wave_gen_brass s2(
+	wave_gen_sin s2(
 		.ramp(ramp2_sin),
 		.music_o(music2_sin)
 	);
-	wave_gen_brass s3(
+	wave_gen_sin s3(
 		.ramp(ramp3_sin),
 		.music_o(music3_sin)
 	);
-	wave_gen_brass s4(
+	wave_gen_sin s4(
 		.ramp(ramp4_sin),
 		.music_o(music4_sin)
 	);
 
+	/////////Square-wave Timbre////////
+	wave_gen_square sq1(
+		.ramp(ramp1_square),
+		.music_o(music1_square)
+	);
+	wave_gen_square sq2(
+		.ramp(ramp2_square),
+		.music_o(music2_square)
+	);
+	wave_gen_square sq3(
+		.ramp(ramp3_square),
+		.music_o(music3_square)
+	);
+	wave_gen_square sq4(
+		.ramp(ramp4_square),
+		.music_o(music4_square)
+	);
+	
+	
 endmodule
