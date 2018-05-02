@@ -1111,11 +1111,6 @@ set_global_assignment -name VERILOG_FILE v/LCD_TEST.v
 set_global_assignment -name VERILOG_FILE v/LCD_Controller.v
 set_global_assignment -name VERILOG_FILE v/I2C_Controller.v
 set_global_assignment -name VERILOG_FILE v/I2C_AV_Config.v
-set_global_assignment -name VERILOG_FILE v/demo_sound4.v
-set_global_assignment -name VERILOG_FILE v/demo_sound3.v
-set_global_assignment -name VERILOG_FILE v/demo_sound2.v
-set_global_assignment -name VERILOG_FILE v/demo_sound1.v
-set_global_assignment -name VERILOG_FILE v/DeBUG_TEST.v
 set_global_assignment -name VERILOG_FILE v/adio_codec.v
 set_global_assignment -name BDF_FILE Lab7.bdf
 set_global_assignment -name QIP_FILE DE2_115_SOPC/synthesis/DE2_115_SOPC.qip
