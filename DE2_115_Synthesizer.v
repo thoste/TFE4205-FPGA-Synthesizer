@@ -1,46 +1,3 @@
-// ============================================================================
-// Copyright (c) 2012 by Terasic Technologies Inc.
-// ============================================================================
-//
-// Permission:
-//
-//   Terasic grants permission to use and modify this code for use
-//   in synthesis for all Terasic Development Boards and Altera Development
-//   Kits made by Terasic.  Other use of this code, including the selling
-//   ,duplication, or modification of any portion is strictly prohibited.
-//
-// Disclaimer:
-//
-//   This VHDL/Verilog or C/C++ source code is intended as a design reference
-//   which illustrates how these types of functions can be implemented.
-//   It is the user's responsibility to verify their design for
-//   consistency and functionality through the use of formal
-//   verification methods.  Terasic provides no warranty regarding the use
-//   or functionality of this code.
-//
-// ============================================================================
-//
-//  Terasic Technologies Inc
-//  9F., No.176, Sec.2, Gongdao 5th Rd, East Dist, Hsinchu City, 30070. Taiwan
-//
-//
-//
-//                     web: http://www.terasic.com/
-//                     email: support@terasic.com
-//
-// ============================================================================
-//
-// Major Functions:    DE2_115_Default
-//
-// ============================================================================
-//
-// Revision History :
-// ============================================================================
-//   Ver  :| Author              :| Mod. Date :| Changes Made:
-//   V1.1 :| HdHuang             :| 05/12/10  :| Initial Revision
-//   V2.0 :| Eko                       :| 05/23/12  :| version 11.1
-// ============================================================================
-
 module DE2_115_Synthesizer(
     /*
      * CLOCK_50 is the main clock for the module
@@ -69,6 +26,7 @@ module DE2_115_Synthesizer(
     /*
      * Output to the eight seven-segment displays
      */
+	 
     output [6:0] HEX0,
     output [6:0] HEX1,
     output [6:0] HEX2,
@@ -87,7 +45,6 @@ module DE2_115_Synthesizer(
     output       LCD_ON,
     output       LCD_RS,
     output       LCD_RW,
-
 
     /*
      * Keyboard interface
@@ -141,13 +98,13 @@ module DE2_115_Synthesizer(
     wire        I2C_END;
     wire        AUD_CTRL_CLK;
     reg  [31:0] VGA_CLKo;
-    wire        keyboard_sysclk;
+    //wire        keyboard_sysclk;
     wire  [7:0] scan_code;
     wire        get_gate;
-    wire        key1_on;
-    wire        key2_on;
-    wire  [7:0] key1_code;
-    wire  [7:0] key2_code;
+    //wire        key1_on;
+    //wire        key2_on;
+    //wire  [7:0] key1_code;
+    //wire  [7:0] key2_code;
 
     /***************************************************************************
      *
@@ -162,11 +119,13 @@ module DE2_115_Synthesizer(
     /*
      * Keyboard setup
      */
+	 /*
     assign keyboard_sysclk = VGA_CLKo[12]; // keyboard_sysclk = CLOCK_50 / 2^12
     assign PS2_DAT2        = 1'b1;
     assign PS2_CLK2        = 1'b1;
-
+	*/
     // KeyBoard Scan
+	/*
     ps2_keyboard keyboard (
         .iCLK_50   ( CLOCK_50),          //clock source;
         .ps2_dat   ( PS2_DAT ),          //ps2bus data
@@ -180,7 +139,7 @@ module DE2_115_Synthesizer(
         .key1_code ( key1_code ),        //key1 code
         .key2_code ( key2_code )         //key2 code
     );
-
+*/
     /*
      * TV decoder enable
      */
@@ -189,6 +148,7 @@ module DE2_115_Synthesizer(
     /*
      * 7-Seg component
      */
+	 /*
     SEG7_LUT_8 u0 (
         HEX0,
         HEX1,
@@ -200,7 +160,7 @@ module DE2_115_Synthesizer(
         HEX7,
         31'h00001112
     );
-
+*/
     /*
      * I2C bus component.
      * Cannot delete it (?) because it controls the I2C_END signal.
@@ -235,6 +195,7 @@ module DE2_115_Synthesizer(
     /*
      * Sound select
      */
+	 /*
     wire [15:0] sound1;
     wire [15:0] sound2;
     wire [15:0] sound3;
@@ -249,7 +210,8 @@ module DE2_115_Synthesizer(
     wire [7:0] sound_code2 = key2_code ;
     wire [7:0] sound_code3 = 8'b0;
     wire [7:0] sound_code4 = 8'b0;
-
+*/
+/*
     // Staff Sound Output
     staff st1 (
         // Key code-in
@@ -267,7 +229,7 @@ module DE2_115_Synthesizer(
         .sound_off3 ( sound_off3 ), //OFF
         .sound_off4 ( sound_off4 )  //OFF
     );
-
+	*/
     /*
      * LED display
      */
@@ -281,8 +243,8 @@ module DE2_115_Synthesizer(
 	
 	// Testing only; using wire instead of input
     wire [87:0] sound_in;
-	assign sound_in[87:4] = 84'b0;
-	assign sound_in[3:0] = {SW[17],SW[16],SW[15],SW[14]};
+	assign sound_in[87:12] = 76'b0;
+	assign sound_in[11:0] = {SW[17],SW[16],SW[15],SW[14],SW[13],SW[12],SW[11],SW[10],SW[9],SW[8],SW[7],SW[6]};
 	
 	// SW 0-3 select sound source.  
     wire [17:0] effects_ctrl;
@@ -300,15 +262,7 @@ module DE2_115_Synthesizer(
         // KEY
         .iRST_N      ( KEY[0] ),
         // Sound Control
-        //.key1_on ( sound_off1 ), // ON / OFF
-        //.key2_on ( sound_off2 ), // ON / OFF
-        //.key3_on ( sound_off3 ), // ON / OFF
-        //.key4_on ( sound_off4 ), // ON / OFF
-		.key_on ( key_played),
-        //.sound1  ( sound1 ), // Freq
-        //.sound2  ( sound2 ), // Freq
-        //.sound3  ( sound3 ), // Freq
-        //.sound4  ( sound4 ), // Freq
+		.key_pressed ( key_played),
 		.sound ( sound_in ),
         .instru ( effects_ctrl ) // Select sound source
     );
@@ -317,9 +271,10 @@ module DE2_115_Synthesizer(
     /*
      * LCD setup
      */
-    assign LCD_ON   = 1'b1;
-    assign LCD_BLON = 1'b1;
+    //assign LCD_ON   = 1'b1;
+    //assign LCD_BLON = 1'b1;
 
+/*
     LCD_TEST u5 (
         // Host Side
         .iCLK   ( CLOCK_50 ),
@@ -330,5 +285,5 @@ module DE2_115_Synthesizer(
         .LCD_EN   ( LCD_EN ),
         .LCD_RS   ( LCD_RS )
     );
-
+*/
 endmodule

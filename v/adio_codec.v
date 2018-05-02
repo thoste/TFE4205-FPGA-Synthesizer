@@ -2,18 +2,12 @@ module adio_codec (
 output			oAUD_DATA,
 output			oAUD_LRCK,
 output	reg		oAUD_BCK,
-//input key1_on,
-//input key2_on,
-//input key3_on,
-//input key4_on,
-input key_on,
+
+input key_pressed,
 
 input			iCLK_18_4,
 input			iRST_N,
-//input   [15:0]	sound1,
-//input   [15:0]	sound2,
-//input   [15:0]	sound3,
-//input   [15:0]	sound4,
+
 input	[87:0]	sound,
 // Select sound
 input   [17:0]   instru
@@ -121,39 +115,84 @@ end
 
 ///////////////////Wave-Source generate////////////////
 ////////////Timbre selection & SoundOut///////////////
-	wire [15:0]music1_ramp;
-	wire [15:0]music2_ramp;
-	wire [15:0]music3_ramp;
-	wire [15:0]music4_ramp;
 	wire [15:0]music1_sin;
 	wire [15:0]music2_sin;
 	wire [15:0]music3_sin;
 	wire [15:0]music4_sin;
+	wire [15:0]music5_sin;
+	wire [15:0]music6_sin;
+	wire [15:0]music7_sin;
+	wire [15:0]music8_sin;
+	wire [15:0]music9_sin;
+	wire [15:0]music10_sin;
+	wire [15:0]music11_sin;
+	wire [15:0]music12_sin;
+	
 	wire [15:0]music1_square;
 	wire [15:0]music2_square;
 	wire [15:0]music3_square;
 	wire [15:0]music4_square;
+	wire [15:0]music5_square;
+	wire [15:0]music6_square;
+	wire [15:0]music7_square;
+	wire [15:0]music8_square;
+	wire [15:0]music9_square;
+	wire [15:0]music10_square;
+	wire [15:0]music11_square;
+	wire [15:0]music12_square;
 	
 	wire [15:0]music1;
 	wire [15:0]music2;
 	wire [15:0]music3;
 	wire [15:0]music4;
+	wire [15:0]music5;
+	wire [15:0]music6;
+	wire [15:0]music7;
+	wire [15:0]music8;
+	wire [15:0]music9;
+	wire [15:0]music10;
+	wire [15:0]music11;
+	wire [15:0]music12;
 	
 	assign music1 = (instru == 18'b01) ? music1_sin :
 					(instru == 18'b10) ? music1_square :
-										music1_sin;
+										 music1_sin;
 	assign music2 = (instru == 18'b01) ? music2_sin :
 					(instru == 18'b10) ? music2_square :
-										music2_sin;
+										 music2_sin;
 	assign music3 = (instru == 18'b01) ? music3_sin :
 					(instru == 18'b10) ? music3_square :
-										music3_sin;
+										 music3_sin;
 	assign music4 = (instru == 18'b01) ? music4_sin :
 					(instru == 18'b10) ? music4_square :
-										music4_sin;									
+										 music4_sin;		
+	assign music5 = (instru == 18'b01) ? music5_sin :
+					(instru == 18'b10) ? music5_square :
+										 music5_sin;
+	assign music6 = (instru == 18'b01) ? music6_sin :
+					(instru == 18'b10) ? music6_square :
+										 music6_sin;
+	assign music7 = (instru == 18'b01) ? music7_sin :
+					(instru == 18'b10) ? music7_square :
+										 music7_sin;
+	assign music8 = (instru == 18'b01) ? music8_sin :
+					(instru == 18'b10) ? music8_square :
+										 music8_sin;	
+	assign music9 = (instru == 18'b01) ? music9_sin :
+					(instru == 18'b10) ? music9_square :
+										 music9_sin;
+	assign music10 = (instru == 18'b01) ? music10_sin :
+					 (instru == 18'b10) ? music10_square :
+										  music10_sin;
+	assign music11 = (instru == 18'b01) ? music11_sin :
+					 (instru == 18'b10) ? music11_square :
+										  music11_sin;
+	assign music12 = (instru == 18'b01) ? music12_sin :
+					 (instru == 18'b10) ? music12_square :
+										  music12_sin;								
 	
 	wire [15:0]sound_o;
-	assign sound_o=music1+music2+music3+music4;	
+	assign sound_o=music1+music2+music3+music4+music5+music6+music7+music8+music9+music10+music11+music12;	
 	
 	always@(negedge oAUD_BCK or negedge iRST_N)begin
 		if(!iRST_N)
@@ -163,45 +202,92 @@ end
 	end
 	
 	// If key pressed, send sound_o, else send 0 to DAC to prevent noise. 
-	assign	oAUD_DATA = (key_on)? sound_o[~SEL_Cont] :0;
+	assign	oAUD_DATA = (key_pressed)? sound_o[~SEL_Cont] :0;
 
 //////////Ramp address generater//////////////
 	reg  [15:0]ramp1;
 	reg  [15:0]ramp2;
 	reg  [15:0]ramp3;
 	reg  [15:0]ramp4;
+	reg  [15:0]ramp5;
+	reg  [15:0]ramp6;
+	reg  [15:0]ramp7;
+	reg  [15:0]ramp8;
+	reg  [15:0]ramp9;
+	reg  [15:0]ramp10;
+	reg  [15:0]ramp11;
+	reg  [15:0]ramp12;
 	wire [15:0]ramp_max=60000;
 	
-//////CH1 Ramp//////
+//////Ramps//////
 	always@(negedge sound[0] or negedge LRCK_1X)begin
-	if (!sound[0])
-		ramp1=0;
+	if (!sound[0]) ramp1=0;
 	else if (ramp1>ramp_max) ramp1=0;
-	else ramp1 = ramp1 + A4;
+	else ramp1 = ramp1 + C4;
 	end
 
-//////CH2 Ramp//////
 	always@(negedge sound[1] or negedge LRCK_1X)begin
-	if (!sound[1])
-		ramp2=0;
+	if (!sound[1]) ramp2=0;
 	else if (ramp2>ramp_max) ramp2=0;
-	else ramp2 = ramp2 + Db5;
+	else ramp2 = ramp2 + Db4;
 	end
 
-//////CH3 Ramp/////
 	always@(negedge sound[2] or negedge LRCK_1X)begin
-	if (!sound[2])
-		ramp3=0;
+	if (!sound[2]) ramp3=0;
 	else if (ramp3>ramp_max) ramp3=0;
-	else ramp3 = ramp3 + E5;
+	else ramp3 = ramp3 + D4;
 	end
 
-//////CH4 Ramp/////
 	always@(negedge sound[3] or negedge LRCK_1X)begin
-	if (!sound[3])
-		ramp4=0;
+	if (!sound[3]) ramp4=0;
 	else if (ramp4>ramp_max) ramp4=0;
-	else ramp4 = ramp4 + A5;
+	else ramp4 = ramp4 + Eb4;
+	end
+		always@(negedge sound[4] or negedge LRCK_1X)begin
+	if (!sound[4]) ramp5=0;
+	else if (ramp5>ramp_max) ramp5=0;
+	else ramp5 = ramp5 + E4;
+	end
+
+	always@(negedge sound[5] or negedge LRCK_1X)begin
+	if (!sound[5]) ramp6=0;
+	else if (ramp6>ramp_max) ramp6=0;
+	else ramp6 = ramp6 + F4;
+	end
+
+	always@(negedge sound[6] or negedge LRCK_1X)begin
+	if (!sound[6]) ramp7=0;
+	else if (ramp7>ramp_max) ramp7=0;
+	else ramp7 = ramp7 + Gb4;
+	end
+
+	always@(negedge sound[7] or negedge LRCK_1X)begin
+	if (!sound[7]) ramp8=0;
+	else if (ramp8>ramp_max) ramp8=0;
+	else ramp8 = ramp8 + G4;
+	end
+		always@(negedge sound[8] or negedge LRCK_1X)begin
+	if (!sound[8]) ramp9=0;
+	else if (ramp9>ramp_max) ramp9=0;
+	else ramp9 = ramp9 + Ab4;
+	end
+
+	always@(negedge sound[9] or negedge LRCK_1X)begin
+	if (!sound[9]) ramp10=0;
+	else if (ramp10>ramp_max) ramp10=0;
+	else ramp10 = ramp10 + A4;
+	end
+
+	always@(negedge sound[10] or negedge LRCK_1X)begin
+	if (!sound[10]) ramp11=0;
+	else if (ramp11>ramp_max) ramp11=0;
+	else ramp11 = ramp11 + Bb4;
+	end
+
+	always@(negedge sound[11] or negedge LRCK_1X)begin
+	if (!sound[11]) ramp12=0;
+	else if (ramp12>ramp_max) ramp12=0;
+	else ramp12 = ramp12 + B4;
 	end
 
 ////////////Ramp address assign//////////////
@@ -209,10 +295,27 @@ end
 	wire [5:0]ramp2_sin=(instru==18'b0001)?ramp2[15:10]:0;
 	wire [5:0]ramp3_sin=(instru==18'b0001)?ramp3[15:10]:0;
 	wire [5:0]ramp4_sin=(instru==18'b0001)?ramp4[15:10]:0;
+	wire [5:0]ramp5_sin=(instru==18'b0001)?ramp5[15:10]:0;
+	wire [5:0]ramp6_sin=(instru==18'b0001)?ramp6[15:10]:0;
+	wire [5:0]ramp7_sin=(instru==18'b0001)?ramp7[15:10]:0;
+	wire [5:0]ramp8_sin=(instru==18'b0001)?ramp8[15:10]:0;
+	wire [5:0]ramp9_sin=(instru==18'b0001)?ramp9[15:10]:0;
+	wire [5:0]ramp10_sin=(instru==18'b0001)?ramp10[15:10]:0;
+	wire [5:0]ramp11_sin=(instru==18'b0001)?ramp11[15:10]:0;
+	wire [5:0]ramp12_sin=(instru==18'b0001)?ramp12[15:10]:0;
+	
 	wire [5:0]ramp1_square=(instru==18'b0010)?ramp1[15:10]:0;
 	wire [5:0]ramp2_square=(instru==18'b0010)?ramp2[15:10]:0;
 	wire [5:0]ramp3_square=(instru==18'b0010)?ramp3[15:10]:0;
 	wire [5:0]ramp4_square=(instru==18'b0010)?ramp4[15:10]:0;
+	wire [5:0]ramp5_square=(instru==18'b0010)?ramp5[15:10]:0;
+	wire [5:0]ramp6_square=(instru==18'b0010)?ramp6[15:10]:0;
+	wire [5:0]ramp7_square=(instru==18'b0010)?ramp7[15:10]:0;
+	wire [5:0]ramp8_square=(instru==18'b0010)?ramp8[15:10]:0;
+	wire [5:0]ramp9_square=(instru==18'b0010)?ramp9[15:10]:0;
+	wire [5:0]ramp10_square=(instru==18'b0010)?ramp10[15:10]:0;
+	wire [5:0]ramp11_square=(instru==18'b0010)?ramp11[15:10]:0;
+	wire [5:0]ramp12_square=(instru==18'b0010)?ramp12[15:10]:0;
 
 
 
@@ -234,6 +337,38 @@ end
 		.ramp(ramp4_sin),
 		.music_o(music4_sin)
 	);
+		wave_gen_sin s5(
+		.ramp(ramp5_sin),
+		.music_o(music5_sin)
+	);
+	wave_gen_sin s6(
+		.ramp(ramp6_sin),
+		.music_o(music6_sin)
+	);
+	wave_gen_sin s7(
+		.ramp(ramp7_sin),
+		.music_o(music7_sin)
+	);
+	wave_gen_sin s8(
+		.ramp(ramp8_sin),
+		.music_o(music8_sin)
+	);
+		wave_gen_sin s9(
+		.ramp(ramp9_sin),
+		.music_o(music9_sin)
+	);
+	wave_gen_sin s10(
+		.ramp(ramp10_sin),
+		.music_o(music10_sin)
+	);
+	wave_gen_sin s11(
+		.ramp(ramp11_sin),
+		.music_o(music11_sin)
+	);
+	wave_gen_sin s12(
+		.ramp(ramp12_sin),
+		.music_o(music12_sin)
+	);
 
 	/////////Square-wave Timbre////////
 	wave_gen_square sq1(
@@ -251,6 +386,38 @@ end
 	wave_gen_square sq4(
 		.ramp(ramp4_square),
 		.music_o(music4_square)
+	);
+	wave_gen_square sq5(
+		.ramp(ramp5_square),
+		.music_o(music5_square)
+	);
+	wave_gen_square sq6(
+		.ramp(ramp6_square),
+		.music_o(music6_square)
+	);
+	wave_gen_square sq7(
+		.ramp(ramp7_square),
+		.music_o(music7_square)
+	);
+	wave_gen_square sq8(
+		.ramp(ramp8_square),
+		.music_o(music8_square)
+	);
+	wave_gen_square sq9(
+		.ramp(ramp9_square),
+		.music_o(music9_square)
+	);
+	wave_gen_square sq10(
+		.ramp(ramp10_square),
+		.music_o(music10_square)
+	);
+	wave_gen_square sq11(
+		.ramp(ramp11_square),
+		.music_o(music11_square)
+	);
+	wave_gen_square sq12(
+		.ramp(ramp12_square),
+		.music_o(music12_square)
 	);
 	
 	/***************************************************************************
