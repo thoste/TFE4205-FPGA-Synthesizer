@@ -1,0 +1,125 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 0 0 320 224)
+	(text "clocks" (rect 142 -1 166 11)(font "Arial" (font_size 10)))
+	(text "inst" (rect 8 208 20 220)(font "Arial" ))
+	(port
+		(pt 0 72)
+		(input)
+		(text "clk_0_clk" (rect 0 0 37 12)(font "Arial" (font_size 8)))
+		(text "clk_0_clk" (rect 4 61 58 72)(font "Arial" (font_size 8)))
+		(line (pt 0 72)(pt 96 72)(line_width 1))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "clk_1_clk" (rect 0 0 36 12)(font "Arial" (font_size 8)))
+		(text "clk_1_clk" (rect 4 101 58 112)(font "Arial" (font_size 8)))
+		(line (pt 0 112)(pt 96 112)(line_width 1))
+	)
+	(port
+		(pt 0 152)
+		(input)
+		(text "reset_0_reset_n" (rect 0 0 67 12)(font "Arial" (font_size 8)))
+		(text "reset_0_reset_n" (rect 4 141 94 152)(font "Arial" (font_size 8)))
+		(line (pt 0 152)(pt 96 152)(line_width 1))
+	)
+	(port
+		(pt 0 192)
+		(input)
+		(text "reset_1_reset_n" (rect 0 0 66 12)(font "Arial" (font_size 8)))
+		(text "reset_1_reset_n" (rect 4 181 94 192)(font "Arial" (font_size 8)))
+		(line (pt 0 192)(pt 96 192)(line_width 1))
+	)
+	(port
+		(pt 320 72)
+		(output)
+		(text "clock_25_clk" (rect 0 0 51 12)(font "Arial" (font_size 8)))
+		(text "clock_25_clk" (rect 254 61 326 72)(font "Arial" (font_size 8)))
+		(line (pt 320 72)(pt 192 72)(line_width 1))
+	)
+	(port
+		(pt 320 112)
+		(output)
+		(text "clock_25_reset_reset_n" (rect 0 0 97 12)(font "Arial" (font_size 8)))
+		(text "clock_25_reset_reset_n" (rect 197 101 329 112)(font "Arial" (font_size 8)))
+		(line (pt 320 112)(pt 192 112)(line_width 1))
+	)
+	(port
+		(pt 320 152)
+		(output)
+		(text "clock_27_clk_clk" (rect 0 0 68 12)(font "Arial" (font_size 8)))
+		(text "clock_27_clk_clk" (rect 234 141 330 152)(font "Arial" (font_size 8)))
+		(line (pt 320 152)(pt 192 152)(line_width 1))
+	)
+	(port
+		(pt 320 192)
+		(output)
+		(text "clock_27_reset_reset_n" (rect 0 0 97 12)(font "Arial" (font_size 8)))
+		(text "clock_27_reset_reset_n" (rect 197 181 329 192)(font "Arial" (font_size 8)))
+		(line (pt 320 192)(pt 192 192)(line_width 1))
+	)
+	(drawing
+		(text "clk_0" (rect 66 43 162 99)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "clk" (rect 101 67 220 144)(font "Arial" (color 0 0 0)))
+		(text "clk_1" (rect 68 83 166 179)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "clk" (rect 101 107 220 224)(font "Arial" (color 0 0 0)))
+		(text "clock_25" (rect 193 43 434 99)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "clk" (rect 177 67 372 144)(font "Arial" (color 0 0 0)))
+		(text "clock_25_reset" (rect 193 83 470 179)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "reset_n" (rect 156 107 354 224)(font "Arial" (color 0 0 0)))
+		(text "clock_27_clk" (rect 193 123 458 259)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "clk" (rect 177 147 372 304)(font "Arial" (color 0 0 0)))
+		(text "clock_27_reset" (rect 193 163 470 339)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "reset_n" (rect 156 187 354 384)(font "Arial" (color 0 0 0)))
+		(text "reset_0" (rect 52 123 146 259)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "reset_n" (rect 101 147 244 304)(font "Arial" (color 0 0 0)))
+		(text "reset_1" (rect 54 163 150 339)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "reset_n" (rect 101 187 244 384)(font "Arial" (color 0 0 0)))
+		(text " clocks " (rect 290 208 628 426)(font "Arial" ))
+		(line (pt 96 32)(pt 192 32)(line_width 1))
+		(line (pt 192 32)(pt 192 208)(line_width 1))
+		(line (pt 96 208)(pt 192 208)(line_width 1))
+		(line (pt 96 32)(pt 96 208)(line_width 1))
+		(line (pt 97 52)(pt 97 76)(line_width 1))
+		(line (pt 98 52)(pt 98 76)(line_width 1))
+		(line (pt 97 92)(pt 97 116)(line_width 1))
+		(line (pt 98 92)(pt 98 116)(line_width 1))
+		(line (pt 191 52)(pt 191 76)(line_width 1))
+		(line (pt 190 52)(pt 190 76)(line_width 1))
+		(line (pt 191 92)(pt 191 116)(line_width 1))
+		(line (pt 190 92)(pt 190 116)(line_width 1))
+		(line (pt 191 132)(pt 191 156)(line_width 1))
+		(line (pt 190 132)(pt 190 156)(line_width 1))
+		(line (pt 191 172)(pt 191 196)(line_width 1))
+		(line (pt 190 172)(pt 190 196)(line_width 1))
+		(line (pt 97 132)(pt 97 156)(line_width 1))
+		(line (pt 98 132)(pt 98 156)(line_width 1))
+		(line (pt 97 172)(pt 97 196)(line_width 1))
+		(line (pt 98 172)(pt 98 196)(line_width 1))
+		(line (pt 0 0)(pt 320 0)(line_width 1))
+		(line (pt 320 0)(pt 320 224)(line_width 1))
+		(line (pt 0 224)(pt 320 224)(line_width 1))
+		(line (pt 0 0)(pt 0 224)(line_width 1))
+	)
+)

@@ -1,0 +1,122 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate C:\Users\magnu\Documents\Elsys-Avanser-Design-Prosjekt\Lab7-1\DE2_115_SOPC.qsys --block-symbol-file --output-directory=C:\Users\magnu\Documents\Elsys-Avanser-Design-Prosjekt\Lab7-1\DE2_115_SOPC --family="Cyclone IV E" --part=EP4CE115F29C7
+Progress: Loading Lab7-1/DE2_115_SOPC.qsys
+Progress: Reading input file
+Progress: Adding CRC_0 [CRC 1.0]
+Progress: Parameterizing module CRC_0
+Progress: Adding clk_50 [clock_source 17.1]
+Progress: Parameterizing module clk_50
+Progress: Adding cpu [altera_nios2_gen2 17.1]
+Progress: Parameterizing module cpu
+Progress: Adding jtag_uart [altera_avalon_jtag_uart 17.1]
+Progress: Parameterizing module jtag_uart
+Progress: Adding onchip_memory2 [altera_avalon_onchip_memory2 17.1]
+Progress: Parameterizing module onchip_memory2
+Progress: Adding pio_led [altera_avalon_pio 17.1]
+Progress: Parameterizing module pio_led
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: DE2_115_SOPC.jtag_uart: JTAG UART IP input clock need to be at least double (2x) the operating frequency of JTAG TCK on board
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate C:\Users\magnu\Documents\Elsys-Avanser-Design-Prosjekt\Lab7-1\DE2_115_SOPC.qsys --synthesis=VERILOG --output-directory=C:\Users\magnu\Documents\Elsys-Avanser-Design-Prosjekt\Lab7-1\DE2_115_SOPC\synthesis --family="Cyclone IV E" --part=EP4CE115F29C7
+Progress: Loading Lab7-1/DE2_115_SOPC.qsys
+Progress: Reading input file
+Progress: Adding CRC_0 [CRC 1.0]
+Progress: Parameterizing module CRC_0
+Progress: Adding clk_50 [clock_source 17.1]
+Progress: Parameterizing module clk_50
+Progress: Adding cpu [altera_nios2_gen2 17.1]
+Progress: Parameterizing module cpu
+Progress: Adding jtag_uart [altera_avalon_jtag_uart 17.1]
+Progress: Parameterizing module jtag_uart
+Progress: Adding onchip_memory2 [altera_avalon_onchip_memory2 17.1]
+Progress: Parameterizing module onchip_memory2
+Progress: Adding pio_led [altera_avalon_pio 17.1]
+Progress: Parameterizing module pio_led
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: DE2_115_SOPC.jtag_uart: JTAG UART IP input clock need to be at least double (2x) the operating frequency of JTAG TCK on board
+Info: DE2_115_SOPC: Generating DE2_115_SOPC "DE2_115_SOPC" for QUARTUS_SYNTH
+Warning: DE2_115_SOPC: "No matching role found for cpu_custom_instruction_master_translator:ci_slave:ci_slave_result (result)"
+Warning: DE2_115_SOPC: "No matching role found for cpu_custom_instruction_master_multi_xconnect:ci_slave:ci_slave_ipending (ipending)"
+Warning: DE2_115_SOPC: "No matching role found for cpu_custom_instruction_master_multi_xconnect:ci_slave:ci_slave_estatus (estatus)"
+Info: CRC_0: "DE2_115_SOPC" instantiated CRC "CRC_0"
+Info: cpu: "DE2_115_SOPC" instantiated altera_nios2_gen2 "cpu"
+Info: jtag_uart: Starting RTL generation for module 'DE2_115_SOPC_jtag_uart'
+Info: jtag_uart:   Generation command is [exec C:/intelfpga_lite/17.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/17.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=DE2_115_SOPC_jtag_uart --dir=C:/Users/magnu/AppData/Local/Temp/alt7648_7492919383021189250.dir/0015_jtag_uart_gen/ --quartus_dir=C:/intelfpga_lite/17.1/quartus --verilog --config=C:/Users/magnu/AppData/Local/Temp/alt7648_7492919383021189250.dir/0015_jtag_uart_gen//DE2_115_SOPC_jtag_uart_component_configuration.pl  --do_build_sim=0  ]
+Info: jtag_uart: Done RTL generation for module 'DE2_115_SOPC_jtag_uart'
+Info: jtag_uart: "DE2_115_SOPC" instantiated altera_avalon_jtag_uart "jtag_uart"
+Info: onchip_memory2: Starting RTL generation for module 'DE2_115_SOPC_onchip_memory2'
+Info: onchip_memory2:   Generation command is [exec C:/intelfpga_lite/17.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/17.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=DE2_115_SOPC_onchip_memory2 --dir=C:/Users/magnu/AppData/Local/Temp/alt7648_7492919383021189250.dir/0016_onchip_memory2_gen/ --quartus_dir=C:/intelfpga_lite/17.1/quartus --verilog --config=C:/Users/magnu/AppData/Local/Temp/alt7648_7492919383021189250.dir/0016_onchip_memory2_gen//DE2_115_SOPC_onchip_memory2_component_configuration.pl  --do_build_sim=0  ]
+Info: onchip_memory2: Done RTL generation for module 'DE2_115_SOPC_onchip_memory2'
+Info: onchip_memory2: "DE2_115_SOPC" instantiated altera_avalon_onchip_memory2 "onchip_memory2"
+Info: pio_led: Starting RTL generation for module 'DE2_115_SOPC_pio_led'
+Info: pio_led:   Generation command is [exec C:/intelfpga_lite/17.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/17.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga_lite/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=DE2_115_SOPC_pio_led --dir=C:/Users/magnu/AppData/Local/Temp/alt7648_7492919383021189250.dir/0017_pio_led_gen/ --quartus_dir=C:/intelfpga_lite/17.1/quartus --verilog --config=C:/Users/magnu/AppData/Local/Temp/alt7648_7492919383021189250.dir/0017_pio_led_gen//DE2_115_SOPC_pio_led_component_configuration.pl  --do_build_sim=0  ]
+Info: pio_led: Done RTL generation for module 'DE2_115_SOPC_pio_led'
+Info: pio_led: "DE2_115_SOPC" instantiated altera_avalon_pio "pio_led"
+Info: cpu_custom_instruction_master_translator: "DE2_115_SOPC" instantiated altera_customins_master_translator "cpu_custom_instruction_master_translator"
+Info: cpu_custom_instruction_master_multi_xconnect: "DE2_115_SOPC" instantiated altera_customins_xconnect "cpu_custom_instruction_master_multi_xconnect"
+Info: cpu_custom_instruction_master_multi_slave_translator0: "DE2_115_SOPC" instantiated altera_customins_slave_translator "cpu_custom_instruction_master_multi_slave_translator0"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_002: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_003: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_0: "DE2_115_SOPC" instantiated altera_mm_interconnect "mm_interconnect_0"
+Info: irq_mapper: "DE2_115_SOPC" instantiated altera_irq_mapper "irq_mapper"
+Info: rst_controller: "DE2_115_SOPC" instantiated altera_reset_controller "rst_controller"
+Info: cpu: Starting RTL generation for module 'DE2_115_SOPC_cpu_cpu'
+Info: cpu:   Generation command is [exec C:/intelFPGA_lite/17.1/quartus/bin64//eperlcmd.exe -I C:/intelFPGA_lite/17.1/quartus/bin64//perl/lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/17.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/17.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/cpu_lib -I C:/intelfpga_lite/17.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/nios_lib -I C:/intelfpga_lite/17.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -I C:/intelfpga_lite/17.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -- C:/intelfpga_lite/17.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/generate_rtl.epl --name=DE2_115_SOPC_cpu_cpu --dir=C:/Users/magnu/AppData/Local/Temp/alt7648_7492919383021189250.dir/0023_cpu_gen/ --quartus_bindir=C:/intelFPGA_lite/17.1/quartus/bin64/ --verilog --config=C:/Users/magnu/AppData/Local/Temp/alt7648_7492919383021189250.dir/0023_cpu_gen//DE2_115_SOPC_cpu_cpu_processor_configuration.pl  --do_build_sim=0  ]
+Info: cpu: # 2018.04.27 11:25:05 (*) Starting Nios II generation
+Info: cpu: # 2018.04.27 11:25:05 (*)   Checking for plaintext license.
+Info: cpu: # 2018.04.27 11:25:06 (*)   Plaintext license not found.
+Info: cpu: # 2018.04.27 11:25:06 (*)   Checking for encrypted license (non-evaluation).
+Info: cpu: # 2018.04.27 11:25:07 (*)   Encrypted license found.  SOF will not be time-limited.
+Info: cpu: # 2018.04.27 11:25:07 (*)   Elaborating CPU configuration settings
+Info: cpu: # 2018.04.27 11:25:07 (*)   Creating all objects for CPU
+Info: cpu: # 2018.04.27 11:25:07 (*)     Testbench
+Info: cpu: # 2018.04.27 11:25:08 (*)     Instruction decoding
+Info: cpu: # 2018.04.27 11:25:08 (*)       Instruction fields
+Info: cpu: # 2018.04.27 11:25:08 (*)       Instruction decodes
+Info: cpu: # 2018.04.27 11:25:09 (*)       Signals for RTL simulation waveforms
+Info: cpu: # 2018.04.27 11:25:09 (*)       Instruction controls
+Info: cpu: # 2018.04.27 11:25:09 (*)     Pipeline frontend
+Info: cpu: # 2018.04.27 11:25:09 (*)     Pipeline backend
+Info: cpu: # 2018.04.27 11:25:12 (*)   Generating RTL from CPU objects
+Info: cpu: # 2018.04.27 11:25:13 (*)   Creating encrypted RTL
+Info: cpu: # 2018.04.27 11:25:14 (*) Done Nios II generation
+Info: cpu: Done RTL generation for module 'DE2_115_SOPC_cpu_cpu'
+Info: cpu: "cpu" instantiated altera_nios2_gen2_unit "cpu"
+Info: cpu_data_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "cpu_data_master_translator"
+Info: jtag_uart_avalon_jtag_slave_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "jtag_uart_avalon_jtag_slave_translator"
+Info: cpu_data_master_agent: "mm_interconnect_0" instantiated altera_merlin_master_agent "cpu_data_master_agent"
+Info: jtag_uart_avalon_jtag_slave_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "jtag_uart_avalon_jtag_slave_agent"
+Info: jtag_uart_avalon_jtag_slave_agent_rsp_fifo: "mm_interconnect_0" instantiated altera_avalon_sc_fifo "jtag_uart_avalon_jtag_slave_agent_rsp_fifo"
+Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+Info: router_001: "mm_interconnect_0" instantiated altera_merlin_router "router_001"
+Info: router_002: "mm_interconnect_0" instantiated altera_merlin_router "router_002"
+Info: router_003: "mm_interconnect_0" instantiated altera_merlin_router "router_003"
+Info: cpu_data_master_limiter: "mm_interconnect_0" instantiated altera_merlin_traffic_limiter "cpu_data_master_limiter"
+Info: Reusing file C:/Users/magnu/Documents/Elsys-Avanser-Design-Prosjekt/Lab7-1/DE2_115_SOPC/synthesis/submodules/altera_avalon_sc_fifo.v
+Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_demux_001: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux_001"
+Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: cmd_mux_001: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux_001"
+Info: Reusing file C:/Users/magnu/Documents/Elsys-Avanser-Design-Prosjekt/Lab7-1/DE2_115_SOPC/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_demux_001: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux_001"
+Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file C:/Users/magnu/Documents/Elsys-Avanser-Design-Prosjekt/Lab7-1/DE2_115_SOPC/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_mux_001: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux_001"
+Info: Reusing file C:/Users/magnu/Documents/Elsys-Avanser-Design-Prosjekt/Lab7-1/DE2_115_SOPC/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
+Info: DE2_115_SOPC: Done "DE2_115_SOPC" with 33 modules, 54 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

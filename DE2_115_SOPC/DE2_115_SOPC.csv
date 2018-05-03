@@ -1,0 +1,27 @@
+# system info DE2_115_SOPC on 2018.04.27.11:24:18
+system_info:
+name,value
+DEVICE,EP4CE115F29C7
+DEVICE_FAMILY,Cyclone IV E
+GENERATION_ID,1524821054
+#
+#
+# Files generated for DE2_115_SOPC on 2018.04.27.11:24:18
+files:
+filepath,kind,attributes,module,is_top
+simulation/DE2_115_SOPC.v,VERILOG,,DE2_115_SOPC,true
+#
+# Map from instance-path to kind of module
+instances:
+instancePath,module
+DE2_115_SOPC.CRC_0,DE2_115_SOPC_CRC_0
+DE2_115_SOPC.cpu,DE2_115_SOPC_cpu
+DE2_115_SOPC.jtag_uart,DE2_115_SOPC_jtag_uart
+DE2_115_SOPC.onchip_memory2,DE2_115_SOPC_onchip_memory2
+DE2_115_SOPC.pio_led,DE2_115_SOPC_pio_led
+DE2_115_SOPC.cpu_custom_instruction_master_translator,altera_customins_master_translator
+DE2_115_SOPC.cpu_custom_instruction_master_multi_xconnect,DE2_115_SOPC_cpu_custom_instruction_master_multi_xconnect
+DE2_115_SOPC.cpu_custom_instruction_master_multi_slave_translator0,altera_customins_slave_translator
+DE2_115_SOPC.mm_interconnect_0,DE2_115_SOPC_mm_interconnect_0
+DE2_115_SOPC.irq_mapper,DE2_115_SOPC_irq_mapper
+DE2_115_SOPC.rst_controller,altera_reset_controller
