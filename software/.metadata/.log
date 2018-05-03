@@ -716,3 +716,9 @@ org.eclipse.core.runtime.CoreException: Cannot determine URI for '/key__test/sou
 
 !ENTRY com.altera.sbtgui.launch 1 0 2018-04-30 16:04:12.765
 !MESSAGE Executing: [C:/intelfpga_lite/17.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid /cygdrive/c/Users/magnu/Documents/Elsys-Avanser-Design-Prosjekt/FPGA-Synthesizer/software/synth_four_key/synth_four_key.elf]
+
+!ENTRY org.eclipse.cdt.core 1 0 2018-04-30 16:58:14.460
+!MESSAGE Indexed 'irq_test1_bsp' (79 sources, 60 headers) in 0.553 sec: 1,197 declarations; 2,544 references; 110 unresolved inclusions; 6 syntax errors; 195 unresolved names (5%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2018-04-30 16:58:18.288
+!MESSAGE Indexed 'irq_test1' (1 sources, 0 headers) in 0.002 sec: 1 declarations; 1 references; 1 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)

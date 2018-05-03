@@ -173,11 +173,6 @@ module DE2_115_SOPC_mm_interconnect_0_router
 
 
 
-    // -------------------------------------------------------
-    // Write and read transaction signals
-    // -------------------------------------------------------
-    wire read_transaction;
-    assign read_transaction  = sink_data[PKT_TRANS_READ];
 
 
     DE2_115_SOPC_mm_interconnect_0_router_default_decode the_default_decode(
@@ -210,7 +205,7 @@ module DE2_115_SOPC_mm_interconnect_0_router
     end
 
     // ( 0x81010 .. 0x81020 )
-    if ( {address[RG:PAD2],{PAD2{1'b0}}} == 20'h81010  && read_transaction  ) begin
+    if ( {address[RG:PAD2],{PAD2{1'b0}}} == 20'h81010   ) begin
             src_channel = 5'b10000;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 3;
     end

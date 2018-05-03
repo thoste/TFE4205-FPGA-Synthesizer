@@ -110,9 +110,13 @@ module DE2_115_SOPC (
 	wire   [1:0] mm_interconnect_0_pio_led_s1_address;                                   // mm_interconnect_0:pio_led_s1_address -> pio_led:address
 	wire         mm_interconnect_0_pio_led_s1_write;                                     // mm_interconnect_0:pio_led_s1_write -> pio_led:write_n
 	wire  [31:0] mm_interconnect_0_pio_led_s1_writedata;                                 // mm_interconnect_0:pio_led_s1_writedata -> pio_led:writedata
+	wire         mm_interconnect_0_pio_keys_s1_chipselect;                               // mm_interconnect_0:pio_keys_s1_chipselect -> pio_keys:chipselect
 	wire  [31:0] mm_interconnect_0_pio_keys_s1_readdata;                                 // pio_keys:readdata -> mm_interconnect_0:pio_keys_s1_readdata
 	wire   [1:0] mm_interconnect_0_pio_keys_s1_address;                                  // mm_interconnect_0:pio_keys_s1_address -> pio_keys:address
+	wire         mm_interconnect_0_pio_keys_s1_write;                                    // mm_interconnect_0:pio_keys_s1_write -> pio_keys:write_n
+	wire  [31:0] mm_interconnect_0_pio_keys_s1_writedata;                                // mm_interconnect_0:pio_keys_s1_writedata -> pio_keys:writedata
 	wire         irq_mapper_receiver0_irq;                                               // jtag_uart:av_irq -> irq_mapper:receiver0_irq
+	wire         irq_mapper_receiver1_irq;                                               // pio_keys:irq -> irq_mapper:receiver1_irq
 	wire  [31:0] cpu_irq_irq;                                                            // irq_mapper:sender_irq -> cpu:irq
 	wire         rst_controller_reset_out_reset;                                         // rst_controller:reset_out -> [cpu:reset_n, irq_mapper:reset, jtag_uart:rst_n, mm_interconnect_0:cpu_reset_reset_bridge_in_reset_reset, onchip_memory2:reset, pio_keys:reset_n, pio_led:reset_n, rst_translator:in_reset]
 	wire         rst_controller_reset_out_reset_req;                                     // rst_controller:reset_req -> [cpu:reset_req, onchip_memory2:reset_req, rst_translator:reset_req_in]
@@ -191,11 +195,15 @@ module DE2_115_SOPC (
 	);
 
 	DE2_115_SOPC_pio_keys pio_keys (
-		.clk      (clk_clk),                                //                 clk.clk
-		.reset_n  (~rst_controller_reset_out_reset),        //               reset.reset_n
-		.address  (mm_interconnect_0_pio_keys_s1_address),  //                  s1.address
-		.readdata (mm_interconnect_0_pio_keys_s1_readdata), //                    .readdata
-		.in_port  (pio_keys_external_connection_export)     // external_connection.export
+		.clk        (clk_clk),                                  //                 clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),          //               reset.reset_n
+		.address    (mm_interconnect_0_pio_keys_s1_address),    //                  s1.address
+		.write_n    (~mm_interconnect_0_pio_keys_s1_write),     //                    .write_n
+		.writedata  (mm_interconnect_0_pio_keys_s1_writedata),  //                    .writedata
+		.chipselect (mm_interconnect_0_pio_keys_s1_chipselect), //                    .chipselect
+		.readdata   (mm_interconnect_0_pio_keys_s1_readdata),   //                    .readdata
+		.in_port    (pio_keys_external_connection_export),      // external_connection.export
+		.irq        (irq_mapper_receiver1_irq)                  //                 irq.irq
 	);
 
 	DE2_115_SOPC_pio_led pio_led (
@@ -404,7 +412,10 @@ module DE2_115_SOPC (
 		.onchip_memory2_s1_chipselect            (mm_interconnect_0_onchip_memory2_s1_chipselect),            //                                .chipselect
 		.onchip_memory2_s1_clken                 (mm_interconnect_0_onchip_memory2_s1_clken),                 //                                .clken
 		.pio_keys_s1_address                     (mm_interconnect_0_pio_keys_s1_address),                     //                     pio_keys_s1.address
+		.pio_keys_s1_write                       (mm_interconnect_0_pio_keys_s1_write),                       //                                .write
 		.pio_keys_s1_readdata                    (mm_interconnect_0_pio_keys_s1_readdata),                    //                                .readdata
+		.pio_keys_s1_writedata                   (mm_interconnect_0_pio_keys_s1_writedata),                   //                                .writedata
+		.pio_keys_s1_chipselect                  (mm_interconnect_0_pio_keys_s1_chipselect),                  //                                .chipselect
 		.pio_led_s1_address                      (mm_interconnect_0_pio_led_s1_address),                      //                      pio_led_s1.address
 		.pio_led_s1_write                        (mm_interconnect_0_pio_led_s1_write),                        //                                .write
 		.pio_led_s1_readdata                     (mm_interconnect_0_pio_led_s1_readdata),                     //                                .readdata
@@ -416,6 +427,7 @@ module DE2_115_SOPC (
 		.clk           (clk_clk),                        //       clk.clk
 		.reset         (rst_controller_reset_out_reset), // clk_reset.reset
 		.receiver0_irq (irq_mapper_receiver0_irq),       // receiver0.irq
+		.receiver1_irq (irq_mapper_receiver1_irq),       // receiver1.irq
 		.sender_irq    (cpu_irq_irq)                     //    sender.irq
 	);
 

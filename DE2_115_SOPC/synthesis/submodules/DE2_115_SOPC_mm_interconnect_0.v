@@ -46,7 +46,10 @@ module DE2_115_SOPC_mm_interconnect_0 (
 		output wire        onchip_memory2_s1_chipselect,            //                                .chipselect
 		output wire        onchip_memory2_s1_clken,                 //                                .clken
 		output wire [1:0]  pio_keys_s1_address,                     //                     pio_keys_s1.address
+		output wire        pio_keys_s1_write,                       //                                .write
 		input  wire [31:0] pio_keys_s1_readdata,                    //                                .readdata
+		output wire [31:0] pio_keys_s1_writedata,                   //                                .writedata
+		output wire        pio_keys_s1_chipselect,                  //                                .chipselect
 		output wire [1:0]  pio_led_s1_address,                      //                      pio_led_s1.address
 		output wire        pio_led_s1_write,                        //                                .write
 		input  wire [31:0] pio_led_s1_readdata,                     //                                .readdata
@@ -861,10 +864,11 @@ module DE2_115_SOPC_mm_interconnect_0 (
 		.uav_lock               (pio_keys_s1_agent_m0_lock),             //                         .lock
 		.uav_debugaccess        (pio_keys_s1_agent_m0_debugaccess),      //                         .debugaccess
 		.av_address             (pio_keys_s1_address),                   //      avalon_anti_slave_0.address
+		.av_write               (pio_keys_s1_write),                     //                         .write
 		.av_readdata            (pio_keys_s1_readdata),                  //                         .readdata
-		.av_write               (),                                      //              (terminated)
+		.av_writedata           (pio_keys_s1_writedata),                 //                         .writedata
+		.av_chipselect          (pio_keys_s1_chipselect),                //                         .chipselect
 		.av_read                (),                                      //              (terminated)
-		.av_writedata           (),                                      //              (terminated)
 		.av_begintransfer       (),                                      //              (terminated)
 		.av_beginbursttransfer  (),                                      //              (terminated)
 		.av_burstcount          (),                                      //              (terminated)
@@ -873,7 +877,6 @@ module DE2_115_SOPC_mm_interconnect_0 (
 		.av_waitrequest         (1'b0),                                  //              (terminated)
 		.av_writebyteenable     (),                                      //              (terminated)
 		.av_lock                (),                                      //              (terminated)
-		.av_chipselect          (),                                      //              (terminated)
 		.av_clken               (),                                      //              (terminated)
 		.uav_clken              (1'b0),                                  //              (terminated)
 		.av_debugaccess         (),                                      //              (terminated)

@@ -1,0 +1,6 @@
+16:58:17 **** Clean-only build of configuration Nios II for project irq_test1 ****
+make clean 
+[irq_test1 clean complete]
+
+16:58:18 Build Finished (took 1s.168ms)
+

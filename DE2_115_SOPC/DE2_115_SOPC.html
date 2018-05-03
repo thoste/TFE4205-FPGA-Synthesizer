@@ -67,7 +67,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
   </table>
   <table class="blueBar">
    <tr>
-    <td class="l">2018.04.30.15:02:58</td>
+    <td class="l">2018.04.30.16:56:36</td>
     <td class="r">Datasheet</td>
    </tr>
   </table>
@@ -246,7 +246,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        <a href="#module_clk_50">clk_50</a>
       </td>
       <td class="from">clk&#160;&#160;</td>
-      <td class="main" rowspan="22">cpu</td>
+      <td class="main" rowspan="24">cpu</td>
      </tr>
      <tr>
       <td class="to">&#160;&#160;clk</td>
@@ -329,7 +329,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
       <td></td>
       <td></td>
       <td class="from">data_master&#160;&#160;</td>
-      <td class="neighbor" rowspan="2">
+      <td class="neighbor" rowspan="4">
        <a href="#module_pio_keys">pio_keys</a>
       </td>
      </tr>
@@ -337,6 +337,16 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
       <td></td>
       <td></td>
       <td class="to">&#160;&#160;s1</td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="from">irq&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="to">&#160;&#160;irq</td>
      </tr>
      <tr style="height:6px">
       <td></td>
@@ -1105,7 +1115,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">internalIrqMaskSystemInfo</td>
-        <td class="parametervalue">1</td>
+        <td class="parametervalue">3</td>
        </tr>
        <tr>
         <td class="parametername">customInstSlavesSystemInfo</td>
@@ -1721,14 +1731,20 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
    <div class="greydiv">
     <table class="connectionboxes">
      <tr>
-      <td class="neighbor" rowspan="2">
+      <td class="neighbor" rowspan="4">
        <a href="#module_cpu">cpu</a>
       </td>
       <td class="from">data_master&#160;&#160;</td>
-      <td class="main" rowspan="7">pio_keys</td>
+      <td class="main" rowspan="9">pio_keys</td>
      </tr>
      <tr>
       <td class="to">&#160;&#160;s1</td>
+     </tr>
+     <tr>
+      <td class="from">irq&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;irq</td>
      </tr>
      <tr style="height:6px">
       <td></td>
@@ -1767,7 +1783,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">captureEdge</td>
-        <td class="parametervalue">false</td>
+        <td class="parametervalue">true</td>
        </tr>
        <tr>
         <td class="parametername">direction</td>
@@ -1775,15 +1791,15 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">edgeType</td>
-        <td class="parametervalue">RISING</td>
+        <td class="parametervalue">ANY</td>
        </tr>
        <tr>
         <td class="parametername">generateIRQ</td>
-        <td class="parametervalue">false</td>
+        <td class="parametervalue">true</td>
        </tr>
        <tr>
         <td class="parametername">irqType</td>
-        <td class="parametervalue">LEVEL</td>
+        <td class="parametervalue">EDGE</td>
        </tr>
        <tr>
         <td class="parametername">resetValue</td>
@@ -1823,19 +1839,19 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">derived_capture</td>
-        <td class="parametervalue">false</td>
+        <td class="parametervalue">true</td>
        </tr>
        <tr>
         <td class="parametername">derived_edge_type</td>
-        <td class="parametervalue">NONE</td>
+        <td class="parametervalue">ANY</td>
        </tr>
        <tr>
         <td class="parametername">derived_irq_type</td>
-        <td class="parametervalue">NONE</td>
+        <td class="parametervalue">EDGE</td>
        </tr>
        <tr>
         <td class="parametername">derived_has_irq</td>
-        <td class="parametervalue">false</td>
+        <td class="parametervalue">true</td>
        </tr>
        <tr>
         <td class="parametername">deviceFamily</td>
@@ -1864,7 +1880,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">CAPTURE</td>
-        <td class="parametervalue">0</td>
+        <td class="parametervalue">1</td>
        </tr>
        <tr>
         <td class="parametername">DATA_WIDTH</td>
@@ -1880,7 +1896,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">EDGE_TYPE</td>
-        <td class="parametervalue">NONE</td>
+        <td class="parametervalue">ANY</td>
        </tr>
        <tr>
         <td class="parametername">FREQ</td>
@@ -1900,7 +1916,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">IRQ_TYPE</td>
-        <td class="parametervalue">NONE</td>
+        <td class="parametervalue">EDGE</td>
        </tr>
        <tr>
         <td class="parametername">RESET_VALUE</td>
@@ -2157,7 +2173,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
   <table class="blueBar">
    <tr>
     <td class="l">generation took 0.01 seconds</td>
-    <td class="r">rendering took 0.07 seconds</td>
+    <td class="r">rendering took 0.05 seconds</td>
    </tr>
   </table>
  </body>
