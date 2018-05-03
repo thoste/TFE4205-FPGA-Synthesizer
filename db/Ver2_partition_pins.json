@@ -84,6 +84,14 @@
 					"strict" : false
 				},
 				{
+					"name" : "PS2_CLK",
+					"strict" : false
+				},
+				{
+					"name" : "PS2_DAT",
+					"strict" : false
+				},
+				{
 					"name" : "LCD_DATA[7]",
 					"strict" : false
 				},
@@ -140,11 +148,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "KEY[3]",
-					"strict" : false
-				},
-				{
-					"name" : "KEY[2]",
+					"name" : "KEY[1]",
 					"strict" : false
 				},
 				{
@@ -152,7 +156,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "KEY[1]",
+					"name" : "KEY[3]",
+					"strict" : false
+				},
+				{
+					"name" : "KEY[2]",
 					"strict" : false
 				},
 				{

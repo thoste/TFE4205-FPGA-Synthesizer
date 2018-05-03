@@ -1,4 +1,4 @@
-module ps2_keyboard(	
+module ps2_keyboard(
 					input	iCLK_50,
 					inout   ps2_dat,
 					input   ps2_clk,
@@ -15,11 +15,11 @@ module ps2_keyboard(
 
 ////////////Keyboard Initially/////////
 	reg [10:0] MCNT;
-	always @(negedge reset or posedge sys_clk) 
+	always @(negedge reset or posedge sys_clk)
 	begin
-		if (!reset) 
+		if (!reset)
 			MCNT=0;
-		else if(MCNT < 500) 
+		else if(MCNT < 500)
 			MCNT=MCNT+1;
 //		else if ( !is_key && (key1_code!=keycode_o))
 //			MCNT=0;
@@ -28,17 +28,17 @@ module ps2_keyboard(
 ///// sequence generator /////
 //	reg	[7:0]	revcnt;
 	wire rev_tr=(MCNT<12)?1:0;
-	
+
 //	always @(posedge rev_tr or posedge ps2_clk)
 //	begin
 //		if (rev_tr)
 //			revcnt=0;
-//		else if (revcnt >=10) 
+//		else if (revcnt >=10)
 //			revcnt=0;
 //		else
 //			revcnt=revcnt+1;
 //	end
-	
+
 //////KeyBoard serial data in /////
 //	reg [9:0]keycode_o;
 //	always @(posedge ps2_clk) begin
@@ -61,27 +61,27 @@ module ps2_keyboard(
 
 ///////KeyBoard Scan-Code trigger//////
 	reg keyready;
-	always @(posedge rev_tr or negedge ps2_clk) begin 
-		if (rev_tr)	
+	always @(posedge rev_tr or negedge ps2_clk) begin
+		if (rev_tr)
 			keyready=0;
 		else if (revcnt[3:0]==10)
 			keyready=1;
-		else	
+		else
 			keyready=0;
-    end			
+    end
 /////////////////////////////////////Key1-Key2 Output///////////////////////////
 	wire is_key=(
 		(keycode_o==8'h1c)?1:(
-		(keycode_o==8'h1b)?1:(	
+		(keycode_o==8'h1b)?1:(
 		(keycode_o==8'h23)?1:(
-		(keycode_o==8'h2b)?1:(	
-		(keycode_o==8'h34)?1:(	
-		(keycode_o==8'h33)?1:(	
-		(keycode_o==8'h3b)?1:(	
-		(keycode_o==8'h42)?1:(	
-		(keycode_o==8'h4b)?1:(	
-		(keycode_o==8'h4c)?1:(	
-		(keycode_o==8'h52)?1:(	
+		(keycode_o==8'h2b)?1:(
+		(keycode_o==8'h34)?1:(
+		(keycode_o==8'h33)?1:(
+		(keycode_o==8'h3b)?1:(
+		(keycode_o==8'h42)?1:(
+		(keycode_o==8'h4b)?1:(
+		(keycode_o==8'h4c)?1:(
+		(keycode_o==8'h52)?1:(
 		(keycode_o==8'h5b)?1:(
 		(keycode_o==8'h4d)?1:(
 		(keycode_o==8'h44)?1:(
@@ -93,43 +93,43 @@ module ps2_keyboard(
 		(keycode_o==8'h15)?1:0
 		)))))))))))))))))))
 	);
-	
+
 //////////////key1 & key2 Assign///////////
 	wire keyboard_off=((MCNT==200) || (!reset1))?0:1;
 
 	always @(posedge keyready) scandata = keycode_o;
-	
-always @(negedge keyboard_off  or posedge keyready) 
+
+always @(negedge keyboard_off  or posedge keyready)
 begin
-	if (!keyboard_off) 
-	begin 
+	if (!keyboard_off)
+	begin
 		key1_on=0;
 		key2_on=0;
 		key1_code=8'hf0;
 		key2_code=8'hf0;
-	end 
-	else if (scandata==8'hf0) 	
+	end
+	else if (scandata==8'hf0)
 	begin
-		if (keycode_o==key1_code) 
-		begin 
-			key1_code=8'hf0; 
-			key1_on=0; 
+		if (keycode_o==key1_code)
+		begin
+			key1_code=8'hf0;
+			key1_on=0;
 		end
-		else if (keycode_o==key2_code) 
-		begin 
+		else if (keycode_o==key2_code)
+		begin
 			key2_code=8'hf0;
-			key2_on=0; 
-		end	
-	end		
-	else if (is_key) 		
+			key2_on=0;
+		end
+	end
+	else if (is_key)
 	begin
-		if ((!key1_on) && (key2_code!=keycode_o)) 
-		begin  
+		if ((!key1_on) && (key2_code!=keycode_o))
+		begin
 			key1_on=1;
 			key1_code=keycode_o;
 		end
-		else if ((!key2_on) && (key1_code!=keycode_o)) 
-		begin  
+		else if ((!key2_on) && (key1_code!=keycode_o))
+		begin
 			key2_on=1;
 			key2_code=keycode_o;
 		end
@@ -149,7 +149,7 @@ always@(posedge iCLK_50)
 	begin
 		clk_div <= clk_div+1;
 	end
-	
+
 assign clk = clk_div[8];
 //multi-clock region simple synchronization
 always@(posedge clk)
@@ -161,18 +161,18 @@ begin
 end
 reg [7:0]	keycode_o;
 reg	[7:0]	revcnt;
-	
+
 always @( posedge ps2_clk_in or negedge keyboard_off)
 	begin
 		if (!keyboard_off)
 			revcnt=0;
-		else if (revcnt >=10) 
+		else if (revcnt >=10)
 			revcnt=0;
 		else
 			revcnt=revcnt+1;
 	end
-	
-always @(posedge ps2_clk_in) 
+
+always @(posedge ps2_clk_in)
 begin
 	case (revcnt[3:0])
 		1:keycode_o[0]=ps2_dat_in;

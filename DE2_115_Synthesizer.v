@@ -92,10 +92,10 @@ module DE2_115_Synthesizer(
     /*
      * Keyboard interface
      */
-    inout PS2_CLK,
-    inout PS2_DAT,
-    inout PS2_CLK2,
-    inout PS2_DAT2,
+    // inout PS2_CLK,
+    // inout PS2_DAT,
+    // inout PS2_CLK2,
+    // inout PS2_DAT2,
 
     /*
      * Audio interface to/from DAC/ADC
@@ -341,24 +341,24 @@ module DE2_115_Synthesizer(
     /*
      * Keyboard setup
      */
-    assign keyboard_sysclk = VGA_CLKo[12]; // keyboard_sysclk = CLOCK_50 / 2^12
-    assign PS2_DAT2        = 1'b1;
-    assign PS2_CLK2        = 1'b1;
-
-    // KeyBoard Scan
-    ps2_keyboard keyboard (
-        .iCLK_50   ( CLOCK_50),          //clock source;
-        .ps2_dat   ( PS2_DAT ),          //ps2bus data
-        .ps2_clk   ( PS2_CLK ),          //ps2bus clk
-        .sys_clk   ( keyboard_sysclk ),  //system clock
-        .reset     ( KEY[3] ),           //system reset
-        .reset1    ( KEY[2] ),           //keyboard reset
-        .scandata  ( scan_code ),        //scan code
-        .key1_on   ( key1_on ),          //key1 triger
-        .key2_on   ( key2_on ),          //key2 triger
-        .key1_code ( key1_code ),        //key1 code
-        .key2_code ( key2_code )         //key2 code
-    );
+    // assign keyboard_sysclk = VGA_CLKo[12]; // keyboard_sysclk = CLOCK_50 / 2^12
+    // assign PS2_DAT2        = 1'b1;
+    // assign PS2_CLK2        = 1'b1;
+    //
+    // // KeyBoard Scan
+    // ps2_keyboard keyboard (
+    //     .iCLK_50   ( CLOCK_50),          //clock source;
+    //     .ps2_dat   ( PS2_DAT ),          //ps2bus data
+    //     .ps2_clk   ( PS2_CLK ),          //ps2bus clk
+    //     .sys_clk   ( keyboard_sysclk ),  //system clock
+    //     .reset     ( KEY[3] ),           //system reset
+    //     .reset1    ( KEY[2] ),           //keyboard reset
+    //     .scandata  ( scan_code ),        //scan code
+    //     .key1_on   ( key1_on ),          //key1 triger
+    //     .key2_on   ( key2_on ),          //key2 triger
+    //     .key1_code ( key1_code ),        //key1 code
+    //     .key2_code ( key2_code )         //key2 code
+    // );
 
     /*
      * TV decoder enable

@@ -1,22 +1,14 @@
-module ps2(           
-           iRST_n,   //FSM reset signal;
-           iCLK_50,  //clock source;
-           PS2_CLK,  //ps2_clock signal inout;
-           PS2_DAT,  //ps2_data  signal inout;
-           keycode_o,
-		   revcnt
-           ); 
+module ps2(
+    input            iRST_n,   //FSM reset signal;
+    input            iCLK_50,  //clock source;
+    inout            PS2_CLK,  //ps2_clock signal inout;
+    inout            PS2_DAT,  //ps2_data  signal inout;
+    output reg [7:0] keycode
+);
            //interface;
 //=======================================================
 //  PORT declarations
 //=======================================================
-
-input iRST_n;
-input iCLK_50;
-
-inout PS2_CLK;
-inout PS2_DAT;
-
 
 //instruction define, users can charge the instruction byte here for other purpose according to ps/2 mouse datasheet.
 //the MSB is of parity check bit, that's when there are odd number of 1's with data bits, it's value is '0',otherwise it's '1' instead.
@@ -39,17 +31,17 @@ reg       leflatch,riglatch,midlatch;
 reg       ps2_clk_in,ps2_clk_syn1,ps2_dat_in,ps2_dat_syn1;
 wire      clk,ps2_dat_syn0,ps2_clk_syn0,ps2_dat_out,ps2_clk_out;
 
-          
+
 //=======================================================
 //  Structural coding
-//=======================================================          
+//=======================================================
 //clk division, derive a 97.65625KHz clock from the 50MHz source;
 
 always@(posedge iCLK_50)
 	begin
 		clk_div <= clk_div+1;
 	end
-	
+
 assign clk = clk_div[8];
 //tristate output control for PS2_DAT and PS2_CLK;
 
@@ -120,35 +112,34 @@ always@(posedge clk)
 //end
 
 //////KeyBoard serial data in /////
-output	reg [7:0]	keycode_o;
-output	reg	[7:0]	revcnt;
-	
+reg [7:0] keycode_o;
+reg [7:0] revcnt;
+
 always @( posedge ps2_clk_in or negedge iRST_n)
 	begin
-		if (!iRST_n)
-			revcnt=0;
-		else if (revcnt >=10) 
-			revcnt=0;
-		else
-			revcnt=revcnt+1;
+		if (!iRST_n) begin
+			revcnt = 0;
+            keycode = 0;
+		end else if (revcnt >= 10) begin
+            keycode = keycode_o;
+			revcnt = 0;
+		end else begin
+			revcnt = revcnt + 1;
+        end
 	end
-	
-always @(posedge ps2_clk_in) 
+
+always @(posedge ps2_clk_in)
 begin
 	case (revcnt[3:0])
-		1:keycode_o[0]=ps2_dat_in;
-		2:keycode_o[1]=ps2_dat_in;
-		3:keycode_o[2]=ps2_dat_in;
-		4:keycode_o[3]=ps2_dat_in;
-		5:keycode_o[4]=ps2_dat_in;
-		6:keycode_o[5]=ps2_dat_in;
-		7:keycode_o[6]=ps2_dat_in;
-		8:keycode_o[7]=ps2_dat_in;
+		2:keycode_o[0]=ps2_dat_in;
+		3:keycode_o[1]=ps2_dat_in;
+		4:keycode_o[2]=ps2_dat_in;
+		5:keycode_o[3]=ps2_dat_in;
+		6:keycode_o[4]=ps2_dat_in;
+		7:keycode_o[5]=ps2_dat_in;
+		8:keycode_o[6]=ps2_dat_in;
+		9:keycode_o[7]=ps2_dat_in;
 	endcase
 end
 
 endmodule
-
-
-     
-

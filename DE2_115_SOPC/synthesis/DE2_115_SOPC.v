@@ -4,12 +4,13 @@
 
 `timescale 1 ps / 1 ps
 module DE2_115_SOPC (
-		input  wire        clk_clk,                             //                          clk.clk
-		input  wire [3:0]  pio_keys_external_connection_export, // pio_keys_external_connection.export
-		output wire [7:0]  pio_led_external_connection_export,  //  pio_led_external_connection.export
-		input  wire        reset_reset_n,                       //                        reset.reset_n
-		output wire [17:0] synth_effects_ctrl_effects_ctrl_bus, //           synth_effects_ctrl.effects_ctrl_bus
-		output wire [87:0] synth_sounds_ctrl_sound_ctrl_bus     //            synth_sounds_ctrl.sound_ctrl_bus
+		input  wire        clk_clk,                                 //                              clk.clk
+		input  wire [7:0]  pio_keyboard_external_connection_export, // pio_keyboard_external_connection.export
+		input  wire [3:0]  pio_keys_external_connection_export,     //     pio_keys_external_connection.export
+		output wire [7:0]  pio_led_external_connection_export,      //      pio_led_external_connection.export
+		input  wire        reset_reset_n,                           //                            reset.reset_n
+		output wire [17:0] synth_effects_ctrl_effects_ctrl_bus,     //               synth_effects_ctrl.effects_ctrl_bus
+		output wire [87:0] synth_sounds_ctrl_sound_ctrl_bus         //                synth_sounds_ctrl.sound_ctrl_bus
 	);
 
 	wire  [31:0] cpu_custom_instruction_master_multi_dataa;                              // cpu:A_ci_multi_dataa -> cpu_custom_instruction_master_translator:ci_slave_multi_dataa
@@ -115,10 +116,12 @@ module DE2_115_SOPC (
 	wire   [1:0] mm_interconnect_0_pio_keys_s1_address;                                  // mm_interconnect_0:pio_keys_s1_address -> pio_keys:address
 	wire         mm_interconnect_0_pio_keys_s1_write;                                    // mm_interconnect_0:pio_keys_s1_write -> pio_keys:write_n
 	wire  [31:0] mm_interconnect_0_pio_keys_s1_writedata;                                // mm_interconnect_0:pio_keys_s1_writedata -> pio_keys:writedata
+	wire  [31:0] mm_interconnect_0_pio_keyboard_s1_readdata;                             // pio_keyboard:readdata -> mm_interconnect_0:pio_keyboard_s1_readdata
+	wire   [1:0] mm_interconnect_0_pio_keyboard_s1_address;                              // mm_interconnect_0:pio_keyboard_s1_address -> pio_keyboard:address
 	wire         irq_mapper_receiver0_irq;                                               // jtag_uart:av_irq -> irq_mapper:receiver0_irq
 	wire         irq_mapper_receiver1_irq;                                               // pio_keys:irq -> irq_mapper:receiver1_irq
 	wire  [31:0] cpu_irq_irq;                                                            // irq_mapper:sender_irq -> cpu:irq
-	wire         rst_controller_reset_out_reset;                                         // rst_controller:reset_out -> [cpu:reset_n, irq_mapper:reset, jtag_uart:rst_n, mm_interconnect_0:cpu_reset_reset_bridge_in_reset_reset, onchip_memory2:reset, pio_keys:reset_n, pio_led:reset_n, rst_translator:in_reset]
+	wire         rst_controller_reset_out_reset;                                         // rst_controller:reset_out -> [cpu:reset_n, irq_mapper:reset, jtag_uart:rst_n, mm_interconnect_0:cpu_reset_reset_bridge_in_reset_reset, onchip_memory2:reset, pio_keyboard:reset_n, pio_keys:reset_n, pio_led:reset_n, rst_translator:in_reset]
 	wire         rst_controller_reset_out_reset_req;                                     // rst_controller:reset_req -> [cpu:reset_req, onchip_memory2:reset_req, rst_translator:reset_req_in]
 
 	DE2_115_SOPC_cpu cpu (
@@ -192,6 +195,14 @@ module DE2_115_SOPC (
 		.reset      (rst_controller_reset_out_reset),                 // reset1.reset
 		.reset_req  (rst_controller_reset_out_reset_req),             //       .reset_req
 		.freeze     (1'b0)                                            // (terminated)
+	);
+
+	DE2_115_SOPC_pio_keyboard pio_keyboard (
+		.clk      (clk_clk),                                    //                 clk.clk
+		.reset_n  (~rst_controller_reset_out_reset),            //               reset.reset_n
+		.address  (mm_interconnect_0_pio_keyboard_s1_address),  //                  s1.address
+		.readdata (mm_interconnect_0_pio_keyboard_s1_readdata), //                    .readdata
+		.in_port  (pio_keyboard_external_connection_export)     // external_connection.export
 	);
 
 	DE2_115_SOPC_pio_keys pio_keys (
@@ -411,6 +422,8 @@ module DE2_115_SOPC (
 		.onchip_memory2_s1_byteenable            (mm_interconnect_0_onchip_memory2_s1_byteenable),            //                                .byteenable
 		.onchip_memory2_s1_chipselect            (mm_interconnect_0_onchip_memory2_s1_chipselect),            //                                .chipselect
 		.onchip_memory2_s1_clken                 (mm_interconnect_0_onchip_memory2_s1_clken),                 //                                .clken
+		.pio_keyboard_s1_address                 (mm_interconnect_0_pio_keyboard_s1_address),                 //                 pio_keyboard_s1.address
+		.pio_keyboard_s1_readdata                (mm_interconnect_0_pio_keyboard_s1_readdata),                //                                .readdata
 		.pio_keys_s1_address                     (mm_interconnect_0_pio_keys_s1_address),                     //                     pio_keys_s1.address
 		.pio_keys_s1_write                       (mm_interconnect_0_pio_keys_s1_write),                       //                                .write
 		.pio_keys_s1_readdata                    (mm_interconnect_0_pio_keys_s1_readdata),                    //                                .readdata

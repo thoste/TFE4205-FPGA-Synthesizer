@@ -1,26 +1,26 @@
 # # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
 # 
 preplace inst DE2_115_SOPC.cpu.clock_bridge -pg 1
-preplace inst DE2_115_SOPC.pio_led -pg 1 -lvl 3 -y 430
-preplace inst DE2_115_SOPC.synth_ci -pg 1 -lvl 3 -y 530
+preplace inst DE2_115_SOPC.pio_led -pg 1 -lvl 3 -y 450
+preplace inst DE2_115_SOPC.synth_ci -pg 1 -lvl 3 -y 550
 preplace inst DE2_115_SOPC.cpu.cpu -pg 1
 preplace inst DE2_115_SOPC.cpu.reset_bridge -pg 1
 preplace inst DE2_115_SOPC -pg 1 -lvl 1 -y 40 -regy -20
-preplace inst DE2_115_SOPC.cpu -pg 1 -lvl 2 -y 70
-preplace inst DE2_115_SOPC.clk_50 -pg 1 -lvl 1 -y 230
-preplace inst DE2_115_SOPC.pio_keys -pg 1 -lvl 3 -y 230
-preplace inst DE2_115_SOPC.onchip_memory2 -pg 1 -lvl 3 -y 50
-preplace inst DE2_115_SOPC.jtag_uart -pg 1 -lvl 3 -y 130
-preplace netloc FAN_OUT<net_container>DE2_115_SOPC</net_container>(SLAVE)jtag_uart.reset,(SLAVE)pio_led.reset,(SLAVE)onchip_memory2.reset1,(MASTER)clk_50.clk_reset,(SLAVE)pio_keys.reset,(SLAVE)cpu.reset) 1 1 2 410 230 870
-preplace netloc EXPORT<net_container>DE2_115_SOPC</net_container>(SLAVE)clk_50.clk_in,(SLAVE)DE2_115_SOPC.clk) 1 0 1 NJ
-preplace netloc INTERCONNECT<net_container>DE2_115_SOPC</net_container>(MASTER)cpu.instruction_master,(MASTER)cpu.data_master,(SLAVE)jtag_uart.avalon_jtag_slave,(SLAVE)onchip_memory2.s1,(SLAVE)pio_led.s1,(SLAVE)cpu.debug_mem_slave,(SLAVE)pio_keys.s1) 1 1 2 430 210 850
-preplace netloc EXPORT<net_container>DE2_115_SOPC</net_container>(SLAVE)synth_ci.sounds_ctrl,(SLAVE)DE2_115_SOPC.synth_sounds_ctrl) 1 0 3 NJ 580 NJ 580 NJ
+preplace inst DE2_115_SOPC.cpu -pg 1 -lvl 2 -y 90
+preplace inst DE2_115_SOPC.clk_50 -pg 1 -lvl 1 -y 250
+preplace inst DE2_115_SOPC.pio_keys -pg 1 -lvl 3 -y 250
+preplace inst DE2_115_SOPC.onchip_memory2 -pg 1 -lvl 3 -y 70
+preplace inst DE2_115_SOPC.jtag_uart -pg 1 -lvl 3 -y 150
+preplace netloc EXPORT<net_container>DE2_115_SOPC</net_container>(SLAVE)DE2_115_SOPC.reset,(SLAVE)clk_50.clk_in_reset) 1 0 1 NJ
+preplace netloc EXPORT<net_container>DE2_115_SOPC</net_container>(SLAVE)DE2_115_SOPC.clk,(SLAVE)clk_50.clk_in) 1 0 1 NJ
+preplace netloc FAN_OUT<net_container>DE2_115_SOPC</net_container>(SLAVE)pio_keys.irq,(SLAVE)jtag_uart.irq,(MASTER)cpu.irq) 1 2 1 850
+preplace netloc EXPORT<net_container>DE2_115_SOPC</net_container>(SLAVE)synth_ci.sounds_ctrl,(SLAVE)DE2_115_SOPC.synth_sounds_ctrl) 1 0 3 NJ 600 NJ 600 NJ
+preplace netloc EXPORT<net_container>DE2_115_SOPC</net_container>(SLAVE)DE2_115_SOPC.pio_led_external_connection,(SLAVE)pio_led.external_connection) 1 0 3 NJ 480 NJ 480 NJ
 preplace netloc POINT_TO_POINT<net_container>DE2_115_SOPC</net_container>(MASTER)cpu.custom_instruction_master,(SLAVE)synth_ci.nios_custom_instruction_slave) 1 2 1 810
-preplace netloc FAN_OUT<net_container>DE2_115_SOPC</net_container>(SLAVE)jtag_uart.clk,(SLAVE)onchip_memory2.clk1,(SLAVE)pio_led.clk,(SLAVE)cpu.clk,(SLAVE)pio_keys.clk,(MASTER)clk_50.clk) 1 1 2 390 30 890
-preplace netloc EXPORT<net_container>DE2_115_SOPC</net_container>(SLAVE)pio_keys.external_connection,(SLAVE)DE2_115_SOPC.pio_keys_external_connection) 1 0 3 NJ 300 NJ 260 NJ
-preplace netloc EXPORT<net_container>DE2_115_SOPC</net_container>(SLAVE)clk_50.clk_in_reset,(SLAVE)DE2_115_SOPC.reset) 1 0 1 NJ
-preplace netloc EXPORT<net_container>DE2_115_SOPC</net_container>(SLAVE)synth_ci.effects_ctrl,(SLAVE)DE2_115_SOPC.synth_effects_ctrl) 1 0 3 NJ 540 NJ 540 NJ
-preplace netloc EXPORT<net_container>DE2_115_SOPC</net_container>(SLAVE)pio_led.external_connection,(SLAVE)DE2_115_SOPC.pio_led_external_connection) 1 0 3 NJ 460 NJ 460 NJ
-preplace netloc POINT_TO_POINT<net_container>DE2_115_SOPC</net_container>(SLAVE)jtag_uart.irq,(MASTER)cpu.irq) 1 2 1 830
+preplace netloc FAN_OUT<net_container>DE2_115_SOPC</net_container>(SLAVE)cpu.reset,(SLAVE)pio_led.reset,(MASTER)clk_50.clk_reset,(SLAVE)jtag_uart.reset,(SLAVE)pio_keys.reset,(SLAVE)onchip_memory2.reset1) 1 1 2 410 230 890
+preplace netloc EXPORT<net_container>DE2_115_SOPC</net_container>(SLAVE)pio_keys.external_connection,(SLAVE)DE2_115_SOPC.pio_keys_external_connection) 1 0 3 NJ 320 NJ 280 NJ
+preplace netloc FAN_OUT<net_container>DE2_115_SOPC</net_container>(SLAVE)cpu.clk,(SLAVE)onchip_memory2.clk1,(MASTER)clk_50.clk,(SLAVE)pio_keys.clk,(SLAVE)pio_led.clk,(SLAVE)jtag_uart.clk) 1 1 2 390 30 870
+preplace netloc INTERCONNECT<net_container>DE2_115_SOPC</net_container>(SLAVE)jtag_uart.avalon_jtag_slave,(SLAVE)cpu.debug_mem_slave,(MASTER)cpu.data_master,(MASTER)cpu.instruction_master,(SLAVE)onchip_memory2.s1,(SLAVE)pio_keys.s1,(SLAVE)pio_led.s1) 1 1 2 410 50 830
+preplace netloc EXPORT<net_container>DE2_115_SOPC</net_container>(SLAVE)synth_ci.effects_ctrl,(SLAVE)DE2_115_SOPC.synth_effects_ctrl) 1 0 3 NJ 560 NJ 560 NJ
 levelinfo -pg 1 0 180 1150
 levelinfo -hier DE2_115_SOPC 190 220 570 930 1140
