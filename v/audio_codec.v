@@ -19,6 +19,8 @@ parameter	CHANNEL_NUM		=	2;			//	Dual Channel
 
 parameter	SIN_SAMPLE_DATA	=	48;
 
+parameter	NUM_NOTES		=	88;			// Total number of notes avaliable
+
 
 //////////////////////////////////////////////////
 //	Internal Registers and Wires
@@ -33,6 +35,7 @@ reg		[5:0]	SIN_Cont;
 reg							LRCK_1X;
 reg							LRCK_2X;
 reg							LRCK_4X;
+
 
 ////////////	AUD_BCK Generator	//////////////
 always@(posedge iCLK_18_4 or negedge iRST_N)
@@ -53,6 +56,8 @@ begin
 		BCK_DIV		<=	BCK_DIV+1;
 	end
 end
+
+
 //////////////////////////////////////////////////
 ////////////	AUD_LRCK Generator	//////////////
 always@(posedge iCLK_18_4 or negedge iRST_N)
@@ -95,6 +100,8 @@ begin
 	end
 end
 assign	oAUD_LRCK	=	LRCK_1X;
+
+
 //////////////////////////////////////////////////
 //////////	Sin LUT ADDR Generator	//////////////
 always@(negedge LRCK_1X or negedge iRST_N)
@@ -113,7 +120,7 @@ end
 
 ////////////Timbre selection & SoundOut///////////////
 	wire [15:0]sound_o;
-	assign sound_o=music1+music2+music3+music4+music5+music6+music7+music8+music9+music10+music11+music12;	
+	assign sound_o=music[0]+music[1]+music[2]+music[3]+music[4]+music[5]+music[6]+music[7]+music[8]+music[9]+music[10]+music[11]+music[12]+music[13]+music[14]+music[15]+music[16]+music[17]+music[18]+music[19]+music[20]+music[21]+music[22]+music[23]+music[24]+music[25]+music[26]+music[27]+music[28]+music[29]+music[30]+music[31]+music[32]+music[33]+music[34]+music[35]+music[36]+music[37]+music[38]+music[39]+music[40]+music[41]+music[42]+music[43]+music[44]+music[45]+music[46]+music[47]+music[48]+music[49]+music[50]+music[51]+music[52]+music[53]+music[54]+music[55]+music[56]+music[57]+music[58]+music[59]+music[60]+music[61]+music[62]+music[63]+music[64]+music[65]+music[66]+music[67]+music[68]+music[69]+music[70]+music[71]+music[72]+music[73]+music[74]+music[75]+music[76]+music[77]+music[78]+music[79]+music[80]+music[81]+music[82]+music[83]+music[84]+music[85]+music[86]+music[87];
 	
 	always@(negedge oAUD_BCK or negedge iRST_N)begin
 		if(!iRST_N)
@@ -121,315 +128,483 @@ end
 		else
 			SEL_Cont	<=	SEL_Cont+1;
 	end
-	
-	// If key pressed, send sound_o to DAC, else send 0 to prevent noise. 
+
+
+/////////// If key pressed, send sound_o to DAC, else send 0 to prevent noise. 
 	assign oAUD_DATA = (key_pressed)? sound_o[~SEL_Cont] :0;
 	
 
 
-///////////////////Wave-Source generate////////////////
-	wire [15:0]music1_sin;
-	wire [15:0]music2_sin;
-	wire [15:0]music3_sin;
-	wire [15:0]music4_sin;
-	wire [15:0]music5_sin;
-	wire [15:0]music6_sin;
-	wire [15:0]music7_sin;
-	wire [15:0]music8_sin;
-	wire [15:0]music9_sin;
-	wire [15:0]music10_sin;
-	wire [15:0]music11_sin;
-	wire [15:0]music12_sin;
+//////////Wave-Source generate////////////////
+	wire [15:0] music [0:NUM_NOTES-1];
+
 	
-	wire [15:0]music1_square;
-	wire [15:0]music2_square;
-	wire [15:0]music3_square;
-	wire [15:0]music4_square;
-	wire [15:0]music5_square;
-	wire [15:0]music6_square;
-	wire [15:0]music7_square;
-	wire [15:0]music8_square;
-	wire [15:0]music9_square;
-	wire [15:0]music10_square;
-	wire [15:0]music11_square;
-	wire [15:0]music12_square;
+
+//////////Ramp//////////////
+	reg [15:0] ramp [0:NUM_NOTES-1];
+	wire [15:0] ramp_max=60000;
 	
-	wire [15:0]music1;
-	wire [15:0]music2;
-	wire [15:0]music3;
-	wire [15:0]music4;
-	wire [15:0]music5;
-	wire [15:0]music6;
-	wire [15:0]music7;
-	wire [15:0]music8;
-	wire [15:0]music9;
-	wire [15:0]music10;
-	wire [15:0]music11;
-	wire [15:0]music12;
-	
-	assign music1 = (effects == 18'b01) ? music1_sin :
-					(effects == 18'b10) ? music1_square :
-										 music1_sin;
-	assign music2 = (effects == 18'b01) ? music2_sin :
-					(effects == 18'b10) ? music2_square :
-										 music2_sin;
-	assign music3 = (effects == 18'b01) ? music3_sin :
-					(effects == 18'b10) ? music3_square :
-										 music3_sin;
-	assign music4 = (effects == 18'b01) ? music4_sin :
-					(effects == 18'b10) ? music4_square :
-										 music4_sin;		
-	assign music5 = (effects == 18'b01) ? music5_sin :
-					(effects == 18'b10) ? music5_square :
-										 music5_sin;
-	assign music6 = (effects == 18'b01) ? music6_sin :
-					(effects == 18'b10) ? music6_square :
-										 music6_sin;
-	assign music7 = (effects == 18'b01) ? music7_sin :
-					(effects == 18'b10) ? music7_square :
-										 music7_sin;
-	assign music8 = (effects == 18'b01) ? music8_sin :
-					(effects == 18'b10) ? music8_square :
-										 music8_sin;	
-	assign music9 = (effects == 18'b01) ? music9_sin :
-					(effects == 18'b10) ? music9_square :
-										 music9_sin;
-	assign music10 = (effects == 18'b01) ? music10_sin :
-					 (effects == 18'b10) ? music10_square :
-										  music10_sin;
-	assign music11 = (effects == 18'b01) ? music11_sin :
-					 (effects == 18'b10) ? music11_square :
-										  music11_sin;
-	assign music12 = (effects == 18'b01) ? music12_sin :
-					 (effects == 18'b10) ? music12_square :
-										  music12_sin;								
+	generate 
+		genvar i;
+		for (i = 0; i < NUM_NOTES; i = i + 1) begin: Ramp_gen
+			always@(negedge keys[i] or negedge LRCK_1X) begin
+				if (!keys[i]) ramp[i] = 0;
+				else if (ramp[i] > ramp_max) ramp[i] = 0;
+				else ramp[i] = ramp[i] + freq[i];
+			end
+		end
+	endgenerate
 
 
 
-//////////Ramp address generater//////////////
-	reg  [15:0]ramp1;
-	reg  [15:0]ramp2;
-	reg  [15:0]ramp3;
-	reg  [15:0]ramp4;
-	reg  [15:0]ramp5;
-	reg  [15:0]ramp6;
-	reg  [15:0]ramp7;
-	reg  [15:0]ramp8;
-	reg  [15:0]ramp9;
-	reg  [15:0]ramp10;
-	reg  [15:0]ramp11;
-	reg  [15:0]ramp12;
-	wire [15:0]ramp_max=60000;
-	
-//////Ramps//////
-	always@(negedge keys[0] or negedge LRCK_1X)begin
-	if (!keys[0]) ramp1=0;
-	else if (ramp1>ramp_max) ramp1=0;
-	else ramp1 = ramp1 + freq[39];
-	end
-
-	always@(negedge keys[1] or negedge LRCK_1X)begin
-	if (!keys[1]) ramp2=0;
-	else if (ramp2>ramp_max) ramp2=0;
-	else ramp2 = ramp2 + freq[40];
-	end
-
-	always@(negedge keys[2] or negedge LRCK_1X)begin
-	if (!keys[2]) ramp3=0;
-	else if (ramp3>ramp_max) ramp3=0;
-	else ramp3 = ramp3 + freq[41];
-	end
-
-	always@(negedge keys[3] or negedge LRCK_1X)begin
-	if (!keys[3]) ramp4=0;
-	else if (ramp4>ramp_max) ramp4=0;
-	else ramp4 = ramp4 + freq[42];
-	end
-	always@(negedge keys[4] or negedge LRCK_1X)begin
-	if (!keys[4]) ramp5=0;
-	else if (ramp5>ramp_max) ramp5=0;
-	else ramp5 = ramp5 + freq[43];
-	end
-
-	always@(negedge keys[5] or negedge LRCK_1X)begin
-	if (!keys[5]) ramp6=0;
-	else if (ramp6>ramp_max) ramp6=0;
-	else ramp6 = ramp6 + freq[44];
-	end
-
-	always@(negedge keys[6] or negedge LRCK_1X)begin
-	if (!keys[6]) ramp7=0;
-	else if (ramp7>ramp_max) ramp7=0;
-	else ramp7 = ramp7 + freq[6];
-	end
-
-	always@(negedge keys[7] or negedge LRCK_1X)begin
-	if (!keys[7]) ramp8=0;
-	else if (ramp8>ramp_max) ramp8=0;
-	else ramp8 = ramp8 + freq[7];
-	end
-	always@(negedge keys[8] or negedge LRCK_1X)begin
-	if (!keys[8]) ramp9=0;
-	else if (ramp9>ramp_max) ramp9=0;
-	else ramp9 = ramp9 + freq[8];
-	end
-
-	always@(negedge keys[9] or negedge LRCK_1X)begin
-	if (!keys[9]) ramp10=0;
-	else if (ramp10>ramp_max) ramp10=0;
-	else ramp10 = ramp10 + freq[9];
-	end
-
-	always@(negedge keys[10] or negedge LRCK_1X)begin
-	if (!keys[10]) ramp11=0;
-	else if (ramp11>ramp_max) ramp11=0;
-	else ramp11 = ramp11 + freq[10];
-	end
-
-	always@(negedge keys[11] or negedge LRCK_1X)begin
-	if (!keys[11]) ramp12=0;
-	else if (ramp12>ramp_max) ramp12=0;
-	else ramp12 = ramp12 + freq[11];
-	end
-	
-	
-////////////Ramp address assign//////////////
-	wire [5:0]ramp1_sin=(effects==18'b0001)?ramp1[15:10]:0;
-	wire [5:0]ramp2_sin=(effects==18'b0001)?ramp2[15:10]:0;
-	wire [5:0]ramp3_sin=(effects==18'b0001)?ramp3[15:10]:0;
-	wire [5:0]ramp4_sin=(effects==18'b0001)?ramp4[15:10]:0;
-	wire [5:0]ramp5_sin=(effects==18'b0001)?ramp5[15:10]:0;
-	wire [5:0]ramp6_sin=(effects==18'b0001)?ramp6[15:10]:0;
-	wire [5:0]ramp7_sin=(effects==18'b0001)?ramp7[15:10]:0;
-	wire [5:0]ramp8_sin=(effects==18'b0001)?ramp8[15:10]:0;
-	wire [5:0]ramp9_sin=(effects==18'b0001)?ramp9[15:10]:0;
-	wire [5:0]ramp10_sin=(effects==18'b0001)?ramp10[15:10]:0;
-	wire [5:0]ramp11_sin=(effects==18'b0001)?ramp11[15:10]:0;
-	wire [5:0]ramp12_sin=(effects==18'b0001)?ramp12[15:10]:0;
-	
-	wire [5:0]ramp1_square=(effects==18'b0010)?ramp1[15:10]:0;
-	wire [5:0]ramp2_square=(effects==18'b0010)?ramp2[15:10]:0;
-	wire [5:0]ramp3_square=(effects==18'b0010)?ramp3[15:10]:0;
-	wire [5:0]ramp4_square=(effects==18'b0010)?ramp4[15:10]:0;
-	wire [5:0]ramp5_square=(effects==18'b0010)?ramp5[15:10]:0;
-	wire [5:0]ramp6_square=(effects==18'b0010)?ramp6[15:10]:0;
-	wire [5:0]ramp7_square=(effects==18'b0010)?ramp7[15:10]:0;
-	wire [5:0]ramp8_square=(effects==18'b0010)?ramp8[15:10]:0;
-	wire [5:0]ramp9_square=(effects==18'b0010)?ramp9[15:10]:0;
-	wire [5:0]ramp10_square=(effects==18'b0010)?ramp10[15:10]:0;
-	wire [5:0]ramp11_square=(effects==18'b0010)?ramp11[15:10]:0;
-	wire [5:0]ramp12_square=(effects==18'b0010)?ramp12[15:10]:0;
-
-
-
-
-/////////Sine-wave Timbre////////
-	wave_gen_sin s1(
-		.ramp(ramp1_sin),
-		.music_o(music1_sin)
+/////////Wave generator////////
+	wave_gen s0(
+		.ramp(ramp[0][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[0])
 	);
-	wave_gen_sin s2(
-		.ramp(ramp2_sin),
-		.music_o(music2_sin)
+	wave_gen s1(
+		.ramp(ramp[1][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[1])
 	);
-	wave_gen_sin s3(
-		.ramp(ramp3_sin),
-		.music_o(music3_sin)
+	wave_gen s2(
+		.ramp(ramp[2][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[2])
 	);
-	wave_gen_sin s4(
-		.ramp(ramp4_sin),
-		.music_o(music4_sin)
+	wave_gen s3(
+		.ramp(ramp[3][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[3])
 	);
-		wave_gen_sin s5(
-		.ramp(ramp5_sin),
-		.music_o(music5_sin)
+	wave_gen s4(
+		.ramp(ramp[4][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[4])
 	);
-	wave_gen_sin s6(
-		.ramp(ramp6_sin),
-		.music_o(music6_sin)
+	wave_gen s5(
+		.ramp(ramp[5][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[5])
 	);
-	wave_gen_sin s7(
-		.ramp(ramp7_sin),
-		.music_o(music7_sin)
+	wave_gen s6(
+		.ramp(ramp[6][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[6])
 	);
-	wave_gen_sin s8(
-		.ramp(ramp8_sin),
-		.music_o(music8_sin)
+	wave_gen s7(
+		.ramp(ramp[7][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[7])
 	);
-		wave_gen_sin s9(
-		.ramp(ramp9_sin),
-		.music_o(music9_sin)
+	wave_gen s8(
+		.ramp(ramp[8][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[8])
 	);
-	wave_gen_sin s10(
-		.ramp(ramp10_sin),
-		.music_o(music10_sin)
+	wave_gen s9(
+		.ramp(ramp[9][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[9])
 	);
-	wave_gen_sin s11(
-		.ramp(ramp11_sin),
-		.music_o(music11_sin)
+	wave_gen s10(
+		.ramp(ramp[10][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[10])
 	);
-	wave_gen_sin s12(
-		.ramp(ramp12_sin),
-		.music_o(music12_sin)
+	wave_gen s11(
+		.ramp(ramp[11][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[11])
 	);
-
-	/////////Square-wave Timbre////////
-	wave_gen_square sq1(
-		.ramp(ramp1_square),
-		.music_o(music1_square)
+	wave_gen s12(
+		.ramp(ramp[12][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[12])
 	);
-	wave_gen_square sq2(
-		.ramp(ramp2_square),
-		.music_o(music2_square)
+	wave_gen s13(
+		.ramp(ramp[13][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[13])
 	);
-	wave_gen_square sq3(
-		.ramp(ramp3_square),
-		.music_o(music3_square)
+	wave_gen s14(
+		.ramp(ramp[14][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[14])
 	);
-	wave_gen_square sq4(
-		.ramp(ramp4_square),
-		.music_o(music4_square)
+	wave_gen s15(
+		.ramp(ramp[15][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[15])
 	);
-	wave_gen_square sq5(
-		.ramp(ramp5_square),
-		.music_o(music5_square)
+	wave_gen s16(
+		.ramp(ramp[16][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[16])
 	);
-	wave_gen_square sq6(
-		.ramp(ramp6_square),
-		.music_o(music6_square)
+	wave_gen s17(
+		.ramp(ramp[17][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[17])
 	);
-	wave_gen_square sq7(
-		.ramp(ramp7_square),
-		.music_o(music7_square)
+	wave_gen s18(
+		.ramp(ramp[18][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[18])
 	);
-	wave_gen_square sq8(
-		.ramp(ramp8_square),
-		.music_o(music8_square)
+	wave_gen s19(
+		.ramp(ramp[19][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[19])
 	);
-	wave_gen_square sq9(
-		.ramp(ramp9_square),
-		.music_o(music9_square)
+	wave_gen s20(
+		.ramp(ramp[20][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[20])
 	);
-	wave_gen_square sq10(
-		.ramp(ramp10_square),
-		.music_o(music10_square)
+	wave_gen s21(
+		.ramp(ramp[21][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[21])
 	);
-	wave_gen_square sq11(
-		.ramp(ramp11_square),
-		.music_o(music11_square)
+	wave_gen s22(
+		.ramp(ramp[22][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[22])
 	);
-	wave_gen_square sq12(
-		.ramp(ramp12_square),
-		.music_o(music12_square)
+	wave_gen s23(
+		.ramp(ramp[23][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[23])
 	);
-	
+	wave_gen s24(
+		.ramp(ramp[24][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[24])
+	);
+	wave_gen s25(
+		.ramp(ramp[25][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[25])
+	);
+	wave_gen s26(
+		.ramp(ramp[26][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[26])
+	);
+	wave_gen s27(
+		.ramp(ramp[27][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[27])
+	);
+	wave_gen s28(
+		.ramp(ramp[28][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[28])
+	);
+	wave_gen s29(
+		.ramp(ramp[29][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[29])
+	);
+	wave_gen s30(
+		.ramp(ramp[30][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[30])
+	);
+	wave_gen s31(
+		.ramp(ramp[31][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[31])
+	);
+	wave_gen s32(
+		.ramp(ramp[32][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[32])
+	);
+	wave_gen s33(
+		.ramp(ramp[33][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[33])
+	);
+	wave_gen s34(
+		.ramp(ramp[34][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[34])
+	);
+	wave_gen s35(
+		.ramp(ramp[35][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[35])
+	);
+	wave_gen s36(
+		.ramp(ramp[36][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[36])
+	);
+	wave_gen s37(
+		.ramp(ramp[37][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[37])
+	);
+	wave_gen s38(
+		.ramp(ramp[38][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[38])
+	);
+	wave_gen s39(
+		.ramp(ramp[39][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[39])
+	);
+	wave_gen s40(
+		.ramp(ramp[40][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[40])
+	);
+	wave_gen s41(
+		.ramp(ramp[41][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[41])
+	);
+	wave_gen s42(
+		.ramp(ramp[42][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[42])
+	);
+	wave_gen s43(
+		.ramp(ramp[43][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[43])
+	);
+	wave_gen s44(
+		.ramp(ramp[44][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[44])
+	);
+	wave_gen s45(
+		.ramp(ramp[45][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[45])
+	);
+	wave_gen s46(
+		.ramp(ramp[46][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[46])
+	);
+	wave_gen s47(
+		.ramp(ramp[47][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[47])
+	);
+	wave_gen s48(
+		.ramp(ramp[48][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[48])
+	);
+	wave_gen s49(
+		.ramp(ramp[49][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[49])
+	);
+	wave_gen s50(
+		.ramp(ramp[50][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[50])
+	);
+	wave_gen s51(
+		.ramp(ramp[51][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[51])
+	);
+	wave_gen s52(
+		.ramp(ramp[52][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[52])
+	);
+	wave_gen s53(
+		.ramp(ramp[53][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[53])
+	);
+	wave_gen s54(
+		.ramp(ramp[54][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[54])
+	);
+	wave_gen s55(
+		.ramp(ramp[55][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[55])
+	);
+	wave_gen s56(
+		.ramp(ramp[56][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[56])
+	);
+	wave_gen s57(
+		.ramp(ramp[57][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[57])
+	);
+	wave_gen s58(
+		.ramp(ramp[58][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[58])
+	);
+	wave_gen s59(
+		.ramp(ramp[59][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[59])
+	);
+	wave_gen s60(
+		.ramp(ramp[60][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[60])
+	);
+	wave_gen s61(
+		.ramp(ramp[61][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[61])
+	);
+	wave_gen s62(
+		.ramp(ramp[62][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[62])
+	);
+	wave_gen s63(
+		.ramp(ramp[63][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[63])
+	);
+	wave_gen s64(
+		.ramp(ramp[64][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[64])
+	);
+	wave_gen s65(
+		.ramp(ramp[65][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[65])
+	);
+	wave_gen s66(
+		.ramp(ramp[66][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[66])
+	);
+	wave_gen s67(
+		.ramp(ramp[67][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[67])
+	);
+	wave_gen s68(
+		.ramp(ramp[68][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[68])
+	);
+	wave_gen s69(
+		.ramp(ramp[69][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[69])
+	);
+	wave_gen s70(
+		.ramp(ramp[70][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[70])
+	);
+	wave_gen s71(
+		.ramp(ramp[71][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[71])
+	);
+	wave_gen s72(
+		.ramp(ramp[72][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[72])
+	);
+	wave_gen s73(
+		.ramp(ramp[73][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[73])
+	);
+	wave_gen s74(
+		.ramp(ramp[74][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[74])
+	);
+	wave_gen s75(
+		.ramp(ramp[75][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[75])
+	);
+	wave_gen s76(
+		.ramp(ramp[76][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[76])
+	);
+	wave_gen s77(
+		.ramp(ramp[77][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[77])
+	);
+	wave_gen s78(
+		.ramp(ramp[78][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[78])
+	);
+	wave_gen s79(
+		.ramp(ramp[79][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[79])
+	);
+	wave_gen s80(
+		.ramp(ramp[80][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[80])
+	);
+	wave_gen s81(
+		.ramp(ramp[81][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[81])
+	);
+	wave_gen s82(
+		.ramp(ramp[82][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[82])
+	);
+	wave_gen s83(
+		.ramp(ramp[83][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[83])
+	);
+	wave_gen s84(
+		.ramp(ramp[84][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[84])
+	);
+	wave_gen s85(
+		.ramp(ramp[85][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[85])
+	);
+	wave_gen s86(
+		.ramp(ramp[86][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[86])
+	);
+	wave_gen s87(
+		.ramp(ramp[87][15:10]),
+		.effects(effects[3:0]),
+		.music_o(music[87])
+	);
 	
 	/***************************************************************************
      *
      * Frequencies
      *
      **************************************************************************/
-	wire [15:0] freq [0:87];
+	wire [15:0] freq [0:NUM_NOTES-1];
 	
 	assign freq[87] = 4186;
     assign freq[86] = 3951;

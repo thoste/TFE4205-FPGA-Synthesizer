@@ -69,8 +69,9 @@ module DE2_115_Synthesizer(
 	 * Testing only; using wire instead of input
      */
 	wire [87:0] keys_input;
-	assign keys_input[87:12] = 76'b0;
-	assign keys_input[11:0] = {SW[6],SW[7],SW[8],SW[9],SW[10],SW[11],SW[12],SW[13],SW[14],SW[15],SW[16],SW[17]};
+	assign keys_input[87:52] = 0;
+	assign keys_input[38:0] = 0;
+	assign keys_input[51:39] = {SW[6],SW[7],SW[8],SW[9],SW[10],SW[11],SW[12],SW[13],SW[14],SW[15],SW[16],SW[17]};
 	
 	// SW 0-3 select sound source.  
     wire [17:0] effects_ctrl;
