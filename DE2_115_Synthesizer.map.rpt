@@ -1,5 +1,5 @@
 Analysis & Synthesis report for DE2_115_Synthesizer
-Wed May 02 15:15:34 2018
+Thu May 03 13:34:14 2018
 Quartus Prime Version 17.1.1 Internal Build 593 12/11/2017 SJ Lite Edition
 
 
@@ -64,15 +64,15 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                              ;
 +------------------------------------+------------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed May 02 15:15:34 2018                ;
+; Analysis & Synthesis Status        ; Successful - Thu May 03 13:34:14 2018                ;
 ; Quartus Prime Version              ; 17.1.1 Internal Build 593 12/11/2017 SJ Lite Edition ;
 ; Revision Name                      ; DE2_115_Synthesizer                                  ;
 ; Top-level Entity Name              ; DE2_115_Synthesizer                                  ;
 ; Family                             ; Cyclone IV E                                         ;
-; Total logic elements               ; 3,175                                                ;
-;     Total combinational functions  ; 2,517                                                ;
-;     Dedicated logic registers      ; 1,302                                                ;
-; Total registers                    ; 1302                                                 ;
+; Total logic elements               ; 3,173                                                ;
+;     Total combinational functions  ; 2,515                                                ;
+;     Dedicated logic registers      ; 1,300                                                ;
+; Total registers                    ; 1300                                                 ;
 ; Total pins                         ; 34                                                   ;
 ; Total virtual pins                 ; 0                                                    ;
 ; Total memory bits                  ; 197,632                                              ;
@@ -285,20 +285,20 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-------------------+
 ; Resource                                    ; Usage             ;
 +---------------------------------------------+-------------------+
-; Estimated Total logic elements              ; 3,175             ;
+; Estimated Total logic elements              ; 3,173             ;
 ;                                             ;                   ;
-; Total combinational functions               ; 2517              ;
+; Total combinational functions               ; 2515              ;
 ; Logic element usage by number of LUT inputs ;                   ;
-;     -- 4 input functions                    ; 1416              ;
-;     -- 3 input functions                    ; 664               ;
-;     -- <=2 input functions                  ; 437               ;
+;     -- 4 input functions                    ; 1414              ;
+;     -- 3 input functions                    ; 666               ;
+;     -- <=2 input functions                  ; 435               ;
 ;                                             ;                   ;
 ; Logic elements by mode                      ;                   ;
 ;     -- normal mode                          ; 2049              ;
-;     -- arithmetic mode                      ; 468               ;
+;     -- arithmetic mode                      ; 466               ;
 ;                                             ;                   ;
-; Total registers                             ; 1302              ;
-;     -- Dedicated logic registers            ; 1302              ;
+; Total registers                             ; 1300              ;
+;     -- Dedicated logic registers            ; 1300              ;
 ;     -- I/O registers                        ; 0                 ;
 ;                                             ;                   ;
 ; I/O pins                                    ; 34                ;
@@ -311,7 +311,7 @@ refer to the applicable agreement for further details.
 ;                                             ;                   ;
 ; Maximum fan-out node                        ; QIC_SIGNALTAP_GND ;
 ; Maximum fan-out                             ; 587               ;
-; Total fan-out                               ; 14069             ;
+; Total fan-out                               ; 14055             ;
 ; Average fan-out                             ; 3.55              ;
 +---------------------------------------------+-------------------+
 
@@ -321,7 +321,7 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
 ; Compilation Hierarchy Node                                                                                                              ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                                                                                                                                                                                             ; Entity Name                       ; Library Name ;
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
-; |DE2_115_Synthesizer                                                                                                                    ; 2517 (4)            ; 1302 (0)                  ; 197632      ; 0            ; 0       ; 0         ; 34   ; 0            ; |DE2_115_Synthesizer                                                                                                                                                                                                                                                                                                                                            ; DE2_115_Synthesizer               ; work         ;
+; |DE2_115_Synthesizer                                                                                                                    ; 2515 (4)            ; 1300 (0)                  ; 197632      ; 0            ; 0       ; 0         ; 34   ; 0            ; |DE2_115_Synthesizer                                                                                                                                                                                                                                                                                                                                            ; DE2_115_Synthesizer               ; work         ;
 ;    |I2C_AV_Config:u7|                                                                                                                   ; 89 (40)             ; 60 (30)                   ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115_Synthesizer|I2C_AV_Config:u7                                                                                                                                                                                                                                                                                                                           ; I2C_AV_Config                     ; work         ;
 ;       |I2C_Controller:u0|                                                                                                               ; 49 (49)             ; 30 (30)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115_Synthesizer|I2C_AV_Config:u7|I2C_Controller:u0                                                                                                                                                                                                                                                                                                         ; I2C_Controller                    ; work         ;
 ;       |altsyncram:Ram0_rtl_0|                                                                                                           ; 0 (0)               ; 0 (0)                     ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115_Synthesizer|I2C_AV_Config:u7|altsyncram:Ram0_rtl_0                                                                                                                                                                                                                                                                                                     ; altsyncram                        ; work         ;
@@ -329,7 +329,7 @@ refer to the applicable agreement for further details.
 ;    |VGA_Audio_PLL:u1|                                                                                                                   ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115_Synthesizer|VGA_Audio_PLL:u1                                                                                                                                                                                                                                                                                                                           ; VGA_Audio_PLL                     ; work         ;
 ;       |altpll:altpll_component|                                                                                                         ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115_Synthesizer|VGA_Audio_PLL:u1|altpll:altpll_component                                                                                                                                                                                                                                                                                                   ; altpll                            ; work         ;
 ;          |altpll_dul2:auto_generated|                                                                                                   ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115_Synthesizer|VGA_Audio_PLL:u1|altpll:altpll_component|altpll_dul2:auto_generated                                                                                                                                                                                                                                                                        ; altpll_dul2                       ; work         ;
-;    |audio_codec:ad1|                                                                                                                    ; 1776 (1068)         ; 206 (206)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115_Synthesizer|audio_codec:ad1                                                                                                                                                                                                                                                                                                                            ; audio_codec                       ; work         ;
+;    |audio_codec:ad1|                                                                                                                    ; 1774 (1066)         ; 204 (204)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115_Synthesizer|audio_codec:ad1                                                                                                                                                                                                                                                                                                                            ; audio_codec                       ; work         ;
 ;       |wave_gen_sin:s10|                                                                                                                ; 59 (59)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115_Synthesizer|audio_codec:ad1|wave_gen_sin:s10                                                                                                                                                                                                                                                                                                           ; wave_gen_sin                      ; work         ;
 ;       |wave_gen_sin:s11|                                                                                                                ; 59 (59)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115_Synthesizer|audio_codec:ad1|wave_gen_sin:s11                                                                                                                                                                                                                                                                                                           ; wave_gen_sin                      ; work         ;
 ;       |wave_gen_sin:s12|                                                                                                                ; 59 (59)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115_Synthesizer|audio_codec:ad1|wave_gen_sin:s12                                                                                                                                                                                                                                                                                                           ; wave_gen_sin                      ; work         ;
@@ -478,15 +478,16 @@ Encoding Type:  One-Hot
 +----------------------------------------------------+-------------------------------------------------------+
 ; I2C_AV_Config:u7|mI2C_DATA[16,17,19,23]            ; Stuck at GND due to stuck port data_in                ;
 ; I2C_AV_Config:u7|I2C_Controller:u0|SD[16,17,19,23] ; Stuck at GND due to stuck port data_in                ;
-; audio_codec:ad1|ramp10[0,1]                        ; Merged with audio_codec:ad1|ramp10[2]                 ;
+; audio_codec:ad1|ramp11[0..2]                       ; Merged with audio_codec:ad1|ramp11[3]                 ;
 ; I2C_AV_Config:u7|I2C_Controller:u0|SD[20,21]       ; Merged with I2C_AV_Config:u7|I2C_Controller:u0|SD[18] ;
 ; I2C_AV_Config:u7|mI2C_DATA[20,21]                  ; Merged with I2C_AV_Config:u7|mI2C_DATA[18]            ;
-; audio_codec:ad1|ramp10[2]                          ; Stuck at GND due to stuck port data_in                ;
-; audio_codec:ad1|ramp11[0]                          ; Stuck at GND due to stuck port data_in                ;
+; audio_codec:ad1|ramp7[0]                           ; Stuck at GND due to stuck port data_in                ;
+; audio_codec:ad1|ramp10[0]                          ; Stuck at GND due to stuck port data_in                ;
+; audio_codec:ad1|ramp11[3]                          ; Stuck at GND due to stuck port data_in                ;
 ; I2C_AV_Config:u7|mSetup_ST~9                       ; Lost fanout                                           ;
 ; I2C_AV_Config:u7|mSetup_ST~10                      ; Lost fanout                                           ;
 ; audio_codec:ad1|BCK_DIV[3]                         ; Stuck at GND due to stuck port data_in                ;
-; Total Number of Removed Registers = 19             ;                                                       ;
+; Total Number of Removed Registers = 21             ;                                                       ;
 +----------------------------------------------------+-------------------------------------------------------+
 
 
@@ -511,10 +512,10 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 1302  ;
-; Number of registers using Synchronous Clear  ; 261   ;
+; Total registers                              ; 1300  ;
+; Number of registers using Synchronous Clear  ; 259   ;
 ; Number of registers using Synchronous Load   ; 76    ;
-; Number of registers using Asynchronous Clear ; 611   ;
+; Number of registers using Asynchronous Clear ; 609   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 513   ;
 ; Number of registers using Preset             ; 0     ;
@@ -568,7 +569,7 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                            ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |DE2_115_Synthesizer|I2C_AV_Config:u7|I2C_Controller:u0|SD_COUNTER[1] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |DE2_115_Synthesizer|I2C_AV_Config:u7|I2C_Controller:u0|SD_COUNTER[0] ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
 
 
@@ -1165,13 +1166,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------------------+----------------------------------------+
 
 
-+-------------------------------------------------+
-; Port Connectivity Checks: "audio_codec:ad1"     ;
-+---------------+-------+----------+--------------+
-; Port          ; Type  ; Severity ; Details      ;
-+---------------+-------+----------+--------------+
-; sound[87..12] ; Input ; Info     ; Stuck at GND ;
-+---------------+-------+----------+--------------+
++------------------------------------------------+
+; Port Connectivity Checks: "audio_codec:ad1"    ;
++--------------+-------+----------+--------------+
+; Port         ; Type  ; Severity ; Details      ;
++--------------+-------+----------+--------------+
+; keys[87..12] ; Input ; Info     ; Stuck at GND ;
++--------------+-------+----------+--------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------+
@@ -1210,29 +1211,29 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 34                          ;
-; cycloneiii_ff         ; 266                         ;
+; cycloneiii_ff         ; 264                         ;
 ;     CLR               ; 17                          ;
-;     CLR SCLR          ; 213                         ;
+;     CLR SCLR          ; 211                         ;
 ;     ENA               ; 21                          ;
 ;     ENA CLR           ; 9                           ;
 ;     ENA CLR SLD       ; 6                           ;
 ; cycloneiii_io_obuf    ; 4                           ;
-; cycloneiii_lcell_comb ; 1869                        ;
-;     arith             ; 372                         ;
+; cycloneiii_lcell_comb ; 1867                        ;
+;     arith             ; 370                         ;
 ;         1 data inputs ; 1                           ;
-;         2 data inputs ; 206                         ;
+;         2 data inputs ; 204                         ;
 ;         3 data inputs ; 165                         ;
 ;     normal            ; 1497                        ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 19                          ;
 ;         2 data inputs ; 42                          ;
-;         3 data inputs ; 305                         ;
-;         4 data inputs ; 1130                        ;
+;         3 data inputs ; 307                         ;
+;         4 data inputs ; 1128                        ;
 ; cycloneiii_pll        ; 1                           ;
 ; cycloneiii_ram_block  ; 16                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 17.50                       ;
-; Average LUT depth     ; 11.44                       ;
+; Average LUT depth     ; 11.46                       ;
 +-----------------------+-----------------------------+
 
 
@@ -1241,7 +1242,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:10     ;
+; Top            ; 00:00:12     ;
 +----------------+--------------+
 
 
@@ -1388,7 +1389,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.1 Internal Build 593 12/11/2017 SJ Lite Edition
-    Info: Processing started: Wed May 02 15:14:53 2018
+    Info: Processing started: Thu May 03 13:33:27 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE2_115_Synthesizer -c DE2_115_Synthesizer
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -1548,94 +1549,13 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/altp
     Info (12023): Found entity 1: altpll_dul2 File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/db/altpll_dul2.tdf Line: 25
 Info (12128): Elaborating entity "altpll_dul2" for hierarchy "VGA_Audio_PLL:u1|altpll:altpll_component|altpll_dul2:auto_generated" File: c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/altpll.tdf Line: 897
 Info (12128): Elaborating entity "audio_codec" for hierarchy "audio_codec:ad1" File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/DE2_115_Synthesizer.v Line: 146
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(427): object "C8" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 427
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(428): object "B7" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 428
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(429): object "Bb7" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 429
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(430): object "A7" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 430
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(431): object "Ab7" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 431
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(432): object "G7" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 432
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(433): object "Gb7" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 433
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(434): object "F7" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 434
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(435): object "E7" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 435
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(436): object "Eb7" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 436
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(437): object "D7" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 437
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(438): object "Db7" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 438
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(439): object "C7" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 439
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(440): object "B6" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 440
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(441): object "Bb6" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 441
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(442): object "A6" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 442
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(443): object "Ab6" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 443
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(444): object "G6" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 444
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(445): object "Gb6" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 445
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(446): object "F6" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 446
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(447): object "E6" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 447
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(448): object "Eb6" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 448
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(449): object "D6" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 449
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(450): object "Db6" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 450
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(451): object "C6" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 451
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(452): object "B5" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 452
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(453): object "Bb5" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 453
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(454): object "A5" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 454
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(455): object "Ab5" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 455
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(456): object "G5" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 456
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(457): object "Gb5" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 457
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(458): object "F5" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 458
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(459): object "E5" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 459
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(460): object "Eb5" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 460
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(461): object "D5" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 461
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(462): object "Db5" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 462
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(463): object "C5" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 463
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(476): object "B3" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 476
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(477): object "Bb3" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 477
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(478): object "A3" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 478
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(479): object "Ab3" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 479
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(480): object "G3" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 480
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(481): object "Gb3" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 481
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(482): object "F3" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 482
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(483): object "E3" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 483
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(484): object "Eb3" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 484
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(485): object "D3" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 485
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(486): object "Db3" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 486
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(487): object "C3" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 487
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(488): object "B2" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 488
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(489): object "Bb2" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 489
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(490): object "A2" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 490
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(491): object "Ab2" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 491
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(492): object "G2" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 492
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(493): object "Gb2" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 493
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(494): object "F2" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 494
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(495): object "E2" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 495
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(496): object "Eb2" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 496
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(497): object "D2" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 497
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(498): object "Db2" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 498
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(499): object "C2" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 499
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(500): object "B1" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 500
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(501): object "Bb1" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 501
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(502): object "A1" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 502
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(503): object "Ab1" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 503
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(504): object "G1" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 504
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(505): object "Gb1" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 505
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(506): object "F1" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 506
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(507): object "E1" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 507
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(508): object "Eb1" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 508
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(509): object "D1" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 509
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(510): object "Db1" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 510
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(511): object "C1" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 511
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(512): object "B0" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 512
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(513): object "Bb0" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 513
-Warning (10036): Verilog HDL or VHDL warning at audio_codec.v(514): object "A0" assigned a value but never read File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 514
 Warning (10230): Verilog HDL assignment warning at audio_codec.v(53): truncated value with size 32 to match size of target (4) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 53
 Warning (10230): Verilog HDL assignment warning at audio_codec.v(78): truncated value with size 32 to match size of target (9) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 78
 Warning (10230): Verilog HDL assignment warning at audio_codec.v(86): truncated value with size 32 to match size of target (8) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 86
 Warning (10230): Verilog HDL assignment warning at audio_codec.v(94): truncated value with size 32 to match size of target (7) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 94
 Warning (10230): Verilog HDL assignment warning at audio_codec.v(107): truncated value with size 32 to match size of target (6) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 107
-Warning (10230): Verilog HDL assignment warning at audio_codec.v(199): truncated value with size 32 to match size of target (4) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 199
-Warning (10230): Verilog HDL assignment warning at audio_codec.v(203): truncated value with size 32 to match size of target (1) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 203
-Warning (10230): Verilog HDL assignment warning at audio_codec.v(292): truncated value with size 32 to match size of target (6) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 292
-Warning (10230): Verilog HDL assignment warning at audio_codec.v(293): truncated value with size 32 to match size of target (6) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 293
-Warning (10230): Verilog HDL assignment warning at audio_codec.v(294): truncated value with size 32 to match size of target (6) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 294
-Warning (10230): Verilog HDL assignment warning at audio_codec.v(295): truncated value with size 32 to match size of target (6) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 295
-Warning (10230): Verilog HDL assignment warning at audio_codec.v(296): truncated value with size 32 to match size of target (6) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 296
+Warning (10230): Verilog HDL assignment warning at audio_codec.v(122): truncated value with size 32 to match size of target (4) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 122
+Warning (10230): Verilog HDL assignment warning at audio_codec.v(126): truncated value with size 32 to match size of target (1) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 126
 Warning (10230): Verilog HDL assignment warning at audio_codec.v(297): truncated value with size 32 to match size of target (6) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 297
 Warning (10230): Verilog HDL assignment warning at audio_codec.v(298): truncated value with size 32 to match size of target (6) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 298
 Warning (10230): Verilog HDL assignment warning at audio_codec.v(299): truncated value with size 32 to match size of target (6) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 299
@@ -1643,11 +1563,11 @@ Warning (10230): Verilog HDL assignment warning at audio_codec.v(300): truncated
 Warning (10230): Verilog HDL assignment warning at audio_codec.v(301): truncated value with size 32 to match size of target (6) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 301
 Warning (10230): Verilog HDL assignment warning at audio_codec.v(302): truncated value with size 32 to match size of target (6) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 302
 Warning (10230): Verilog HDL assignment warning at audio_codec.v(303): truncated value with size 32 to match size of target (6) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 303
+Warning (10230): Verilog HDL assignment warning at audio_codec.v(304): truncated value with size 32 to match size of target (6) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 304
 Warning (10230): Verilog HDL assignment warning at audio_codec.v(305): truncated value with size 32 to match size of target (6) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 305
 Warning (10230): Verilog HDL assignment warning at audio_codec.v(306): truncated value with size 32 to match size of target (6) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 306
 Warning (10230): Verilog HDL assignment warning at audio_codec.v(307): truncated value with size 32 to match size of target (6) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 307
 Warning (10230): Verilog HDL assignment warning at audio_codec.v(308): truncated value with size 32 to match size of target (6) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 308
-Warning (10230): Verilog HDL assignment warning at audio_codec.v(309): truncated value with size 32 to match size of target (6) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 309
 Warning (10230): Verilog HDL assignment warning at audio_codec.v(310): truncated value with size 32 to match size of target (6) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 310
 Warning (10230): Verilog HDL assignment warning at audio_codec.v(311): truncated value with size 32 to match size of target (6) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 311
 Warning (10230): Verilog HDL assignment warning at audio_codec.v(312): truncated value with size 32 to match size of target (6) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 312
@@ -1655,8 +1575,13 @@ Warning (10230): Verilog HDL assignment warning at audio_codec.v(313): truncated
 Warning (10230): Verilog HDL assignment warning at audio_codec.v(314): truncated value with size 32 to match size of target (6) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 314
 Warning (10230): Verilog HDL assignment warning at audio_codec.v(315): truncated value with size 32 to match size of target (6) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 315
 Warning (10230): Verilog HDL assignment warning at audio_codec.v(316): truncated value with size 32 to match size of target (6) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 316
-Info (12128): Elaborating entity "wave_gen_sin" for hierarchy "audio_codec:ad1|wave_gen_sin:s1" File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 325
-Info (12128): Elaborating entity "wave_gen_square" for hierarchy "audio_codec:ad1|wave_gen_square:sq1" File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 375
+Warning (10230): Verilog HDL assignment warning at audio_codec.v(317): truncated value with size 32 to match size of target (6) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 317
+Warning (10230): Verilog HDL assignment warning at audio_codec.v(318): truncated value with size 32 to match size of target (6) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 318
+Warning (10230): Verilog HDL assignment warning at audio_codec.v(319): truncated value with size 32 to match size of target (6) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 319
+Warning (10230): Verilog HDL assignment warning at audio_codec.v(320): truncated value with size 32 to match size of target (6) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 320
+Warning (10230): Verilog HDL assignment warning at audio_codec.v(321): truncated value with size 32 to match size of target (6) File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 321
+Info (12128): Elaborating entity "wave_gen_sin" for hierarchy "audio_codec:ad1|wave_gen_sin:s1" File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 330
+Info (12128): Elaborating entity "wave_gen_square" for hierarchy "audio_codec:ad1|wave_gen_square:sq1" File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/v/audio_codec.v Line: 380
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_e624.tdf
     Info (12023): Found entity 1: altsyncram_e624 File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/db/altsyncram_e624.tdf Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_tsc.tdf
@@ -1679,7 +1604,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr
     Info (12023): Found entity 1: cmpr_ngc File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/db/cmpr_ngc.tdf Line: 22
 Info (12033): Analysis and Synthesis generated Signal Tap or debug node instance "auto_signaltap_0"
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2018.05.02.15:15:14 Progress: Loading sldad274ffc/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2018.05.03.13:33:50 Progress: Loading sldad274ffc/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -1811,17 +1736,17 @@ Warning (21074): Design contains 7 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/DE2_115_Synthesizer.v Line: 17
     Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/DE2_115_Synthesizer.v Line: 17
     Warning (15610): No output dependent on input pin "AUD_ADCDAT" File: C:/Users/stens/Documents/NTNU/FPGA-Synthesizer/DE2_115_Synthesizer.v Line: 22
-Info (21057): Implemented 3299 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 3297 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 29 input pins
     Info (21059): Implemented 5 output pins
     Info (21060): Implemented 4 bidirectional pins
-    Info (21061): Implemented 3195 logic cells
+    Info (21061): Implemented 3193 logic cells
     Info (21064): Implemented 64 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 228 warnings
-    Info: Peak virtual memory: 4893 megabytes
-    Info: Processing ended: Wed May 02 15:15:34 2018
-    Info: Elapsed time: 00:00:41
-    Info: Total CPU time (on all processors): 00:01:08
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 152 warnings
+    Info: Peak virtual memory: 4892 megabytes
+    Info: Processing ended: Thu May 03 13:34:14 2018
+    Info: Elapsed time: 00:00:47
+    Info: Total CPU time (on all processors): 00:01:13
 
 

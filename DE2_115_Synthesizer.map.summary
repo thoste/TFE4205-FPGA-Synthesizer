@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Wed May 02 15:15:34 2018
+Analysis & Synthesis Status : Successful - Thu May 03 13:34:14 2018
 Quartus Prime Version : 17.1.1 Internal Build 593 12/11/2017 SJ Lite Edition
 Revision Name : DE2_115_Synthesizer
 Top-level Entity Name : DE2_115_Synthesizer
 Family : Cyclone IV E
-Total logic elements : 3,175
-    Total combinational functions : 2,517
-    Dedicated logic registers : 1,302
-Total registers : 1302
+Total logic elements : 3,173
+    Total combinational functions : 2,515
+    Dedicated logic registers : 1,300
+Total registers : 1300
 Total pins : 34
 Total virtual pins : 0
 Total memory bits : 197,632

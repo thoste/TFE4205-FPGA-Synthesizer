@@ -46,7 +46,7 @@ module DE2_115_Synthesizer(
 	 * SW 0 - Sine; SW 1 - Square; 
 	 * Disabled during interal testing
      */
-	//input [87:0] sound_in,
+	//input [87:0] keys_input,
 	//input [17:0] effects_ctrl
 	
 );
@@ -68,9 +68,9 @@ module DE2_115_Synthesizer(
 	/*
 	 * Testing only; using wire instead of input
      */
-	wire [87:0] sound_in;
-	assign sound_in[87:12] = 76'b0;
-	assign sound_in[11:0] = {SW[17],SW[16],SW[15],SW[14],SW[13],SW[12],SW[11],SW[10],SW[9],SW[8],SW[7],SW[6]};
+	wire [87:0] keys_input;
+	assign keys_input[87:12] = 76'b0;
+	assign keys_input[11:0] = {SW[6],SW[7],SW[8],SW[9],SW[10],SW[11],SW[12],SW[13],SW[14],SW[15],SW[16],SW[17]};
 	
 	// SW 0-3 select sound source.  
     wire [17:0] effects_ctrl;
@@ -120,12 +120,12 @@ module DE2_115_Synthesizer(
         .c1     ( AUD_CTRL_CLK )
 	);
 
-
+	
 	/*
-	 * Check of any key is pressed
+	 * Check for key press
 	 */
-	wire key_played;
-	assign key_played = (sound_in == 88'b0) ? 0 : 1;
+	wire key_pressed;
+	assign key_pressed = (keys_input == 88'b0)? 0 :1;
 
 
     /*
@@ -140,9 +140,9 @@ module DE2_115_Synthesizer(
         // KEY
         .iRST_N      ( KEY[0] ),
         // Sound Control
-		.key_pressed ( key_played),
-		.sound ( sound_in ),
-        .instru ( effects_ctrl ) // Select sound source
+		.key_pressed ( key_pressed ),	// Any key pressed
+		.keys 		 ( keys_input ),	// Keys pressed
+        .effects 	 ( effects_ctrl ) 	// Select sound source
     );
 
 endmodule
