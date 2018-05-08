@@ -1,0 +1,178 @@
+#include <stdio.h>
+#include "system.h"
+#include "altera_avalon_pio_regs.h"
+#include "mappings.h"
+
+int valid_key(unsigned);
+
+unsigned
+get_key()
+{
+        unsigned key, tmp, prev;
+
+        key = tmp = prev = 0;
+        while ( 1 ) {
+                tmp = ALT_CI_KEYBOARD_CI_0;
+                if ( tmp && tmp != prev )
+                        if ( tmp == 0xf0 || tmp == 0xe0 ) {
+                                key <<= 8;
+                                key |= tmp << 8;
+                        } else {
+                                key |= tmp;
+                        }
+                if ( !tmp && valid_key(key) )
+                        break;
+                if ( tmp )
+                        prev = tmp;
+
+        }
+        return key;
+}
+
+enum OPCODE {
+        key_on,
+        key_off,
+        effect_on,
+        effect_off,
+};
+
+int key_to_rel_tone(unsigned);
+int rel_to_abs_tone(int rel_key, int octave);
+
+void
+update_synth_tones(int rel_key, int opcode, int oct_key)
+{
+        static int tones_status[NUM_REL_TONES];
+        static int octave      = 4;
+        static int prev_octave = 4;
+
+        // if ( oct_key == LT )
+        //         octave--;
+        // else if ( oct_key == Z )
+        //         octave++;
+        //
+        // if ( rel_key != -1 )
+        //         tones_status[rel_key] = (opcode == key_on) ? 1 : 0;
+        //
+        // if ( octave != prev_octave ) {
+        //         for ( int i = 0; i < NUM_REL_TONES; i++ )
+        //                 ALT_CI_SYNTH_CI_0(key_off, rel_to_abs_tone(i, prev_octave), 0);
+        // }
+        ALT_CI_SYNTH_CI_0(opcode, A4, 0);
+}
+
+void
+handle_key(unsigned key)
+{
+        int opcode, rel_key, byte1, byte2;
+
+        byte1   = key & 0xff;
+        byte2   = (key >> 8) & 0xff;
+        opcode  = (byte2 == 0xf0) ?  key_off : key_on;
+        rel_key = key_to_rel_tone(byte1);
+
+        update_synth_tones(rel_key, opcode, key);
+}
+
+int
+main()
+{
+        unsigned key;
+        while ( 1 ) {
+                key = get_key();
+                printf("Key: %x\n", key);
+                handle_key(key);
+        }
+
+        return 0;
+}
+
+/*******************************************************************************
+ *
+ * My little helpers
+ *
+ ******************************************************************************/
+
+int
+valid_key(unsigned key)
+{
+        unsigned lsb;
+
+        lsb = key & 0xff;
+        return lsb != 0;
+}
+
+int
+key_to_rel_tone(unsigned key)
+{
+        int res;
+
+        switch ( key ) {
+        case A:
+                res = 0;
+                break;
+        case W:
+                res = 1;
+                break;
+        case S:
+                res = 2;
+                break;
+        case D:
+                res = 3;
+                break;
+        case R:
+                res = 4;
+                break;
+        case F:
+                res = 5;
+                break;
+        case T:
+                res = 6;
+                break;
+        case G:
+                res = 7;
+                break;
+        case H:
+                res = 8;
+                break;
+        case U:
+                res = 9;
+                break;
+        case J:
+                res = 10;
+                break;
+        case I:
+                res = 11;
+                break;
+        case K:
+                res = 12;
+                break;
+        case O:
+                res = 13;
+                break;
+        case L:
+                res = 14;
+                break;
+        case OE:
+                res = 15;
+                break;
+        case AA:
+                res = 16;
+                break;
+        case AE:
+                res = 17;
+                break;
+        default:
+                res = -1;
+        }
+        return res;
+}
+
+int
+rel_to_abs_tone(int rel_key, int octave)
+{
+        int tone;
+
+        tone = rel_key + 12 * octave;
+        return (tone < 88) ? tone : -1;
+}

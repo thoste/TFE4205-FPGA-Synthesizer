@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file path="simulation/DE2_115_SOPC.v" type="VERILOG" />
+ <topLevel name="DE2_115_SOPC" />
+ <deviceFamily name="cycloneive" />
+ <modelMap
+   controllerPath="DE2_115_SOPC.onchip_memory2"
+   modelPath="DE2_115_SOPC.onchip_memory2" />
+</simPackage>

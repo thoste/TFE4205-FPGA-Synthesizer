@@ -1,0 +1,6 @@
+18:00:30 **** Clean-only build of configuration Nios II for project fpga_synth_bsp ****
+make clean 
+[BSP clean complete]
+
+18:00:30 Build Finished (took 585ms)
+

@@ -1,0 +1,13 @@
+	component clocks is
+		port (
+			clk_0_clk              : in  std_logic := 'X'; -- clk
+			clk_1_clk              : in  std_logic := 'X'; -- clk
+			clock_25_clk           : out std_logic;        -- clk
+			clock_25_reset_reset_n : out std_logic;        -- reset_n
+			clock_27_clk_clk       : out std_logic;        -- clk
+			clock_27_reset_reset_n : out std_logic;        -- reset_n
+			reset_0_reset_n        : in  std_logic := 'X'; -- reset_n
+			reset_1_reset_n        : in  std_logic := 'X'  -- reset_n
+		);
+	end component clocks;
+

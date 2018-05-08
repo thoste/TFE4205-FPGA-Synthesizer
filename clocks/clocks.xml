@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy
+ date="2018.04.29.20:36:48"
+ outputDirectory="C:/Users/magnu/Documents/Elsys-Avanser-Design-Prosjekt/synth1/clocks/">
+ <perimeter>
+  <parameter
+     name="AUTO_GENERATION_ID"
+     type="Integer"
+     defaultValue="0"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_UNIQUE_ID"
+     type="String"
+     defaultValue=""
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_FAMILY"
+     type="String"
+     defaultValue="Cyclone IV E"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE"
+     type="String"
+     defaultValue="EP4CE115F29C7"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_SPEEDGRADE"
+     type="String"
+     defaultValue="7"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLK_0_CLOCK_RATE"
+     type="Long"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLK_0_CLOCK_DOMAIN"
+     type="Integer"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLK_0_RESET_DOMAIN"
+     type="Integer"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLK_1_CLOCK_RATE"
+     type="Long"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLK_1_CLOCK_DOMAIN"
+     type="Integer"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLK_1_RESET_DOMAIN"
+     type="Integer"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <interface name="clk_0" kind="clock" start="0">
+   <property name="clockRate" value="27000000" />
+   <property name="externallyDriven" value="false" />
+   <property name="ptfSchematicName" value="" />
+   <port name="clk_0_clk" direction="input" role="clk" width="1" />
+  </interface>
+  <interface name="clk_1" kind="clock" start="0">
+   <property name="clockRate" value="25000000" />
+   <property name="externallyDriven" value="false" />
+   <property name="ptfSchematicName" value="" />
+   <port name="clk_1_clk" direction="input" role="clk" width="1" />
+  </interface>
+  <interface name="clock_25" kind="clock" start="1">
+   <property name="associatedDirectClock" value="clk_1" />
+   <property name="clockRate" value="25000000" />
+   <property name="clockRateKnown" value="true" />
+   <property name="externallyDriven" value="true" />
+   <property name="ptfSchematicName" value="" />
+   <port name="clock_25_clk" direction="output" role="clk" width="1" />
+  </interface>
+  <interface name="clock_25_reset" kind="reset" start="1">
+   <property name="associatedClock" value="" />
+   <property name="associatedDirectReset" value="reset_1" />
+   <property name="associatedResetSinks" value="reset_1" />
+   <property name="synchronousEdges" value="NONE" />
+   <port
+       name="clock_25_reset_reset_n"
+       direction="output"
+       role="reset_n"
+       width="1" />
+  </interface>
+  <interface name="clock_27_clk" kind="clock" start="1">
+   <property name="associatedDirectClock" value="clk_0" />
+   <property name="clockRate" value="27000000" />
+   <property name="clockRateKnown" value="true" />
+   <property name="externallyDriven" value="true" />
+   <property name="ptfSchematicName" value="" />
+   <port name="clock_27_clk_clk" direction="output" role="clk" width="1" />
+  </interface>
+  <interface name="clock_27_reset" kind="reset" start="1">
+   <property name="associatedClock" value="" />
+   <property name="associatedDirectReset" value="reset_0" />
+   <property name="associatedResetSinks" value="reset_0" />
+   <property name="synchronousEdges" value="NONE" />
+   <port
+       name="clock_27_reset_reset_n"
+       direction="output"
+       role="reset_n"
+       width="1" />
+  </interface>
+  <interface name="reset_0" kind="reset" start="0">
+   <property name="associatedClock" value="" />
+   <property name="synchronousEdges" value="NONE" />
+   <port name="reset_0_reset_n" direction="input" role="reset_n" width="1" />
+  </interface>
+  <interface name="reset_1" kind="reset" start="0">
+   <property name="associatedClock" value="" />
+   <property name="synchronousEdges" value="NONE" />
+   <port name="reset_1_reset_n" direction="input" role="reset_n" width="1" />
+  </interface>
+ </perimeter>
+ <entity
+   path=""
+   parameterizationKey="clocks:1.0:AUTO_CLK_0_CLOCK_DOMAIN=-1,AUTO_CLK_0_CLOCK_RATE=-1,AUTO_CLK_0_RESET_DOMAIN=-1,AUTO_CLK_1_CLOCK_DOMAIN=-1,AUTO_CLK_1_CLOCK_RATE=-1,AUTO_CLK_1_RESET_DOMAIN=-1,AUTO_DEVICE=EP4CE115F29C7,AUTO_DEVICE_FAMILY=Cyclone IV E,AUTO_DEVICE_SPEEDGRADE=7,AUTO_GENERATION_ID=1525027007,AUTO_UNIQUE_ID=(clock_source:17.1:clockFrequency=25000000,clockFrequencyKnown=true,inputClockFrequency=0,resetSynchronousEdges=NONE)(clock_source:17.1:clockFrequency=27000000,clockFrequencyKnown=true,inputClockFrequency=0,resetSynchronousEdges=NONE)"
+   instancePathKey="clocks"
+   kind="clocks"
+   version="1.0"
+   name="clocks">
+  <parameter name="AUTO_GENERATION_ID" value="1525027007" />
+  <parameter name="AUTO_DEVICE" value="EP4CE115F29C7" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone IV E" />
+  <parameter name="AUTO_CLK_1_CLOCK_DOMAIN" value="-1" />
+  <parameter name="AUTO_CLK_1_RESET_DOMAIN" value="-1" />
+  <parameter name="AUTO_CLK_0_CLOCK_DOMAIN" value="-1" />
+  <parameter name="AUTO_CLK_0_CLOCK_RATE" value="-1" />
+  <parameter name="AUTO_CLK_0_RESET_DOMAIN" value="-1" />
+  <parameter name="AUTO_CLK_1_CLOCK_RATE" value="-1" />
+  <parameter name="AUTO_UNIQUE_ID" value="" />
+  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="7" />
+  <generatedFiles>
+   <file
+       path="C:/Users/magnu/Documents/Elsys-Avanser-Design-Prosjekt/synth1/clocks/synthesis/clocks.v"
+       type="VERILOG" />
+  </generatedFiles>
+  <childGeneratedFiles/>
+  <sourceFiles>
+   <file
+       path="C:/Users/magnu/Documents/Elsys-Avanser-Design-Prosjekt/synth1/clocks.qsys" />
+  </sourceFiles>
+  <childSourceFiles/>
+  <messages>
+   <message level="Debug" culprit="clocks">queue size: 0 starting:clocks "clocks"</message>
+   <message level="Progress" culprit="min"></message>
+   <message level="Progress" culprit="max"></message>
+   <message level="Progress" culprit="current"></message>
+   <message level="Debug">Transform: CustomInstructionTransform</message>
+   <message level="Debug">No custom instruction connections, skipping transform </message>
+   <message level="Debug" culprit="merlin_custom_instruction_transform"><![CDATA[After transform: <b>2</b> modules, <b>0</b> connections]]></message>
+   <message level="Debug">Transform: MMTransform</message>
+   <message level="Debug">Transform: InterruptMapperTransform</message>
+   <message level="Debug">Transform: InterruptSyncTransform</message>
+   <message level="Debug">Transform: InterruptFanoutTransform</message>
+   <message level="Debug">Transform: AvalonStreamingTransform</message>
+   <message level="Debug">Transform: ResetAdaptation</message>
+  </messages>
+ </entity>
+</deploy>

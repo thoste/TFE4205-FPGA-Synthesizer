@@ -1,0 +1,9 @@
+15:13:53 **** Incremental Build of configuration Nios II for project ps2_ci3 ****
+make all 
+Info: Building ../ps2_ci3_bsp/
+C:/intelFPGA_lite/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ps2_ci3_bsp/
+[BSP build complete]
+[ps2_ci3 build complete]
+
+15:13:54 Build Finished (took 1s.346ms)
+
