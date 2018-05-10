@@ -1,2 +1,12 @@
 .qsys_edit/*
 db/*
+greybox_tmp/*
+incremental_db/*
+*.bak
+*~
+*.rpt
+*.debounce
+*.smsg
+*.summary
+*.pin
+*.qarlog
