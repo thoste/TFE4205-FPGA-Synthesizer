@@ -2,9 +2,9 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>May 8, 2018 6:00:28 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1525795228798</BspGeneratedUnixTimeStamp>
-        <BspGeneratedLocation>C:\Users\magnu\Documents\Elsys-Avanser-Design-Prosjekt\synth3\software\fpga_synth_bsp</BspGeneratedLocation>
+        <BspGeneratedTimeStamp>May 9, 2018 5:49:24 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1525880964082</BspGeneratedUnixTimeStamp>
+        <BspGeneratedLocation>C:\Users\magnu\Documents\Elsys-Avanser-Design-Prosjekt\FPGA-Synthesizer\software\fpga_synth_bsp</BspGeneratedLocation>
         <BspSettingsFile>.\settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\DE2_115_SOPC.sopcinfo</SopcDesignFile>
         <JdiFile>default</JdiFile>

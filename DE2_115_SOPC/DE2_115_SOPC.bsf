@@ -38,6 +38,13 @@ refer to the applicable agreement for further details.
 		(line (pt 0 112)(pt 224 112)(line_width 3))
 	)
 	(port
+		(pt 0 152)
+		(input)
+		(text "keyboard_ci_working_external" (rect 0 0 121 12)(font "Arial" (font_size 8)))
+		(text "keyboard_ci_working_external" (rect 4 141 172 152)(font "Arial" (font_size 8)))
+		(line (pt 0 152)(pt 224 152)(line_width 1))
+	)
+	(port
 		(pt 0 192)
 		(input)
 		(text "pio_keys_external_connection_export[17..0]" (rect 0 0 174 12)(font "Arial" (font_size 8)))
@@ -50,13 +57,6 @@ refer to the applicable agreement for further details.
 		(text "reset_reset_n" (rect 0 0 56 12)(font "Arial" (font_size 8)))
 		(text "reset_reset_n" (rect 4 261 82 272)(font "Arial" (font_size 8)))
 		(line (pt 0 272)(pt 224 272)(line_width 1))
-	)
-	(port
-		(pt 0 152)
-		(output)
-		(text "keyboard_ci_ps2_read_external" (rect 0 0 129 12)(font "Arial" (font_size 8)))
-		(text "keyboard_ci_ps2_read_external" (rect 4 141 178 152)(font "Arial" (font_size 8)))
-		(line (pt 0 152)(pt 224 152)(line_width 1))
 	)
 	(port
 		(pt 0 232)
@@ -84,7 +84,7 @@ refer to the applicable agreement for further details.
 		(text "clk" (rect 229 67 476 144)(font "Arial" (color 0 0 0)))
 		(text "keyboard_ci_keycode" (rect 100 83 314 179)(font "Arial" (color 128 0 0)(font_size 9)))
 		(text "external" (rect 229 107 506 224)(font "Arial" (color 0 0 0)))
-		(text "keyboard_ci_ps2_read" (rect 92 123 304 259)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "keyboard_ci_working" (rect 101 123 316 259)(font "Arial" (color 128 0 0)(font_size 9)))
 		(text "external" (rect 229 147 506 304)(font "Arial" (color 0 0 0)))
 		(text "pio_keys_external_connection" (rect 50 163 268 339)(font "Arial" (color 128 0 0)(font_size 9)))
 		(text "export" (rect 229 187 494 384)(font "Arial" (color 0 0 0)))
