@@ -49,6 +49,14 @@
          type = "String";
       }
    }
+   element DE2_115_SOPC
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone IV E";
+         type = "String";
+      }
+   }
    element clk_50
    {
       datum _sortIndex
@@ -183,13 +191,14 @@
    dir="end" />
  <interface name="keyboard_ci_ps2_clk" internal="keyboard_ci.PS2_CLK" />
  <interface name="keyboard_ci_ps2_dat" internal="keyboard_ci.PS2_DAT" />
- <interface
-   name="keyboard_ci_ps2_read"
-   internal="keyboard_ci.ps2_read"
-   type="conduit"
-   dir="end" />
+ <interface name="keyboard_ci_ps2_read" internal="keyboard_ci.ps2_read" />
  <interface name="keyboard_ci_read" internal="keyboard_ci.read" />
  <interface name="keyboard_ci_start_out" internal="keyboard_ci.start_out" />
+ <interface
+   name="keyboard_ci_working"
+   internal="keyboard_ci.working"
+   type="conduit"
+   dir="end" />
  <interface name="keyboard_ci_zero" internal="keyboard_ci.zero" />
  <interface
    name="pio_keys_external_connection"

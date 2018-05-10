@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="DE2_115_SOPC" kind="DE2_115_SOPC" version="1.0" fabric="QSYS">
  <!-- Format version 17.1 590 (Future versions may contain additional information.) -->
- <!-- 2018.05.08.17:44:37 -->
+ <!-- 2018.05.09.19:33:08 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1525794277</value>
+  <value>1525887188</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -4728,7 +4728,7 @@ parameters are a RESULT of the module parameters. -->
     <role>external</role>
    </port>
   </interface>
-  <interface name="ps2_read" kind="conduit_end" version="17.1">
+  <interface name="working" kind="conduit_end" version="17.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -4767,8 +4767,8 @@ parameters are a RESULT of the module parameters. -->
    <type>conduit</type>
    <isStart>false</isStart>
    <port>
-    <name>ps2_read</name>
-    <direction>Output</direction>
+    <name>working</name>
+    <direction>Input</direction>
     <width>1</width>
     <role>external</role>
    </port>
@@ -7260,7 +7260,7 @@ parameters are a RESULT of the module parameters. -->
    </parameter>
    <parameter name="operands">
     <type>int</type>
-    <value>2</value>
+    <value>1</value>
     <derived>false</derived>
     <enabled>true</enabled>
     <visible>true</visible>

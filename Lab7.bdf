@@ -274,7 +274,7 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(bidir)
-	(rect 152 680 328 696)
+	(rect 256 144 432 160)
 	(text "BIDIR" (rect 1 0 25 10)(font "Arial" (font_size 6)))
 	(text "PS2_CLK" (rect 90 0 137 12)(font "Arial" ))
 	(pt 0 8)
@@ -288,11 +288,11 @@ refer to the applicable agreement for further details.
 		(line (pt 52 8)(pt 56 12))
 	)
 	(text "VCC" (rect 4 7 24 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect 328 696 376 712))
+	(annotation_block (location)(rect 432 160 480 176))
 )
 (pin
 	(bidir)
-	(rect 152 696 328 712)
+	(rect 256 160 432 176)
 	(text "BIDIR" (rect 1 0 25 10)(font "Arial" (font_size 6)))
 	(text "PS2_DAT" (rect 90 0 137 12)(font "Arial" ))
 	(pt 0 8)
@@ -306,7 +306,7 @@ refer to the applicable agreement for further details.
 		(line (pt 52 8)(pt 56 12))
 	)
 	(text "VCC" (rect 4 7 24 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect 328 712 376 728))
+	(annotation_block (location)(rect 432 176 480 192))
 )
 (pin
 	(bidir)
@@ -342,7 +342,7 @@ refer to the applicable agreement for further details.
 	)
 )
 (symbol
-	(rect -144 656 -112 672)
+	(rect -40 120 -8 136)
 	(text "VCC" (rect 7 0 27 10)(font "Arial" (font_size 6)))
 	(text "inst15" (rect 3 5 31 22)(font "Intel Clear" )(invisible))
 	(port
@@ -354,226 +354,6 @@ refer to the applicable agreement for further details.
 	)
 	(drawing
 		(line (pt 8 8)(pt 24 8))
-	)
-)
-(symbol
-	(rect -72 656 104 768)
-	(text "ps2" (rect 5 0 22 12)(font "Arial" ))
-	(text "inst" (rect 8 96 25 108)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "reset" (rect 0 0 24 12)(font "Arial" ))
-		(text "reset" (rect 21 27 45 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "clk" (rect 0 0 14 12)(font "Arial" ))
-		(text "clk" (rect 21 43 35 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "read" (rect 0 0 21 12)(font "Arial" ))
-		(text "read" (rect 21 59 42 71)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64))
-	)
-	(port
-		(pt 176 64)
-		(output)
-		(text "keycode[7..0]" (rect 0 0 68 12)(font "Arial" ))
-		(text "keycode[7..0]" (rect 98 59 166 71)(font "Arial" ))
-		(line (pt 176 64)(pt 160 64)(line_width 3))
-	)
-	(port
-		(pt 176 32)
-		(bidir)
-		(text "PS2_CLK" (rect 0 0 47 12)(font "Arial" ))
-		(text "PS2_CLK" (rect 113 27 160 39)(font "Arial" ))
-		(line (pt 176 32)(pt 160 32))
-	)
-	(port
-		(pt 176 48)
-		(bidir)
-		(text "PS2_DAT" (rect 0 0 47 12)(font "Arial" ))
-		(text "PS2_DAT" (rect 112 43 159 55)(font "Arial" ))
-		(line (pt 176 48)(pt 160 48))
-	)
-	(parameter
-		"IDLE"
-		"0000"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"SEND"
-		"0001"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"DONE"
-		"0010"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"WORKING"
-		"0011"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"WORKING_STARTED"
-		"0100"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"NEW"
-		"0101"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"NEW_STARTED"
-		"0110"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"WORKING_MULT"
-		"0111"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"WORKING_MULT_STARTED"
-		"1000"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"NEW_MULT"
-		"1001"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"NEW_MULT_STARTED"
-		"1010"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"NEW_RESULT"
-		"1011"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"NEW_RESULT_STARTED"
-		"1100"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(drawing
-		(rectangle (rect 16 16 160 96))
-	)
-	(annotation_block (parameter)(rect 128 384 400 656))
-)
-(symbol
-	(rect 336 -472 848 -88)
-	(text "DE2_115_SOPC" (rect 209 -1 323 15)(font "Arial" (font_size 10)))
-	(text "inst12" (rect 8 368 37 380)(font "Arial" ))
-	(port
-		(pt 0 72)
-		(input)
-		(text "clk_clk" (rect 0 0 37 14)(font "Arial" (font_size 8)))
-		(text "clk_clk" (rect 4 61 41 75)(font "Arial" (font_size 8)))
-		(line (pt 0 72)(pt 224 72))
-	)
-	(port
-		(pt 0 112)
-		(input)
-		(text "keyboard_ci_keycode_external[7..0]" (rect 0 0 206 14)(font "Arial" (font_size 8)))
-		(text "keyboard_ci_keycode_external[7..0]" (rect 4 101 210 115)(font "Arial" (font_size 8)))
-		(line (pt 0 112)(pt 224 112)(line_width 3))
-	)
-	(port
-		(pt 0 192)
-		(input)
-		(text "pio_keys_external_connection_export[17..0]" (rect 0 0 252 14)(font "Arial" (font_size 8)))
-		(text "pio_keys_external_connection_export[17..0]" (rect 4 181 256 195)(font "Arial" (font_size 8)))
-		(line (pt 0 192)(pt 224 192)(line_width 3))
-	)
-	(port
-		(pt 0 272)
-		(input)
-		(text "reset_reset_n" (rect 0 0 80 14)(font "Arial" (font_size 8)))
-		(text "reset_reset_n" (rect 4 261 84 275)(font "Arial" (font_size 8)))
-		(line (pt 0 272)(pt 224 272))
-	)
-	(port
-		(pt 0 152)
-		(output)
-		(text "keyboard_ci_ps2_read_external" (rect 0 0 184 14)(font "Arial" (font_size 8)))
-		(text "keyboard_ci_ps2_read_external" (rect 4 141 188 155)(font "Arial" (font_size 8)))
-		(line (pt 0 152)(pt 224 152))
-	)
-	(port
-		(pt 0 232)
-		(output)
-		(text "pio_led_external_connection_export[17..0]" (rect 0 0 241 14)(font "Arial" (font_size 8)))
-		(text "pio_led_external_connection_export[17..0]" (rect 4 221 245 235)(font "Arial" (font_size 8)))
-		(line (pt 0 232)(pt 224 232)(line_width 3))
-	)
-	(port
-		(pt 0 312)
-		(output)
-		(text "synth_effects_ctrl_bus[17..0]" (rect 0 0 168 14)(font "Arial" (font_size 8)))
-		(text "synth_effects_ctrl_bus[17..0]" (rect 4 301 172 315)(font "Arial" (font_size 8)))
-		(line (pt 0 312)(pt 224 312)(line_width 3))
-	)
-	(port
-		(pt 0 352)
-		(output)
-		(text "synth_sound_ctrl_bus[87..0]" (rect 0 0 162 14)(font "Arial" (font_size 8)))
-		(text "synth_sound_ctrl_bus[87..0]" (rect 4 341 166 355)(font "Arial" (font_size 8)))
-		(line (pt 0 352)(pt 224 352)(line_width 3))
-	)
-	(drawing
-		(text "clk" (rect 209 43 226 58)(font "Arial" (color 128 0 0)(font_size 9)))
-		(text "clk" (rect 229 67 243 79)(font "Arial" (color 0 0 0)))
-		(text "keyboard_ci_keycode" (rect 100 83 239 98)(font "Arial" (color 128 0 0)(font_size 9)))
-		(text "external" (rect 229 107 267 119)(font "Arial" (color 0 0 0)))
-		(text "keyboard_ci_ps2_read" (rect 92 123 240 138)(font "Arial" (color 128 0 0)(font_size 9)))
-		(text "external" (rect 229 147 267 159)(font "Arial" (color 0 0 0)))
-		(text "pio_keys_external_connection" (rect 50 163 245 178)(font "Arial" (color 128 0 0)(font_size 9)))
-		(text "export" (rect 229 187 259 199)(font "Arial" (color 0 0 0)))
-		(text "pio_led_external_connection" (rect 60 203 246 218)(font "Arial" (color 128 0 0)(font_size 9)))
-		(text "export" (rect 229 227 259 239)(font "Arial" (color 0 0 0)))
-		(text "reset" (rect 195 243 228 258)(font "Arial" (color 128 0 0)(font_size 9)))
-		(text "reset_n" (rect 229 267 265 279)(font "Arial" (color 0 0 0)))
-		(text "synth_effects_ctrl" (rect 119 283 231 298)(font "Arial" (color 128 0 0)(font_size 9)))
-		(text "bus" (rect 229 307 246 319)(font "Arial" (color 0 0 0)))
-		(text "synth_sound_ctrl" (rect 125 323 235 338)(font "Arial" (color 128 0 0)(font_size 9)))
-		(text "bus" (rect 229 347 246 359)(font "Arial" (color 0 0 0)))
-		(text " DE2_115_SOPC " (rect 439 368 527 380)(font "Arial" ))
-		(line (pt 224 32)(pt 288 32))
-		(line (pt 288 32)(pt 288 368))
-		(line (pt 224 368)(pt 288 368))
-		(line (pt 224 32)(pt 224 368))
-		(line (pt 225 52)(pt 225 76))
-		(line (pt 226 52)(pt 226 76))
-		(line (pt 225 92)(pt 225 116))
-		(line (pt 226 92)(pt 226 116))
-		(line (pt 225 132)(pt 225 156))
-		(line (pt 226 132)(pt 226 156))
-		(line (pt 225 172)(pt 225 196))
-		(line (pt 226 172)(pt 226 196))
-		(line (pt 225 212)(pt 225 236))
-		(line (pt 226 212)(pt 226 236))
-		(line (pt 225 252)(pt 225 276))
-		(line (pt 226 252)(pt 226 276))
-		(line (pt 225 292)(pt 225 316))
-		(line (pt 226 292)(pt 226 316))
-		(line (pt 225 332)(pt 225 356))
-		(line (pt 226 332)(pt 226 356))
-		(line (pt 0 0)(pt 512 0))
-		(line (pt 512 0)(pt 512 384))
-		(line (pt 0 384)(pt 512 384))
-		(line (pt 0 0)(pt 0 384))
 	)
 )
 (symbol
@@ -633,28 +413,28 @@ refer to the applicable agreement for further details.
 		(pt 256 64)
 		(output)
 		(text "AUD_DACDAT" (rect 0 0 74 12)(font "Arial" ))
-		(text "AUD_DACDAT" (rect 173 59 235 71)(font "Arial" ))
+		(text "AUD_DACDAT" (rect 173 59 247 71)(font "Arial" ))
 		(line (pt 256 64)(pt 240 64))
 	)
 	(port
 		(pt 256 96)
 		(output)
 		(text "AUD_XCK" (rect 0 0 50 12)(font "Arial" ))
-		(text "AUD_XCK" (rect 193 91 235 103)(font "Arial" ))
+		(text "AUD_XCK" (rect 193 91 243 103)(font "Arial" ))
 		(line (pt 256 96)(pt 240 96))
 	)
 	(port
 		(pt 256 112)
 		(output)
 		(text "I2C_SCLK" (rect 0 0 51 12)(font "Arial" ))
-		(text "I2C_SCLK" (rect 192 107 235 119)(font "Arial" ))
+		(text "I2C_SCLK" (rect 192 107 243 119)(font "Arial" ))
 		(line (pt 256 112)(pt 240 112))
 	)
 	(port
 		(pt 256 144)
 		(output)
 		(text "TD_RESET_N" (rect 0 0 69 12)(font "Arial" ))
-		(text "TD_RESET_N" (rect 177 139 235 151)(font "Arial" ))
+		(text "TD_RESET_N" (rect 177 139 246 151)(font "Arial" ))
 		(line (pt 256 144)(pt 240 144))
 	)
 	(port
@@ -687,6 +467,160 @@ refer to the applicable agreement for further details.
 	)
 	(drawing
 		(rectangle (rect 16 16 240 160))
+	)
+)
+(symbol
+	(rect 32 120 208 232)
+	(text "ps2" (rect 5 0 22 12)(font "Arial" ))
+	(text "inst" (rect 8 96 25 108)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "reset" (rect 0 0 24 12)(font "Arial" ))
+		(text "reset" (rect 21 27 45 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "clk" (rect 0 0 14 12)(font "Arial" ))
+		(text "clk" (rect 21 43 35 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 176 64)
+		(output)
+		(text "working" (rect 0 0 36 12)(font "Arial" ))
+		(text "working" (rect 125 59 161 71)(font "Arial" ))
+		(line (pt 176 64)(pt 160 64))
+	)
+	(port
+		(pt 176 80)
+		(output)
+		(text "keycode[7..0]" (rect 0 0 68 12)(font "Arial" ))
+		(text "keycode[7..0]" (rect 98 75 166 87)(font "Arial" ))
+		(line (pt 176 80)(pt 160 80)(line_width 3))
+	)
+	(port
+		(pt 176 32)
+		(bidir)
+		(text "PS2_CLK" (rect 0 0 47 12)(font "Arial" ))
+		(text "PS2_CLK" (rect 113 27 160 39)(font "Arial" ))
+		(line (pt 176 32)(pt 160 32))
+	)
+	(port
+		(pt 176 48)
+		(bidir)
+		(text "PS2_DAT" (rect 0 0 47 12)(font "Arial" ))
+		(text "PS2_DAT" (rect 112 43 159 55)(font "Arial" ))
+		(line (pt 176 48)(pt 160 48))
+	)
+	(drawing
+		(rectangle (rect 16 16 160 96))
+	)
+)
+(symbol
+	(rect 336 -472 848 -88)
+	(text "DE2_115_SOPC" (rect 209 -1 323 15)(font "Arial" (font_size 10)))
+	(text "inst12" (rect 8 368 37 380)(font "Arial" ))
+	(port
+		(pt 0 72)
+		(input)
+		(text "clk_clk" (rect 0 0 37 14)(font "Arial" (font_size 8)))
+		(text "clk_clk" (rect 4 61 41 75)(font "Arial" (font_size 8)))
+		(line (pt 0 72)(pt 224 72))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "keyboard_ci_keycode_external[7..0]" (rect 0 0 206 14)(font "Arial" (font_size 8)))
+		(text "keyboard_ci_keycode_external[7..0]" (rect 4 101 210 115)(font "Arial" (font_size 8)))
+		(line (pt 0 112)(pt 224 112)(line_width 3))
+	)
+	(port
+		(pt 0 152)
+		(input)
+		(text "keyboard_ci_working_external" (rect 0 0 175 14)(font "Arial" (font_size 8)))
+		(text "keyboard_ci_working_external" (rect 4 141 179 155)(font "Arial" (font_size 8)))
+		(line (pt 0 152)(pt 224 152))
+	)
+	(port
+		(pt 0 192)
+		(input)
+		(text "pio_keys_external_connection_export[17..0]" (rect 0 0 252 14)(font "Arial" (font_size 8)))
+		(text "pio_keys_external_connection_export[17..0]" (rect 4 181 256 195)(font "Arial" (font_size 8)))
+		(line (pt 0 192)(pt 224 192)(line_width 3))
+	)
+	(port
+		(pt 0 272)
+		(input)
+		(text "reset_reset_n" (rect 0 0 80 14)(font "Arial" (font_size 8)))
+		(text "reset_reset_n" (rect 4 261 84 275)(font "Arial" (font_size 8)))
+		(line (pt 0 272)(pt 224 272))
+	)
+	(port
+		(pt 0 232)
+		(output)
+		(text "pio_led_external_connection_export[17..0]" (rect 0 0 241 14)(font "Arial" (font_size 8)))
+		(text "pio_led_external_connection_export[17..0]" (rect 4 221 245 235)(font "Arial" (font_size 8)))
+		(line (pt 0 232)(pt 224 232)(line_width 3))
+	)
+	(port
+		(pt 0 312)
+		(output)
+		(text "synth_effects_ctrl_bus[17..0]" (rect 0 0 168 14)(font "Arial" (font_size 8)))
+		(text "synth_effects_ctrl_bus[17..0]" (rect 4 301 172 315)(font "Arial" (font_size 8)))
+		(line (pt 0 312)(pt 224 312)(line_width 3))
+	)
+	(port
+		(pt 0 352)
+		(output)
+		(text "synth_sound_ctrl_bus[87..0]" (rect 0 0 162 14)(font "Arial" (font_size 8)))
+		(text "synth_sound_ctrl_bus[87..0]" (rect 4 341 166 355)(font "Arial" (font_size 8)))
+		(line (pt 0 352)(pt 224 352)(line_width 3))
+	)
+	(drawing
+		(text "clk" (rect 209 43 226 58)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "clk" (rect 229 67 243 79)(font "Arial" (color 0 0 0)))
+		(text "keyboard_ci_keycode" (rect 100 83 239 98)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "external" (rect 229 107 267 119)(font "Arial" (color 0 0 0)))
+		(text "keyboard_ci_working" (rect 101 123 237 138)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "external" (rect 229 147 267 159)(font "Arial" (color 0 0 0)))
+		(text "pio_keys_external_connection" (rect 50 163 245 178)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "export" (rect 229 187 259 199)(font "Arial" (color 0 0 0)))
+		(text "pio_led_external_connection" (rect 60 203 246 218)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "export" (rect 229 227 259 239)(font "Arial" (color 0 0 0)))
+		(text "reset" (rect 195 243 228 258)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "reset_n" (rect 229 267 265 279)(font "Arial" (color 0 0 0)))
+		(text "synth_effects_ctrl" (rect 119 283 231 298)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "bus" (rect 229 307 246 319)(font "Arial" (color 0 0 0)))
+		(text "synth_sound_ctrl" (rect 125 323 235 338)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "bus" (rect 229 347 246 359)(font "Arial" (color 0 0 0)))
+		(text " DE2_115_SOPC " (rect 439 368 527 380)(font "Arial" ))
+		(line (pt 224 32)(pt 288 32))
+		(line (pt 288 32)(pt 288 368))
+		(line (pt 224 368)(pt 288 368))
+		(line (pt 224 32)(pt 224 368))
+		(line (pt 225 52)(pt 225 76))
+		(line (pt 226 52)(pt 226 76))
+		(line (pt 225 92)(pt 225 116))
+		(line (pt 226 92)(pt 226 116))
+		(line (pt 225 132)(pt 225 156))
+		(line (pt 226 132)(pt 226 156))
+		(line (pt 225 172)(pt 225 196))
+		(line (pt 226 172)(pt 226 196))
+		(line (pt 225 212)(pt 225 236))
+		(line (pt 226 212)(pt 226 236))
+		(line (pt 225 252)(pt 225 276))
+		(line (pt 226 252)(pt 226 276))
+		(line (pt 225 292)(pt 225 316))
+		(line (pt 226 292)(pt 226 316))
+		(line (pt 225 332)(pt 225 356))
+		(line (pt 226 332)(pt 226 356))
+		(line (pt 0 0)(pt 512 0))
+		(line (pt 512 0)(pt 512 384))
+		(line (pt 0 384)(pt 512 384))
+		(line (pt 0 0)(pt 0 384))
 	)
 )
 (connector
@@ -722,40 +656,6 @@ refer to the applicable agreement for further details.
 	(pt 192 -200)
 )
 (connector
-	(pt -72 688)
-	(pt -128 688)
-)
-(connector
-	(pt -128 688)
-	(pt -128 672)
-)
-(connector
-	(text "CLOCK_50" (rect -134 688 -81 705)(font "Intel Clear" ))
-	(pt -72 704)
-	(pt -136 704)
-)
-(connector
-	(text "PS2_CLK" (rect 114 672 158 689)(font "Intel Clear" ))
-	(pt 104 688)
-	(pt 152 688)
-)
-(connector
-	(text "PS2_DAT" (rect 114 688 158 705)(font "Intel Clear" ))
-	(pt 104 704)
-	(pt 152 704)
-)
-(connector
-	(text "keycode[7..0]" (rect 114 704 177 721)(font "Intel Clear" ))
-	(pt 104 720)
-	(pt 192 720)
-	(bus)
-)
-(connector
-	(text "ps2_read" (rect -134 704 -91 721)(font "Intel Clear" ))
-	(pt -72 720)
-	(pt -136 720)
-)
-(connector
 	(pt 248 -200)
 	(pt 248 -208)
 )
@@ -774,11 +674,6 @@ refer to the applicable agreement for further details.
 (connector
 	(pt 248 -200)
 	(pt 336 -200)
-)
-(connector
-	(text "ps2_read" (rect 226 -336 269 -319)(font "Intel Clear" ))
-	(pt 216 -320)
-	(pt 336 -320)
 )
 (connector
 	(text "keycode[7..0]" (rect 226 -376 289 -359)(font "Intel Clear" ))
@@ -868,5 +763,44 @@ refer to the applicable agreement for further details.
 	(pt 968 -272)
 	(pt 1080 -272)
 	(bus)
+)
+(connector
+	(text "ps2_working" (rect 226 -336 286 -319)(font "Intel Clear" ))
+	(pt 216 -320)
+	(pt 336 -320)
+)
+(connector
+	(pt 32 152)
+	(pt -24 152)
+)
+(connector
+	(pt -24 152)
+	(pt -24 136)
+)
+(connector
+	(text "CLOCK_50" (rect -30 152 23 169)(font "Intel Clear" ))
+	(pt 32 168)
+	(pt -32 168)
+)
+(connector
+	(text "PS2_CLK" (rect 218 136 262 153)(font "Intel Clear" ))
+	(pt 208 152)
+	(pt 256 152)
+)
+(connector
+	(text "PS2_DAT" (rect 218 152 262 169)(font "Intel Clear" ))
+	(pt 208 168)
+	(pt 256 168)
+)
+(connector
+	(text "keycode[7..0]" (rect 210 184 273 201)(font "Intel Clear" ))
+	(pt 208 200)
+	(pt 288 200)
+	(bus)
+)
+(connector
+	(text "ps2_working" (rect 218 168 278 185)(font "Intel Clear" ))
+	(pt 208 184)
+	(pt 288 184)
 )
 (junction (pt 104 -200))

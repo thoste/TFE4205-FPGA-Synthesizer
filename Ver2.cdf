@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE115F29) Path("C:/Users/magnu/Documents/Elsys-Avanser-Design-Prosjekt/synth3/") File("Ver2.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CE115F29) Path("C:/Users/magnu/Documents/Elsys-Avanser-Design-Prosjekt/FPGA-Synthesizer/") File("Ver2.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

@@ -6,7 +6,7 @@
 module DE2_115_SOPC (
 		input  wire        clk_clk,                             //                          clk.clk
 		input  wire [7:0]  keyboard_ci_keycode_external,        //          keyboard_ci_keycode.external
-		output wire        keyboard_ci_ps2_read_external,       //         keyboard_ci_ps2_read.external
+		input  wire        keyboard_ci_working_external,        //          keyboard_ci_working.external
 		input  wire [17:0] pio_keys_external_connection_export, // pio_keys_external_connection.export
 		output wire [17:0] pio_led_external_connection_export,  //  pio_led_external_connection.export
 		input  wire        reset_reset_n,                       //                        reset.reset_n
@@ -203,14 +203,14 @@ module DE2_115_SOPC (
 	);
 
 	ps2_ci keyboard_ci (
-		.clk_en   (cpu_custom_instruction_master_multi_slave_translator0_ci_master_clk_en), // nios_custom_instruction_slave.clk_en
-		.start    (cpu_custom_instruction_master_multi_slave_translator0_ci_master_start),  //                              .start
-		.done     (cpu_custom_instruction_master_multi_slave_translator0_ci_master_done),   //                              .done
-		.result   (cpu_custom_instruction_master_multi_slave_translator0_ci_master_result), //                              .result
-		.clk      (cpu_custom_instruction_master_multi_slave_translator0_ci_master_clk),    //                              .clk
-		.reset    (cpu_custom_instruction_master_multi_slave_translator0_ci_master_reset),  //                              .reset
-		.keycode  (keyboard_ci_keycode_external),                                           //                       keycode.external
-		.ps2_read (keyboard_ci_ps2_read_external)                                           //                      ps2_read.external
+		.clk_en  (cpu_custom_instruction_master_multi_slave_translator0_ci_master_clk_en), // nios_custom_instruction_slave.clk_en
+		.start   (cpu_custom_instruction_master_multi_slave_translator0_ci_master_start),  //                              .start
+		.done    (cpu_custom_instruction_master_multi_slave_translator0_ci_master_done),   //                              .done
+		.result  (cpu_custom_instruction_master_multi_slave_translator0_ci_master_result), //                              .result
+		.clk     (cpu_custom_instruction_master_multi_slave_translator0_ci_master_clk),    //                              .clk
+		.reset   (cpu_custom_instruction_master_multi_slave_translator0_ci_master_reset),  //                              .reset
+		.keycode (keyboard_ci_keycode_external),                                           //                       keycode.external
+		.working (keyboard_ci_working_external)                                            //                       working.external
 	);
 
 	DE2_115_SOPC_onchip_memory2 onchip_memory2 (

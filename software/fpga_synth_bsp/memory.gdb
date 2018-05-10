@@ -3,7 +3,7 @@
 # Machine generated for CPU 'cpu' in SOPC Builder design 'DE2_115_SOPC'
 # SOPC Builder design path: ../../DE2_115_SOPC.sopcinfo
 #
-# Generated: Tue May 08 18:00:29 CEST 2018
+# Generated: Wed May 09 17:49:24 CEST 2018
 
 # DO NOT MODIFY THIS FILE
 #

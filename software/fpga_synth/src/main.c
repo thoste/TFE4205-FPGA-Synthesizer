@@ -14,6 +14,18 @@ enum OPCODE {
 };
 
 /*
+ * led_on() and led_off() controlls the leds on the dev board. num is the number
+ * of one of the leds, range 0 - 17.
+ */
+void led_on(int num);
+void led_off(int num);
+
+/*
+ * set_leds() controls the dev boards leds by writing val to the leds.
+ */
+void set_leds(unsigned val);
+
+/*
  * get_key() reads from PS2 input (by polling) until a valid input is received.
  * This function blocks until it receives valid input.
  * NOTE: Polling is bad. Interrupts is God.
@@ -83,6 +95,37 @@ main()
  * My little helpers
  *
  ******************************************************************************/
+
+void
+led_on(int num)
+{
+        unsigned tmp;
+
+        if ( num < 0 || num > 17 )
+                return;
+
+        tmp = IORD_ALTERA_AVALON_PIO_DATA(PIO_LED_BASE);
+        IOWR_ALTERA_AVALON_PIO_DATA(PIO_LED_BASE, tmp | (1 << num));
+}
+
+void
+led_off(int num)
+{
+        unsigned tmp, mask;
+
+        if ( num < 0 || num > 17 )
+                return;
+
+        mask = ~0 ^ (1 << num);
+        tmp = IORD_ALTERA_AVALON_PIO_DATA(PIO_LED_BASE);
+        IOWR_ALTERA_AVALON_PIO_DATA(PIO_LED_BASE, tmp & mask);
+}
+
+void
+set_leds(unsigned val)
+{
+        IOWR_ALTERA_AVALON_PIO_DATA(PIO_LED_BASE, val & 0x3ffff);
+}
 
 int
 valid_key(unsigned key)
@@ -180,6 +223,7 @@ get_key()
         while ( 1 ) {
                 tmp = ALT_CI_KEYBOARD_CI_0;
                 if ( tmp && tmp != prev ) {
+                        printf("key: %x\n", tmp);
                         if ( tmp == 0xf0 || tmp == 0xe0 ) {
                                 key <<= 8;
                                 key |= tmp << 8;
@@ -201,7 +245,7 @@ update_synth_tones(int rel_tone, int opcode, int oct_key)
 {
         static int tones_status[NUM_REL_TONES];
         static int prev_octave = 4;
-        int        octave, abs_tone;
+        int        octave, abs_tone, leds;
 
         octave = prev_octave;
         if ( oct_key == LT )
@@ -218,19 +262,26 @@ update_synth_tones(int rel_tone, int opcode, int oct_key)
                                 ALT_CI_SYNTH_CI_0(key_off, abs_tone, 0);
                 prev_octave = octave;
 
+                leds = 0;
                 for ( int i = 0; i < NUM_REL_TONES; i++ )
                         if ( (abs_tone = rel_to_abs_tone(i, octave)) != -1 ) {
-                                if ( tones_status[i] )
+                                if ( tones_status[i] ) {
                                         ALT_CI_SYNTH_CI_0(key_on, abs_tone, 0);
-                                else
+                                        leds |= (1 << i);
+                                } else {
                                         ALT_CI_SYNTH_CI_0(key_off, abs_tone, 0);
+                                }
                         }
+                set_leds(leds);
         } else {
                 if ( (abs_tone = rel_to_abs_tone(rel_tone, octave)) != -1 ) {
-                        if ( opcode == key_on )
+                        if ( opcode == key_on ) {
                                 ALT_CI_SYNTH_CI_0(key_on, abs_tone, 0);
-                        else
+                                led_on(rel_tone);
+                        } else {
                                 ALT_CI_SYNTH_CI_0(key_off, abs_tone, 0);
+                                led_off(rel_tone);
+                        }
                 }
         }
 }

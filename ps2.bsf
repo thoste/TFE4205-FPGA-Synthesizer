@@ -38,18 +38,18 @@ refer to the applicable agreement for further details.
 		(line (pt 0 48)(pt 16 48)(line_width 1))
 	)
 	(port
-		(pt 0 64)
-		(input)
-		(text "read" (rect 0 0 17 12)(font "Arial" ))
-		(text "read" (rect 21 59 38 71)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64)(line_width 1))
-	)
-	(port
 		(pt 176 64)
 		(output)
+		(text "working" (rect 0 0 29 12)(font "Arial" ))
+		(text "working" (rect 126 59 155 71)(font "Arial" ))
+		(line (pt 176 64)(pt 160 64)(line_width 1))
+	)
+	(port
+		(pt 176 80)
+		(output)
 		(text "keycode[7..0]" (rect 0 0 54 12)(font "Arial" ))
-		(text "keycode[7..0]" (rect 101 59 155 71)(font "Arial" ))
-		(line (pt 176 64)(pt 160 64)(line_width 3))
+		(text "keycode[7..0]" (rect 101 75 155 87)(font "Arial" ))
+		(line (pt 176 80)(pt 160 80)(line_width 3))
 	)
 	(port
 		(pt 176 32)
